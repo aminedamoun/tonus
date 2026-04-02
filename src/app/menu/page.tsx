@@ -1,5 +1,4 @@
 'use client';
-import { useEffect } from 'react';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 import MenuInteractive from './components/MenuInteractive';
@@ -8,25 +7,12 @@ import Icon from '@/components/ui/AppIcon';
 import Link from 'next/link';
 
 export default function MenuPage() {
-  useEffect(() => {
-    const reveals = document.querySelectorAll('.reveal');
-    if (!reveals?.length) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('active')),
-      { threshold: 0.1 }
-    );
-    reveals?.forEach((el) => observer?.observe(el));
-
-    return () => observer?.disconnect();
-  }, []);
-
   return (
     <>
       <Header />
       <main className="pt-32 pb-20">
         {/* Page Header */}
-        <section className="container-custom mb-12 reveal">
+        <section className="container-custom mb-12">
           <div className="text-center space-y-4 max-w-3xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-serif italic text-foreground leading-tight">
               Traditional Greek <br />
@@ -40,12 +26,12 @@ export default function MenuPage() {
         </section>
 
         {/* Menu Items */}
-        <section className="container-custom reveal">
+        <section className="container-custom">
           <MenuInteractive />
         </section>
 
         {/* CTA Section */}
-        <section className="container-custom mt-20 reveal">
+        <section className="container-custom mt-20">
           <div className="bg-secondary text-secondary-foreground rounded-[48px] p-12 md:p-16 text-center space-y-6 border-2 border-primary/30 transition-all duration-500 hover:border-primary/60 hover:shadow-blue-glow-lg">
             <h2 className="text-4xl md:text-5xl font-serif italic">
               Ready to taste <span className="text-primary">Greece</span>?

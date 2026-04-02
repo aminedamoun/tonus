@@ -1,8 +1,8 @@
 'use client';
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import MenuItemCard from './MenuItemCard';
-import menuItemsData from '@/data/menu-items.json';
-import menuCategoriesData from '@/data/menu-categories.json';
+import allMenuItems from '@/data/menu-items.json';
+import allCategories from '@/data/menu-categories.json';
 import Icon from '@/components/ui/AppIcon';
 
 interface MenuItem {
@@ -95,31 +95,24 @@ export default function MenuInteractive() {
   const [activeSubcategory, setActiveSubcategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
-  const categories = useMemo(
-    () =>
-      (menuCategoriesData as Category[])
-        .filter((cat) => cat.menu_type === menuType)
-        .sort((a, b) => a.display_order - b.display_order),
-    [menuType]
-  );
+  // Filter directly from imported JSON — no hooks needed for static data
+  const categories = (allCategories as Category[])
+    .filter((cat) => cat.menu_type === menuType)
+    .sort((a, b) => a.display_order - b.display_order);
 
-  const menuItems = useMemo(
-    () =>
-      menuItemsData
-        .filter((item) => item.menu_categories.menu_type === menuType)
-        .sort((a, b) => a.display_order - b.display_order)
-        .map((item) => ({
-          id: item.id,
-          name: item.name,
-          description: item.description || '',
-          price: item.price,
-          category: item.menu_categories.name,
-          subcategory: item.menu_categories.subcategory,
-          available: item.available,
-          imageUrl: item.image_url,
-        })),
-    [menuType]
-  );
+  const menuItems: MenuItem[] = allMenuItems
+    .filter((item) => item.menu_categories.menu_type === menuType)
+    .sort((a, b) => a.display_order - b.display_order)
+    .map((item) => ({
+      id: item.id,
+      name: item.name,
+      description: item.description || '',
+      price: item.price,
+      category: item.menu_categories.name,
+      subcategory: item.menu_categories.subcategory,
+      available: item.available,
+      imageUrl: item.image_url,
+    }));
 
   const uniqueSubcategories = [
     'All',
