@@ -1,1 +1,32 @@
-"check"
+[
+  {
+    "id": "6aa41548-c459-47c8-9b71-83d5d2124b5c",
+    "slot": 1,
+    "title": "Wednesday Special Night",
+    "description": "Every Wednesday special night for girls",
+    "emoji": "⭐",
+    "whatsapp_message": "Hi, I want to know more about this offer.",
+    "star_rating": 5,
+    "image_url": null
+  },
+  {
+    "id": "81e9023e-44ba-4151-943c-5b9832cbbf42",
+    "slot": 2,
+    "title": "Ladies Day Sunday",
+    "description": "Special offers and vibes for ladies every Sunday",
+    "emoji": "⭐",
+    "whatsapp_message": "Hi, I want to know more about this offer.",
+    "star_rating": 5,
+    "image_url": null
+  },
+  {
+    "id": "d9a84ae8-a71a-441f-ab2f-55f30a503adb",
+    "slot": 3,
+    "title": "Free Sheesha Offer",
+    "description": "Get free sheesha after spending 100 AED",
+    "emoji": "💨",
+    "whatsapp_message": "Hi, I want to claim the free sheesha offer.",
+    "star_rating": 5,
+    "image_url": null
+  }
+]
