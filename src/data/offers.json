@@ -1,1 +1,35 @@
-"test"
+[
+  {
+    "id": "9f2d8bf9-34a4-4c8e-9d8d-3ce5c0459d18",
+    "title": "Girls\u2019 Night Wednesday",
+    "description": "Celebrate midweek in style! Enjoy a special night dedicated to ladies every Wednesday with great vibes, fun moments, and unforgettable memories.",
+    "price": "Tap Now",
+    "valid_until": "2026-03-25",
+    "available": true,
+    "display_order": 0,
+    "image_url": "/assets/images/menu/1773142182115-wfp12.webp",
+    "star_rating": 5
+  },
+  {
+    "id": "6334638e-f461-4934-939a-39ee7d1ef535",
+    "title": "Ladies Day Sunday",
+    "description": "Sundays are for queens! Join us for exclusive offers, great ambiance, and the perfect Sunday vibes made just for ladies.",
+    "price": "Tap Now",
+    "valid_until": "2026-03-25",
+    "available": true,
+    "display_order": 2,
+    "image_url": "/assets/images/menu/1773142199758-q3b9bg.webp",
+    "star_rating": 5
+  },
+  {
+    "id": "94e2532b-a5dd-4484-a029-76d5333bc814",
+    "title": "Free Sheesha Deal",
+    "description": "Spend 100 AED or more and enjoy a free sheesha on us. Relax, unwind, and elevate your evening with smooth flavors.",
+    "price": "Tap Now",
+    "valid_until": "2026-03-25",
+    "available": true,
+    "display_order": 3,
+    "image_url": "/assets/images/menu/1773142211808-o6ein5.webp",
+    "star_rating": 5
+  }
+]
