@@ -94,6 +94,8 @@ export default function MenuAdmin({ password }: { password: string }) {
   const [editingItemId, setEditingItemId] = useState<string | null>(null);
   const [addingItem, setAddingItem] = useState(false);
   const [newItem, setNewItem] = useState<MenuItem | null>(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [collapsedCats, setCollapsedCats] = useState<Set<string>>(new Set());
 
   // categories tab
   const [editingCatId, setEditingCatId] = useState<string | null>(null);
@@ -107,11 +109,59 @@ export default function MenuAdmin({ password }: { password: string }) {
     setCats(JSON.parse(JSON.stringify(menuCategoriesData)) as Category[]);
   }, []);
 
+  const toggleCollapse = (catId: string) => {
+    setCollapsedCats((prev) => {
+      const next = new Set(prev);
+      if (next.has(catId)) next.delete(catId);
+      else next.add(catId);
+      return next;
+    });
+  };
+
   /* --- derived --- */
   const filteredItems = useMemo(() => {
-    if (menuFilter === 'all') return items;
-    return items.filter((i) => i.menu_categories.menu_type === menuFilter);
-  }, [items, menuFilter]);
+    let result = items;
+    if (menuFilter !== 'all')
+      result = result.filter((i) => i.menu_categories.menu_type === menuFilter);
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase();
+      result = result.filter(
+        (i) =>
+          i.name.toLowerCase().includes(q) ||
+          i.description.toLowerCase().includes(q) ||
+          i.price.toLowerCase().includes(q) ||
+          i.menu_categories.subcategory.toLowerCase().includes(q)
+      );
+    }
+    return result;
+  }, [items, menuFilter, searchQuery]);
+
+  // Group filtered items by menu_type then subcategory
+  const groupedByTypeAndCat = useMemo(() => {
+    const types = menuFilter === 'all' ? ['food', 'bar', 'shisha'] : [menuFilter];
+    return types
+      .map((type) => {
+        const typeItems = filteredItems.filter((i) => i.menu_categories.menu_type === type);
+        const subcats = cats
+          .filter((c) => c.menu_type === type)
+          .sort((a, b) => a.display_order - b.display_order);
+        const groups = subcats
+          .map((cat) => ({
+            category: cat,
+            items: typeItems
+              .filter((i) => i.category_id === cat.id)
+              .sort((a, b) => a.display_order - b.display_order),
+          }))
+          .filter((g) => g.items.length > 0);
+        return {
+          type,
+          label: type === 'food' ? 'Food Menu' : type === 'bar' ? 'Bar Menu' : 'Shisha Menu',
+          groups,
+          totalItems: typeItems.length,
+        };
+      })
+      .filter((t) => t.totalItems > 0);
+  }, [filteredItems, cats, menuFilter]);
 
   const filteredCats = useMemo(() => {
     if (menuFilter === 'all') return cats;
@@ -290,12 +340,32 @@ export default function MenuAdmin({ password }: { password: string }) {
       {/* =================== MENU ITEMS TAB =================== */}
       {subTab === 'items' && (
         <div className="px-6">
-          {/* header */}
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-bold text-gray-900">Menu Items ({filteredItems.length})</h2>
+          {/* header + search */}
+          <div className="flex items-center justify-between mb-4 gap-4">
+            <h2 className="text-lg font-bold text-gray-900 whitespace-nowrap">
+              Menu Items ({filteredItems.length})
+            </h2>
+            <div className="relative flex-1 max-w-md">
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">🔍</span>
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search items by name, description, category..."
+                className="w-full rounded-full border border-gray-200 bg-white pl-10 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#89CFF0] focus:border-transparent"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                >
+                  ✕
+                </button>
+              )}
+            </div>
             <button
               onClick={startAddItem}
-              className="rounded-full bg-gray-900 text-white px-5 py-2 text-sm font-semibold hover:bg-gray-800 transition-colors"
+              className="rounded-full bg-gray-900 text-white px-5 py-2.5 text-sm font-semibold hover:bg-gray-800 transition-colors whitespace-nowrap"
             >
               + ADD ITEM
             </button>
@@ -334,7 +404,7 @@ export default function MenuAdmin({ password }: { password: string }) {
                 <textarea
                   value={newItem.description}
                   onChange={(e) => setNewItem({ ...newItem, description: e.target.value })}
-                  rows={3}
+                  rows={2}
                   className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-[#89CFF0]"
                   placeholder="Item description"
                 />
@@ -356,7 +426,7 @@ export default function MenuAdmin({ password }: { password: string }) {
                     value={newItem.category_id}
                     onChange={(e) => {
                       const cat = cats.find((c) => c.id === e.target.value);
-                      if (cat) {
+                      if (cat)
                         setNewItem({
                           ...newItem,
                           category_id: cat.id,
@@ -366,7 +436,6 @@ export default function MenuAdmin({ password }: { password: string }) {
                             subcategory: cat.subcategory,
                           },
                         });
-                      }
                     }}
                     className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#89CFF0]"
                   >
@@ -380,28 +449,26 @@ export default function MenuAdmin({ password }: { password: string }) {
                   </select>
                 </div>
               </div>
-              <div className="flex items-center gap-2 mb-4">
-                <input
-                  type="checkbox"
-                  checked={newItem.available}
-                  onChange={(e) => setNewItem({ ...newItem, available: e.target.checked })}
-                  className="accent-[#89CFF0]"
-                  id="new-item-avail"
-                />
-                <label htmlFor="new-item-avail" className="text-sm text-gray-600">
+              <div className="flex items-center gap-4">
+                <label className="flex items-center gap-2 text-sm text-gray-600">
+                  <input
+                    type="checkbox"
+                    checked={newItem.available}
+                    onChange={(e) => setNewItem({ ...newItem, available: e.target.checked })}
+                    className="accent-[#89CFF0]"
+                  />{' '}
                   Available
                 </label>
-              </div>
-              <div className="flex gap-2">
+                <div className="flex-1" />
                 <button
                   onClick={confirmAddItem}
-                  className="rounded-full bg-gray-900 text-white px-5 py-2 text-sm font-semibold hover:bg-gray-800 transition-colors"
+                  className="rounded-full bg-gray-900 text-white px-5 py-2 text-sm font-semibold hover:bg-gray-800"
                 >
                   Save Item
                 </button>
                 <button
                   onClick={cancelAddItem}
-                  className="rounded-full border border-gray-300 text-gray-600 px-5 py-2 text-sm font-semibold hover:bg-gray-50 transition-colors"
+                  className="rounded-full border border-gray-300 text-gray-600 px-5 py-2 text-sm font-semibold hover:bg-gray-50"
                 >
                   Cancel
                 </button>
@@ -409,194 +476,230 @@ export default function MenuAdmin({ password }: { password: string }) {
             </div>
           )}
 
-          {/* table */}
-          <div className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
-            {/* table header */}
-            <div className="grid grid-cols-[56px_1fr_1fr_120px_100px_110px_80px] gap-4 px-5 py-3 bg-gray-50 border-b border-gray-200 text-xs font-semibold text-gray-500 uppercase tracking-wide">
-              <span>Image</span>
-              <span>Name</span>
-              <span>Category</span>
-              <span>Menu Type</span>
-              <span>Price</span>
-              <span>Status</span>
-              <span className="text-right">Actions</span>
+          {/* Grouped by menu type → subcategory */}
+          {filteredItems.length === 0 && (
+            <div className="bg-white rounded-xl border border-gray-200 px-5 py-10 text-center text-sm text-gray-400">
+              {searchQuery ? `No items matching "${searchQuery}"` : 'No menu items found.'}
             </div>
+          )}
 
-            {/* rows */}
-            {filteredItems.length === 0 && (
-              <div className="px-5 py-10 text-center text-sm text-gray-400">
-                No menu items found.
-              </div>
-            )}
-
-            {filteredItems.map((item) => (
-              <div key={item.id}>
-                {/* main row */}
-                <div className="grid grid-cols-[56px_1fr_1fr_120px_100px_110px_80px] gap-4 px-5 py-3 items-center border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                  {/* image */}
-                  <div className="w-12 h-12 rounded-lg overflow-hidden bg-gray-100 flex-shrink-0">
-                    {item.image_url ? (
-                      /* eslint-disable-next-line @next/next/no-img-element */
-                      <img
-                        src={item.image_url}
-                        alt={item.name}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center text-gray-300 text-lg">
-                        🖼
-                      </div>
-                    )}
-                  </div>
-
-                  {/* name */}
-                  <span className="text-sm font-medium text-gray-900 truncate">{item.name}</span>
-
-                  {/* category */}
-                  <span className="text-sm text-gray-500 truncate">
-                    {item.menu_categories.subcategory}
+          <div className="space-y-6">
+            {groupedByTypeAndCat.map(({ type, label, groups }) => (
+              <div key={type}>
+                {/* Menu type header */}
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-lg">{MENU_TYPE_SECTION_ICON[type]}</span>
+                  <h3 className="text-base font-bold text-gray-900">{label}</h3>
+                  <span
+                    className={`rounded-full px-3 py-0.5 text-xs font-semibold uppercase ${MENU_TYPE_BADGE[type]}`}
+                  >
+                    {groups.reduce((sum, g) => sum + g.items.length, 0)} items
                   </span>
-
-                  {/* menu type badge */}
-                  <span>
-                    <span
-                      className={`inline-block rounded-full px-3 py-1 text-xs font-semibold uppercase ${MENU_TYPE_BADGE[item.menu_categories.menu_type] || 'bg-gray-100 text-gray-600'}`}
-                    >
-                      {MENU_TYPE_LABEL[item.menu_categories.menu_type] ||
-                        item.menu_categories.menu_type}
-                    </span>
-                  </span>
-
-                  {/* price */}
-                  <span className="text-sm text-gray-700">{item.price}</span>
-
-                  {/* status */}
-                  <span>
-                    {item.available ? (
-                      <span className="inline-block rounded-full bg-green-100 text-green-700 px-3 py-1 text-xs font-semibold uppercase">
-                        Available
-                      </span>
-                    ) : (
-                      <span className="inline-block rounded-full bg-red-100 text-red-700 px-3 py-1 text-xs font-semibold uppercase">
-                        Unavailable
-                      </span>
-                    )}
-                  </span>
-
-                  {/* actions */}
-                  <div className="flex items-center justify-end gap-1">
-                    <button
-                      onClick={() => setEditingItemId(editingItemId === item.id ? null : item.id)}
-                      className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-500 hover:text-gray-700 transition-colors"
-                      title="Edit"
-                    >
-                      ✏️
-                    </button>
-                    <button
-                      onClick={() => deleteItem(item.id)}
-                      className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-red-50 text-gray-400 hover:text-red-500 transition-colors"
-                      title="Delete"
-                    >
-                      🗑️
-                    </button>
-                  </div>
                 </div>
 
-                {/* inline edit expand */}
-                {editingItemId === item.id && (
-                  <div className="bg-blue-50/50 border-b border-blue-100 px-5 py-4">
-                    <div className="grid grid-cols-2 gap-4 mb-3">
-                      <div>
-                        <label className="block text-xs font-medium text-gray-500 mb-1">Name</label>
-                        <input
-                          type="text"
-                          value={item.name}
-                          onChange={(e) => updateItem(item.id, 'name', e.target.value)}
-                          className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#89CFF0]"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-xs font-medium text-gray-500 mb-1">
-                          Price
-                        </label>
-                        <input
-                          type="text"
-                          value={item.price}
-                          onChange={(e) => updateItem(item.id, 'price', e.target.value)}
-                          className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#89CFF0]"
-                        />
-                      </div>
-                    </div>
-                    <div className="mb-3">
-                      <label className="block text-xs font-medium text-gray-500 mb-1">
-                        Description
-                      </label>
-                      <textarea
-                        value={item.description}
-                        onChange={(e) => updateItem(item.id, 'description', e.target.value)}
-                        rows={3}
-                        className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm bg-white resize-none focus:outline-none focus:ring-2 focus:ring-[#89CFF0]"
-                      />
-                    </div>
-                    <div className="grid grid-cols-2 gap-4 mb-3">
-                      <div>
-                        <label className="block text-xs font-medium text-gray-500 mb-1">
-                          Image URL
-                        </label>
-                        <input
-                          type="text"
-                          value={item.image_url}
-                          onChange={(e) => updateItem(item.id, 'image_url', e.target.value)}
-                          className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#89CFF0]"
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-xs font-medium text-gray-500 mb-1">
-                          Category
-                        </label>
-                        <select
-                          value={item.category_id}
-                          onChange={(e) => updateItemCategory(item.id, e.target.value)}
-                          className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#89CFF0]"
+                {/* Subcategory sections */}
+                <div className="space-y-3">
+                  {groups.map(({ category, items: catItems }) => (
+                    <div
+                      key={category.id}
+                      className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm"
+                    >
+                      {/* Subcategory header - clickable to collapse */}
+                      <button
+                        onClick={() => toggleCollapse(category.id)}
+                        className="w-full flex items-center justify-between px-5 py-3 bg-gray-50 hover:bg-gray-100 transition-colors"
+                      >
+                        <div className="flex items-center gap-3">
+                          <span className="text-sm">
+                            {collapsedCats.has(category.id) ? '▶' : '▼'}
+                          </span>
+                          <span className="text-sm font-bold text-gray-800">
+                            {category.subcategory}
+                          </span>
+                          <span className="text-xs text-gray-400 bg-gray-200 rounded-full px-2 py-0.5">
+                            {catItems.length} items
+                          </span>
+                        </div>
+                        <span
+                          className={`rounded-full px-2.5 py-0.5 text-xs font-semibold uppercase ${MENU_TYPE_BADGE[type]}`}
                         >
-                          {cats
-                            .sort((a, b) => a.display_order - b.display_order)
-                            .map((c) => (
-                              <option key={c.id} value={c.id}>
-                                [{c.menu_type.toUpperCase()}] {c.subcategory}
-                              </option>
-                            ))}
-                        </select>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2 mb-4">
-                      <input
-                        type="checkbox"
-                        checked={item.available}
-                        onChange={(e) => updateItem(item.id, 'available', e.target.checked)}
-                        className="accent-[#89CFF0]"
-                        id={`avail-${item.id}`}
-                      />
-                      <label htmlFor={`avail-${item.id}`} className="text-sm text-gray-600">
-                        Available
-                      </label>
-                    </div>
-                    <div className="flex gap-2">
-                      <button
-                        onClick={() => setEditingItemId(null)}
-                        className="rounded-full bg-gray-900 text-white px-5 py-2 text-sm font-semibold hover:bg-gray-800 transition-colors"
-                      >
-                        Save
+                          {MENU_TYPE_LABEL[type]}
+                        </span>
                       </button>
-                      <button
-                        onClick={() => setEditingItemId(null)}
-                        className="rounded-full border border-gray-300 text-gray-600 px-5 py-2 text-sm font-semibold hover:bg-gray-50 transition-colors"
-                      >
-                        Cancel
-                      </button>
+
+                      {/* Items in this subcategory */}
+                      {!collapsedCats.has(category.id) && (
+                        <div>
+                          {catItems.map((item) => (
+                            <div key={item.id}>
+                              <div className="flex items-center gap-4 px-5 py-3 border-t border-gray-100 hover:bg-gray-50/50 transition-colors">
+                                {/* image */}
+                                <div className="w-12 h-12 rounded-lg overflow-hidden bg-gray-100 flex-shrink-0">
+                                  {item.image_url ? (
+                                    /* eslint-disable-next-line @next/next/no-img-element */
+                                    <img
+                                      src={item.image_url}
+                                      alt={item.name}
+                                      className="w-full h-full object-cover"
+                                    />
+                                  ) : (
+                                    <div className="w-full h-full flex items-center justify-center text-gray-300">
+                                      🖼
+                                    </div>
+                                  )}
+                                </div>
+                                {/* name + desc */}
+                                <div className="flex-1 min-w-0">
+                                  <p className="text-sm font-medium text-gray-900 truncate">
+                                    {item.name}
+                                  </p>
+                                  <p className="text-xs text-gray-400 truncate">
+                                    {item.description}
+                                  </p>
+                                </div>
+                                {/* price */}
+                                <span className="text-sm font-semibold text-[#89CFF0] whitespace-nowrap">
+                                  {item.price}
+                                </span>
+                                {/* status */}
+                                {item.available ? (
+                                  <span className="rounded-full bg-green-100 text-green-700 px-2.5 py-0.5 text-xs font-semibold">
+                                    Active
+                                  </span>
+                                ) : (
+                                  <span className="rounded-full bg-red-100 text-red-600 px-2.5 py-0.5 text-xs font-semibold">
+                                    Off
+                                  </span>
+                                )}
+                                {/* actions */}
+                                <div className="flex items-center gap-1">
+                                  <button
+                                    onClick={() =>
+                                      setEditingItemId(editingItemId === item.id ? null : item.id)
+                                    }
+                                    className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-gray-100 text-gray-400 hover:text-gray-700"
+                                    title="Edit"
+                                  >
+                                    ✏️
+                                  </button>
+                                  <button
+                                    onClick={() => deleteItem(item.id)}
+                                    className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-red-50 text-gray-400 hover:text-red-500"
+                                    title="Delete"
+                                  >
+                                    🗑️
+                                  </button>
+                                </div>
+                              </div>
+
+                              {/* inline edit */}
+                              {editingItemId === item.id && (
+                                <div className="bg-blue-50/40 border-t border-blue-100 px-5 py-4">
+                                  <div className="grid grid-cols-2 gap-4 mb-3">
+                                    <div>
+                                      <label className="block text-xs font-medium text-gray-500 mb-1">
+                                        Name
+                                      </label>
+                                      <input
+                                        type="text"
+                                        value={item.name}
+                                        onChange={(e) =>
+                                          updateItem(item.id, 'name', e.target.value)
+                                        }
+                                        className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#89CFF0]"
+                                      />
+                                    </div>
+                                    <div>
+                                      <label className="block text-xs font-medium text-gray-500 mb-1">
+                                        Price
+                                      </label>
+                                      <input
+                                        type="text"
+                                        value={item.price}
+                                        onChange={(e) =>
+                                          updateItem(item.id, 'price', e.target.value)
+                                        }
+                                        className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#89CFF0]"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div className="mb-3">
+                                    <label className="block text-xs font-medium text-gray-500 mb-1">
+                                      Description
+                                    </label>
+                                    <textarea
+                                      value={item.description}
+                                      onChange={(e) =>
+                                        updateItem(item.id, 'description', e.target.value)
+                                      }
+                                      rows={2}
+                                      className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm bg-white resize-none focus:outline-none focus:ring-2 focus:ring-[#89CFF0]"
+                                    />
+                                  </div>
+                                  <div className="grid grid-cols-2 gap-4 mb-3">
+                                    <div>
+                                      <label className="block text-xs font-medium text-gray-500 mb-1">
+                                        Image URL
+                                      </label>
+                                      <input
+                                        type="text"
+                                        value={item.image_url}
+                                        onChange={(e) =>
+                                          updateItem(item.id, 'image_url', e.target.value)
+                                        }
+                                        className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#89CFF0]"
+                                      />
+                                    </div>
+                                    <div>
+                                      <label className="block text-xs font-medium text-gray-500 mb-1">
+                                        Category
+                                      </label>
+                                      <select
+                                        value={item.category_id}
+                                        onChange={(e) =>
+                                          updateItemCategory(item.id, e.target.value)
+                                        }
+                                        className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#89CFF0]"
+                                      >
+                                        {cats
+                                          .sort((a, b) => a.display_order - b.display_order)
+                                          .map((c) => (
+                                            <option key={c.id} value={c.id}>
+                                              [{c.menu_type.toUpperCase()}] {c.subcategory}
+                                            </option>
+                                          ))}
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <div className="flex items-center gap-4">
+                                    <label className="flex items-center gap-2 text-sm text-gray-600">
+                                      <input
+                                        type="checkbox"
+                                        checked={item.available}
+                                        onChange={(e) =>
+                                          updateItem(item.id, 'available', e.target.checked)
+                                        }
+                                        className="accent-[#89CFF0]"
+                                      />{' '}
+                                      Available
+                                    </label>
+                                    <div className="flex-1" />
+                                    <button
+                                      onClick={() => setEditingItemId(null)}
+                                      className="rounded-full bg-gray-900 text-white px-5 py-2 text-sm font-semibold hover:bg-gray-800"
+                                    >
+                                      Done
+                                    </button>
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
-                  </div>
-                )}
+                  ))}
+                </div>
               </div>
             ))}
           </div>
