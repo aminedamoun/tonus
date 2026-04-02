@@ -78,6 +78,12 @@ export default function Footer() {
             >
               Contact
             </Link>
+            <Link
+              href="/admin"
+              className="font-sans text-sm font-semibold text-muted-foreground hover:text-primary transition-colors"
+            >
+              Admin
+            </Link>
           </nav>
 
           {/* Social Links - Right */}
