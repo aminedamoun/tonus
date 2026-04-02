@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import aboutGalleryData from '@/data/about-gallery-images.json';
+import ImageUpload from './ImageUpload';
 
 interface GalleryImage {
   id: string;
@@ -134,13 +135,12 @@ export default function AboutGalleryAdmin({ password }: AboutGalleryAdminProps) 
               {isEditing ? (
                 <div className="space-y-3">
                   <div className="space-y-1">
-                    <label className="block text-xs font-medium text-gray-500">Image URL</label>
-                    <input
-                      type="text"
-                      value={image.image_url}
-                      onChange={(e) => updateImage(image.id, 'image_url', e.target.value)}
-                      placeholder="/assets/images/gallery/about/..."
-                      className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#89CFF0] focus:border-transparent"
+                    <label className="block text-xs font-medium text-gray-500">Image</label>
+                    <ImageUpload
+                      password={password}
+                      folder="gallery/about"
+                      currentUrl={image.image_url}
+                      onUploaded={(url) => updateImage(image.id, 'image_url', url)}
                     />
                   </div>
                   <div className="space-y-1">

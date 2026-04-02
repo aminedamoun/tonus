@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import offersData from '@/data/offers.json';
+import ImageUpload from './ImageUpload';
 
 interface Offer {
   id: string;
@@ -160,12 +161,12 @@ export default function OffersAdmin({ password }: OffersAdminProps) {
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-gray-500 mb-1">Image URL</label>
-          <input
-            type="text"
-            value={draft.image_url}
-            onChange={(e) => setDraft({ ...draft, image_url: e.target.value })}
-            className="w-full rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#89CFF0]"
+          <label className="block text-xs font-medium text-gray-500 mb-1">Image</label>
+          <ImageUpload
+            password={password}
+            folder="menu"
+            currentUrl={draft.image_url}
+            onUploaded={(url) => setDraft({ ...draft, image_url: url })}
           />
         </div>
 

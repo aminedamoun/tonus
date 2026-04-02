@@ -3,6 +3,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import menuItemsData from '@/data/menu-items.json';
 import menuCategoriesData from '@/data/menu-categories.json';
+import ImageUpload from './ImageUpload';
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -411,13 +412,12 @@ export default function MenuAdmin({ password }: { password: string }) {
               </div>
               <div className="grid grid-cols-2 gap-4 mb-4">
                 <div>
-                  <label className="block text-xs font-medium text-gray-500 mb-1">Image URL</label>
-                  <input
-                    type="text"
-                    value={newItem.image_url}
-                    onChange={(e) => setNewItem({ ...newItem, image_url: e.target.value })}
-                    className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#89CFF0]"
-                    placeholder="/assets/images/menu/..."
+                  <label className="block text-xs font-medium text-gray-500 mb-1">Image</label>
+                  <ImageUpload
+                    password={password}
+                    folder="menu"
+                    currentUrl={newItem.image_url}
+                    onUploaded={(url) => setNewItem({ ...newItem, image_url: url })}
                   />
                 </div>
                 <div>
@@ -639,15 +639,13 @@ export default function MenuAdmin({ password }: { password: string }) {
                                   <div className="grid grid-cols-2 gap-4 mb-3">
                                     <div>
                                       <label className="block text-xs font-medium text-gray-500 mb-1">
-                                        Image URL
+                                        Image
                                       </label>
-                                      <input
-                                        type="text"
-                                        value={item.image_url}
-                                        onChange={(e) =>
-                                          updateItem(item.id, 'image_url', e.target.value)
-                                        }
-                                        className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#89CFF0]"
+                                      <ImageUpload
+                                        password={password}
+                                        folder="menu"
+                                        currentUrl={item.image_url}
+                                        onUploaded={(url) => updateItem(item.id, 'image_url', url)}
                                       />
                                     </div>
                                     <div>
