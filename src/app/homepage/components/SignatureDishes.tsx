@@ -1,9 +1,9 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import AppImage from '@/components/ui/AppImage';
 import Icon from '@/components/ui/AppIcon';
-import { createClient } from '@/lib/supabase/client';
+import menuItems from '@/data/menu-items.json';
 import { createWhatsAppLink, createOrderMessage } from '@/lib/whatsapp';
 
 interface MenuItem {
@@ -19,58 +19,34 @@ type SignatureType = 'dishes' | 'drinks' | 'shisha';
 
 export default function SignatureDishes() {
   const [activeType, setActiveType] = useState<SignatureType>('dishes');
-  const [items, setItems] = useState<MenuItem[]>([]);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchSignatureItems();
+  // Map signature type to menu_type in the JSON
+  const menuTypeMap: Record<SignatureType, string> = {
+    dishes: 'food',
+    drinks: 'bar',
+    shisha: 'shisha',
+  };
+
+  // Filter and format items from local JSON data
+  const items: MenuItem[] = useMemo(() => {
+    const menuType = menuTypeMap[activeType];
+    const filtered = menuItems
+      .filter((item) => item.available && item.menu_categories?.menu_type === menuType)
+      .sort((a, b) => (a.display_order ?? 0) - (b.display_order ?? 0))
+      .slice(0, 3);
+
+    return filtered.map((item, index) => ({
+      id: item.id,
+      name: item.name,
+      description: item.description || '',
+      price: item.price,
+      imageUrl: item.image_url,
+      badge: index === 0 ? 'Most Popular' : undefined,
+    }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeType]);
 
-  const fetchSignatureItems = async () => {
-    setLoading(true);
-    try {
-      const supabase = createClient();
-      
-      // Map signature type to menu type
-      const menuTypeMap = {
-        'dishes': 'food',
-        'drinks': 'bar',
-        'shisha': 'shisha'
-      };
-      
-      const menuType = menuTypeMap[activeType];
-      
-      // Fetch top 3 items from each menu type
-      const { data, error } = await supabase
-        .from('menu_items')
-        .select(`
-          *,
-          menu_categories!inner(menu_type)
-        `)
-        .eq('menu_categories.menu_type', menuType)
-        .eq('available', true)
-        .order('display_order', { ascending: true })
-        .limit(3);
-
-      if (error) throw error;
-      
-      if (data) {
-        const formattedItems: MenuItem[] = data.map((item: any, index: number) => ({
-          id: item.id,
-          name: item.name,
-          description: item.description || '',
-          price: item.price,
-          imageUrl: item.image_url,
-          badge: index === 0 ? 'Most Popular' : undefined
-        }));
-        setItems(formattedItems);
-      }
-    } catch (err) {
-      console.error('Error fetching signature items:', err);
-    } finally {
-      setLoading(false);
-    }
-  };
+  const loading = false;
 
   const getTypeIcon = (type: SignatureType) => {
     switch (type) {
@@ -108,8 +84,8 @@ export default function SignatureDishes() {
             Taste the <span className="text-primary">Mediterranean</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Each dish is crafted with authentic Greek recipes passed down through generations, 
-            using the finest ingredients imported from Greece.
+            Each dish is crafted with authentic Greek recipes passed down through generations, using
+            the finest ingredients imported from Greece.
           </p>
         </div>
 
@@ -119,7 +95,9 @@ export default function SignatureDishes() {
             <button
               onClick={() => setActiveType('dishes')}
               className={`px-8 py-4 rounded-full font-bold text-sm uppercase tracking-wider transition-all duration-300 flex items-center gap-2 ${
-                activeType === 'dishes' ?'bg-primary text-white shadow-blue-glow-lg scale-105' :'text-muted-foreground hover:text-foreground hover:bg-hover-light-blue'
+                activeType === 'dishes'
+                  ? 'bg-primary text-white shadow-blue-glow-lg scale-105'
+                  : 'text-muted-foreground hover:text-foreground hover:bg-hover-light-blue'
               }`}
             >
               <Icon name={getTypeIcon('dishes')} size={20} />
@@ -128,7 +106,9 @@ export default function SignatureDishes() {
             <button
               onClick={() => setActiveType('drinks')}
               className={`px-8 py-4 rounded-full font-bold text-sm uppercase tracking-wider transition-all duration-300 flex items-center gap-2 ${
-                activeType === 'drinks' ?'bg-primary text-white shadow-blue-glow-lg scale-105' :'text-muted-foreground hover:text-foreground hover:bg-hover-light-blue'
+                activeType === 'drinks'
+                  ? 'bg-primary text-white shadow-blue-glow-lg scale-105'
+                  : 'text-muted-foreground hover:text-foreground hover:bg-hover-light-blue'
               }`}
             >
               <Icon name={getTypeIcon('drinks')} size={20} />
@@ -137,7 +117,9 @@ export default function SignatureDishes() {
             <button
               onClick={() => setActiveType('shisha')}
               className={`px-8 py-4 rounded-full font-bold text-sm uppercase tracking-wider transition-all duration-300 flex items-center gap-2 ${
-                activeType === 'shisha' ?'bg-primary text-white shadow-blue-glow-lg scale-105' :'text-muted-foreground hover:text-foreground hover:bg-hover-light-blue'
+                activeType === 'shisha'
+                  ? 'bg-primary text-white shadow-blue-glow-lg scale-105'
+                  : 'text-muted-foreground hover:text-foreground hover:bg-hover-light-blue'
               }`}
             >
               <Icon name={getTypeIcon('shisha')} size={20} />
@@ -172,9 +154,7 @@ export default function SignatureDishes() {
                     </div>
                   )}
                   {item.badge && (
-                    <div className="absolute top-4 right-4 pill-badge">
-                      {item.badge}
-                    </div>
+                    <div className="absolute top-4 right-4 pill-badge">{item.badge}</div>
                   )}
                 </div>
                 <div className="p-6 flex flex-col flex-1">

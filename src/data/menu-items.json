@@ -1,0 +1,2297 @@
+[
+  {
+    "id": "4772bf87-9900-4f9b-8f3a-2ed60f3eff0f",
+    "name": "Vineyard Fig & Couscous Salad",
+    "category_id": "423fcdec-9cf7-4d5b-815f-f06064522258",
+    "price": "AED 60.00",
+    "description": "Crisp mix leaves and baby gem tossed with spicy couscous and a sun-sweet raisin dressing, caramelized fig fillets and delicate Gruyere flakes for a lush, island-style finish.",
+    "available": true,
+    "display_order": 1,
+    "image_url": "/assets/images/menu/1774428111434-inuxna.webp",
+    "menu_categories": {
+      "name": "Most Liked",
+      "menu_type": "food",
+      "subcategory": "Most Liked"
+    }
+  },
+  {
+    "id": "16695cf2-fd9f-435e-aff7-0d5c20f8c76c",
+    "name": "English Breakfast",
+    "category_id": "67681dbc-cf9d-452d-9539-1ac0e116b981",
+    "price": "AED 75.00",
+    "description": "Eggs,sausage,baked beans,guacamole,cherry tomatoes,mushroom,hashbrown,mustard and sourdough.",
+    "available": true,
+    "display_order": 1,
+    "image_url": "/assets/images/menu/1774368318165-p77iea.webp",
+    "menu_categories": {
+      "name": "Breakfast",
+      "menu_type": "food",
+      "subcategory": "Breakfast"
+    }
+  },
+  {
+    "id": "a836a6d4-5e81-43e0-986b-60a6308c352c",
+    "name": "Tuna Steak",
+    "category_id": "a79d8c1b-c338-4c7d-b5e9-e43fd01aa245",
+    "price": "AED 120.00",
+    "description": "Marinate yellow fin Tuna, Fresh Rocca leafs, Cherry Tomato, Roasted sesame seeds with Balsamic reduction.",
+    "available": true,
+    "display_order": 1,
+    "image_url": "/assets/images/menu/1774431763481-jq9ts.webp",
+    "menu_categories": {
+      "name": "Grill Sea Food",
+      "menu_type": "food",
+      "subcategory": "Grill Sea Food"
+    }
+  },
+  {
+    "id": "738149c0-01de-46df-87b7-bdd2817b3172",
+    "name": "Iced Americano",
+    "category_id": "d4ecbc08-a68c-4f97-b026-7c5b9bef4626",
+    "price": "AED 30.00",
+    "description": "Chilled espresso topped with crisp, refreshing water.",
+    "available": true,
+    "display_order": 1,
+    "image_url": "/assets/images/menu/1774447114194-f38pla.webp",
+    "menu_categories": {
+      "name": "Coffee (Iced)",
+      "menu_type": "bar",
+      "subcategory": "Coffee (Iced)"
+    }
+  },
+  {
+    "id": "efce9f11-c138-4837-9377-aebea5f4bf90",
+    "name": "Lemon Mint",
+    "category_id": "17aee32a-2314-4336-8993-4b1d14df432a",
+    "price": "AED 55.00",
+    "description": "Classic lemon mint flavor.",
+    "available": true,
+    "display_order": 1,
+    "image_url": "/assets/images/menu/1771673780271-ptn806.webp",
+    "menu_categories": {
+      "name": "Most Liked",
+      "menu_type": "shisha",
+      "subcategory": "Most Liked"
+    }
+  },
+  {
+    "id": "7f08f4a9-8666-49ec-8865-96dcbb05d226",
+    "name": "Blue Lagoon",
+    "category_id": "4b8e9387-b884-4011-b97e-5e500d13cbe3",
+    "price": "AED 45.00",
+    "description": "Refreshing french cocktail, perfect summer drink",
+    "available": true,
+    "display_order": 1,
+    "image_url": "/assets/images/menu/1774447901527-oixvxg.webp",
+    "menu_categories": {
+      "name": "Tono's Signature",
+      "menu_type": "bar",
+      "subcategory": "Tono's Signature"
+    }
+  },
+  {
+    "id": "dcc4fc89-8818-42fd-9274-424b1ac63f1f",
+    "name": "Hot lemon with ginger & honey",
+    "category_id": "d238f8d3-6c1b-4375-a82c-ef2dbc501d02",
+    "price": "AED 55.00",
+    "description": "Freshly squeezed lemon, ginger and honey.",
+    "available": true,
+    "display_order": 1,
+    "image_url": "/assets/images/menu/1774447586464-gl406eq.webp",
+    "menu_categories": {
+      "name": "Speciality Organic Tea",
+      "menu_type": "bar",
+      "subcategory": "Speciality Organic Tea"
+    }
+  },
+  {
+    "id": "75ade6bc-80ef-4d51-a7a0-0392973b7f6b",
+    "name": "Chocolate Fondue",
+    "category_id": "41f1e83d-20fc-469c-bd82-d5e4ded62ac8",
+    "price": "AED 50.00",
+    "description": "Chocolate fondue topped with icing sugar served with vanilla ice cream and crushed biscuit.",
+    "available": true,
+    "display_order": 1,
+    "image_url": "/assets/images/menu/1774433427190-mvwhzk.webp",
+    "menu_categories": {
+      "name": "Desserts",
+      "menu_type": "food",
+      "subcategory": "Desserts"
+    }
+  },
+  {
+    "id": "d1b88ed6-3d99-4e88-897c-e99b0d9ea1c1",
+    "name": "Truffle Fries",
+    "category_id": "a9045e46-b2e9-4ca1-bee0-04dd8516452a",
+    "price": "AED 30.00",
+    "description": "Truffle paste with parmesan.",
+    "available": true,
+    "display_order": 1,
+    "image_url": "/assets/images/menu/1774433301012-4e3zck.webp",
+    "menu_categories": {
+      "name": "Sides",
+      "menu_type": "food",
+      "subcategory": "Sides"
+    }
+  },
+  {
+    "id": "f31a353a-9f69-490a-8518-1a7581f4e093",
+    "name": "Spaghetti Bolognese",
+    "category_id": "e2d8873c-2fdc-48b9-b571-a7e36175e745",
+    "price": "AED 65.00",
+    "description": "Spaghetti, minced beef, tomato sauce, parmesan topped with basil leaves.",
+    "available": true,
+    "display_order": 1,
+    "image_url": "/assets/images/menu/1774432698638-1k8ogo.webp",
+    "menu_categories": {
+      "name": "Pasta",
+      "menu_type": "food",
+      "subcategory": "Pasta"
+    }
+  },
+  {
+    "id": "cd83d2bf-c1e0-4258-b899-eba97b49a047",
+    "name": "Wagyu Ribeye Steak",
+    "category_id": "afa83854-4e3b-49d9-bb7e-95a42057da71",
+    "price": "AED 199.00",
+    "description": "Wagyu beef, asparagus, broccoli, carrots, serve with mushroom sauce.",
+    "available": true,
+    "display_order": 1,
+    "image_url": "/assets/images/menu/1774432116836-w7bjv.webp",
+    "menu_categories": {
+      "name": "Meat Lovers",
+      "menu_type": "food",
+      "subcategory": "Meat Lovers"
+    }
+  },
+  {
+    "id": "29eb44d7-8910-4902-b4c1-6780138db8c0",
+    "name": "Red Borsch Soup",
+    "category_id": "681a4aa5-02c1-4e23-8a5e-b68e1b86a044",
+    "price": "AED 58.00",
+    "description": "Beetroot, potato, carrot, cabbage with beef. Served with sliced bread and sour cream on the side.",
+    "available": true,
+    "display_order": 1,
+    "image_url": "/assets/images/menu/1774429921080-bsa7pf.webp",
+    "menu_categories": {
+      "name": "Soup",
+      "menu_type": "food",
+      "subcategory": "Soup"
+    }
+  },
+  {
+    "id": "88fdd7c5-de5a-44af-aa8d-ad5aaca4232b",
+    "name": "Chicken Quesadilla",
+    "category_id": "460f5931-ae48-4944-86da-e0067aa0cadf",
+    "price": "AED 62.00",
+    "description": "Tortilla wrap, grilled chicken, capsicum, cheddar, mozzarella cheese, sweet corn with fries on the side.",
+    "available": true,
+    "display_order": 1,
+    "image_url": "/assets/images/menu/1774430651343-gnfiph.webp",
+    "menu_categories": {
+      "name": "Sandwich",
+      "menu_type": "food",
+      "subcategory": "Sandwich"
+    }
+  },
+  {
+    "id": "3c496b88-a2b5-4244-a085-de5f6fdcce95",
+    "name": "Wagyu Beef Burger",
+    "category_id": "139a1b4e-61c0-4cbb-8e0f-b87f3f20173e",
+    "price": "AED 75.00",
+    "description": "Potato bun, beef, lettuce, tomato, cheddar cheese and tartar sauce. Served with fries.",
+    "available": true,
+    "display_order": 1,
+    "image_url": "/assets/images/menu/1774431075219-yijnmb.webp",
+    "menu_categories": {
+      "name": "Burger",
+      "menu_type": "food",
+      "subcategory": "Burger"
+    }
+  },
+  {
+    "id": "3988c2a5-1555-4b1a-8449-6c213e78a347",
+    "name": "Passion Fruit",
+    "category_id": "d8a801c2-c100-4c33-94f7-d073179f1de7",
+    "price": "AED 45.00 - AED 65.00",
+    "description": "Luscious and refreshing mocktail with a pleasant tropical aroma.",
+    "available": true,
+    "display_order": 1,
+    "image_url": "/assets/images/menu/1774447779848-dxou9a.webp",
+    "menu_categories": {
+      "name": "Mocktails",
+      "menu_type": "bar",
+      "subcategory": "Mocktails"
+    }
+  },
+  {
+    "id": "4732cf4a-b521-46e7-9f01-9109402ee280",
+    "name": "Espresso",
+    "category_id": "48638c9d-bfec-488f-b425-5ddfe336c74e",
+    "price": "AED 2000 - AED 25.00",
+    "description": "Classic Italian espresso shot.",
+    "available": true,
+    "display_order": 1,
+    "image_url": "/assets/images/menu/1774446311429-dxv6z2.webp",
+    "menu_categories": {
+      "name": "Coffee (Hot)",
+      "menu_type": "bar",
+      "subcategory": "Coffee (Hot)"
+    }
+  },
+  {
+    "id": "adec7181-4965-4323-85be-4f68e70a3b3b",
+    "name": "Coca Cola",
+    "category_id": "4f759038-b9c8-4b65-921d-5d6a570c1c7b",
+    "price": "AED 18.00",
+    "description": "Classic Coca Cola.",
+    "available": true,
+    "display_order": 1,
+    "image_url": "/assets/images/menu/1774448260886-oxo6ta.webp",
+    "menu_categories": {
+      "name": "Soft Drinks",
+      "menu_type": "bar",
+      "subcategory": "Soft Drinks"
+    }
+  },
+  {
+    "id": "ea518dd0-2d1e-493c-8734-a32c38fe2b1f",
+    "name": "Still Water ",
+    "category_id": "8849dd02-57d0-4a4f-a67b-9a8946e08d4f",
+    "price": "AED 17.00 - AED 27.00",
+    "description": "Still mineral water.",
+    "available": true,
+    "display_order": 1,
+    "image_url": "/assets/images/menu/1774448185230-m7rstb.webp",
+    "menu_categories": {
+      "name": "Water",
+      "menu_type": "bar",
+      "subcategory": "Water"
+    }
+  },
+  {
+    "id": "a106fdd3-5e9d-4c75-a0e3-5e5612161687",
+    "name": "Lemon Mint",
+    "category_id": "8da37c86-42bf-45cd-b77b-57ce9bcdc804",
+    "price": "AED 55.00",
+    "description": "Classic lemon mint flavor.",
+    "available": true,
+    "display_order": 1,
+    "image_url": "/assets/images/menu/1771673201343-socex.webp",
+    "menu_categories": {
+      "name": "Arabic Shisha",
+      "menu_type": "shisha",
+      "subcategory": "Arabic Shisha"
+    }
+  },
+  {
+    "id": "913b5e50-c52e-4cc4-81c3-740cb661f244",
+    "name": "Istanbul Night",
+    "category_id": "fecbd7cf-9c8a-484a-bb51-eac88930fcc5",
+    "price": "AED 75.00",
+    "description": "Exotic Istanbul blend.",
+    "available": true,
+    "display_order": 1,
+    "image_url": "/assets/images/menu/1771673315303-s08fdj.webp",
+    "menu_categories": {
+      "name": "Turkish Shisha",
+      "menu_type": "shisha",
+      "subcategory": "Turkish Shisha"
+    }
+  },
+  {
+    "id": "7f32c9b7-1b28-4153-a59b-acea8d86fe95",
+    "name": "Green Jelly with Cola",
+    "category_id": "4fddf531-a1b6-4987-9582-2e932576ff61",
+    "price": "AED 95.00",
+    "description": "Sweet green jelly flavor with cola.",
+    "available": true,
+    "display_order": 1,
+    "image_url": "/assets/images/menu/1771673370986-wyjzx.webp",
+    "menu_categories": {
+      "name": "Russian Shisha",
+      "menu_type": "shisha",
+      "subcategory": "Russian Shisha"
+    }
+  },
+  {
+    "id": "b8877de5-1527-45ea-a3eb-d7da9bfc7f1b",
+    "name": "Colosseum",
+    "category_id": "7a58e436-19d0-4319-9120-5c8e947de448",
+    "price": "AED 200.00",
+    "description": "Exclusive signature blend.",
+    "available": true,
+    "display_order": 1,
+    "image_url": "/assets/images/menu/1771673466442-c5l5fm.webp",
+    "menu_categories": {
+      "name": "Signature Shisha",
+      "menu_type": "shisha",
+      "subcategory": "Signature Shisha"
+    }
+  },
+  {
+    "id": "6676a9d5-738b-426f-903d-2b06983f68b3",
+    "name": "Shisha \"Anima Smart\"",
+    "category_id": "d2a51698-d996-43a6-9716-5bf1d980d686",
+    "price": "AED 65.00",
+    "description": "Premium Anima Smart shisha device.",
+    "available": true,
+    "display_order": 1,
+    "image_url": "/assets/images/menu/1771673489255-5rbwc3.webp",
+    "menu_categories": {
+      "name": "Extras",
+      "menu_type": "shisha",
+      "subcategory": "Extras"
+    }
+  },
+  {
+    "id": "e8930d29-aeaf-44a4-be69-f8f07dcc3862",
+    "name": "Orange",
+    "category_id": "ee50bd49-5acc-4b5b-9e28-36d23258f3b9",
+    "price": "AED 38.00",
+    "description": "Freshly squeezed orange juice.",
+    "available": true,
+    "display_order": 1,
+    "image_url": "/assets/images/menu/1774447955836-wjom6i.webp",
+    "menu_categories": {
+      "name": "Freshly Squeezed Juices",
+      "menu_type": "bar",
+      "subcategory": "Freshly Squeezed Juices"
+    }
+  },
+  {
+    "id": "3d26e1bd-5096-4904-ba44-6e6c1465d7f1",
+    "name": "Mezze Platter",
+    "category_id": "ad9fcd04-19a5-4e9b-b9c0-171aa396751a",
+    "price": "AED 70.00",
+    "description": "A selection of greek specialties spreads to share: Taramasalata, tzatziki, Kalamata olives, Eggplant salad, Spicy feta, beetroot salad and freshly baked & charcoaled grilled sourdough bread.",
+    "available": true,
+    "display_order": 1,
+    "image_url": "/assets/images/menu/1774431274927-4bjjo.webp",
+    "menu_categories": {
+      "name": "Appetizers",
+      "menu_type": "food",
+      "subcategory": "Appetizers"
+    }
+  },
+  {
+    "id": "e1b44f15-514e-44fc-8c19-5a3093cea1f4",
+    "name": "Classic Greek Salad",
+    "category_id": "423fcdec-9cf7-4d5b-815f-f06064522258",
+    "price": "AED 60.00",
+    "description": "A bright take on the classic: cherry tomatoes, feta, crisp cucumber, grilled bell peppers, lemon juice drops, Kalamata olives, oregano and extra-virgin olive oil.",
+    "available": true,
+    "display_order": 2,
+    "image_url": "/assets/images/menu/1774428024003-arty7r.webp",
+    "menu_categories": {
+      "name": "Most Liked",
+      "menu_type": "food",
+      "subcategory": "Most Liked"
+    }
+  },
+  {
+    "id": "f5501681-b487-4575-88c8-7a4fdbcb74cc",
+    "name": "Russian Breaky",
+    "category_id": "67681dbc-cf9d-452d-9539-1ac0e116b981",
+    "price": "AED 79.00",
+    "description": "Crepe, smoked salmon, eggs,guacamole,sour cream,caviar,potato and zucchini patty with mix geens.",
+    "available": true,
+    "display_order": 2,
+    "image_url": "/assets/images/menu/1774368358326-4648hb.webp",
+    "menu_categories": {
+      "name": "Breakfast",
+      "menu_type": "food",
+      "subcategory": "Breakfast"
+    }
+  },
+  {
+    "id": "b0d73010-ca1c-4fca-9332-071a8d4a68b5",
+    "name": "Iced Mocha",
+    "category_id": "d4ecbc08-a68c-4f97-b026-7c5b9bef4626",
+    "price": "AED 40.00",
+    "description": "Rich espresso combined with bittersweet chocolate sauce and milk, served over ice. Topped with whipped cream.",
+    "available": true,
+    "display_order": 2,
+    "image_url": "/assets/images/menu/1774447154573-kbyfph.webp",
+    "menu_categories": {
+      "name": "Coffee (Iced)",
+      "menu_type": "bar",
+      "subcategory": "Coffee (Iced)"
+    }
+  },
+  {
+    "id": "ce40687c-2ec5-4852-8760-c554ec79ca49",
+    "name": "Coca Cola Zero",
+    "category_id": "4f759038-b9c8-4b65-921d-5d6a570c1c7b",
+    "price": "AED 18.00",
+    "description": "All the flavor, none of the sugar.",
+    "available": true,
+    "display_order": 2,
+    "image_url": "/assets/images/menu/1774448367826-lgpg6d.webp",
+    "menu_categories": {
+      "name": "Soft Drinks",
+      "menu_type": "bar",
+      "subcategory": "Soft Drinks"
+    }
+  },
+  {
+    "id": "0b0a4b85-7e98-454f-9d9d-c1b85f47312c",
+    "name": "Vineyard Fig & Couscous Salad",
+    "category_id": "f6aad305-3337-4348-942b-5f0b6af8fd95",
+    "price": "AED 60.00",
+    "description": "Crisp mix leaves and baby gem tossed with spicy couscous and a sun-sweet raisin dressing, caramelized fig fillets and delicate Gruyere flakes for a lush, island-style finish.",
+    "available": true,
+    "display_order": 2,
+    "image_url": "/assets/images/menu/1774430114231-24gjm8.webp",
+    "menu_categories": {
+      "name": "Salads",
+      "menu_type": "food",
+      "subcategory": "Salads"
+    }
+  },
+  {
+    "id": "484365b4-7221-4d2e-ae59-44078bad1591",
+    "name": "Orzo Pasta",
+    "category_id": "e2d8873c-2fdc-48b9-b571-a7e36175e745",
+    "price": "AED 65.00",
+    "description": "Greek style shaped pasta, bell pepper, cherry tomato, Neapolitan tomato sauce, served with crushed feta cheese.",
+    "available": true,
+    "display_order": 2,
+    "image_url": "/assets/images/menu/1774432733193-yk35tw.webp",
+    "menu_categories": {
+      "name": "Pasta",
+      "menu_type": "food",
+      "subcategory": "Pasta"
+    }
+  },
+  {
+    "id": "a0799543-a78e-4ddd-ae1d-6b2a6ea82958",
+    "name": "Gum",
+    "category_id": "8da37c86-42bf-45cd-b77b-57ce9bcdc804",
+    "price": "AED 55.00",
+    "description": "Sweet gum flavor.",
+    "available": true,
+    "display_order": 2,
+    "image_url": "/assets/images/menu/1771673225222-0lvzl.webp",
+    "menu_categories": {
+      "name": "Arabic Shisha",
+      "menu_type": "shisha",
+      "subcategory": "Arabic Shisha"
+    }
+  },
+  {
+    "id": "334c8924-8190-41cd-90c7-46b0cc3dfe26",
+    "name": "Orange",
+    "category_id": "17aee32a-2314-4336-8993-4b1d14df432a",
+    "price": "AED 55.00",
+    "description": "Citrus orange flavor.",
+    "available": true,
+    "display_order": 2,
+    "image_url": "/assets/images/menu/1771673800563-3cpeae.webp",
+    "menu_categories": {
+      "name": "Most Liked",
+      "menu_type": "shisha",
+      "subcategory": "Most Liked"
+    }
+  },
+  {
+    "id": "a9298542-daff-4f75-9d28-97f9c53a80ce",
+    "name": "Plain Fries",
+    "category_id": "a9045e46-b2e9-4ca1-bee0-04dd8516452a",
+    "price": "AED 25.00",
+    "description": "French fries with garlic aioli.",
+    "available": true,
+    "display_order": 2,
+    "image_url": "/assets/images/menu/1774433341173-x18a7.webp",
+    "menu_categories": {
+      "name": "Sides",
+      "menu_type": "food",
+      "subcategory": "Sides"
+    }
+  },
+  {
+    "id": "f8952e56-4d7e-49b7-852f-d35e82b1705a",
+    "name": "Homemade Tzatziki",
+    "category_id": "ad9fcd04-19a5-4e9b-b9c0-171aa396751a",
+    "price": "AED 45.00",
+    "description": "Classic combination of Greek yogurt, cucumber",
+    "available": true,
+    "display_order": 2,
+    "image_url": "/assets/images/menu/1774431296695-f2ukip.webp",
+    "menu_categories": {
+      "name": "Appetizers",
+      "menu_type": "food",
+      "subcategory": "Appetizers"
+    }
+  },
+  {
+    "id": "859a53a3-68ea-4a40-9656-8e4d5513cf06",
+    "name": "Halloumi Sandwich",
+    "category_id": "460f5931-ae48-4944-86da-e0067aa0cadf",
+    "price": "AED 62.00",
+    "description": "Ciabatta bread, halloumi, tomato, cucumber, pesto sauce, with fries on the side.",
+    "available": true,
+    "display_order": 2,
+    "image_url": "/assets/images/menu/1774430665142-4rzzlk.webp",
+    "menu_categories": {
+      "name": "Sandwich",
+      "menu_type": "food",
+      "subcategory": "Sandwich"
+    }
+  },
+  {
+    "id": "fc3b3c22-8316-4a0f-8cf9-0387db478de8",
+    "name": "Crispy Chicken Burger",
+    "category_id": "139a1b4e-61c0-4cbb-8e0f-b87f3f20173e",
+    "price": "AED 65.00",
+    "description": "Potato bun, chicken, pickles, cheddar cheese and spicy mayo. Served with fries.",
+    "available": true,
+    "display_order": 2,
+    "image_url": "/assets/images/menu/1774431088082-funr7q.webp",
+    "menu_categories": {
+      "name": "Burger",
+      "menu_type": "food",
+      "subcategory": "Burger"
+    }
+  },
+  {
+    "id": "1a39d234-07d4-4634-b6aa-f296b718f685",
+    "name": "Mushroom Soup",
+    "category_id": "681a4aa5-02c1-4e23-8a5e-b68e1b86a044",
+    "price": "AED 58.00",
+    "description": "Mushroom soup served with croutons on the side.",
+    "available": true,
+    "display_order": 2,
+    "image_url": "/assets/images/menu/1774429932916-95wpx6.webp",
+    "menu_categories": {
+      "name": "Soup",
+      "menu_type": "food",
+      "subcategory": "Soup"
+    }
+  },
+  {
+    "id": "9d2d561f-c104-443d-a525-8fed463d3707",
+    "name": "Honey Cake",
+    "category_id": "41f1e83d-20fc-469c-bd82-d5e4ded62ac8",
+    "price": "AED 50.00",
+    "description": "Traditional layered honey cake.",
+    "available": true,
+    "display_order": 2,
+    "image_url": "/assets/images/menu/1774433440262-s09wya.webp",
+    "menu_categories": {
+      "name": "Desserts",
+      "menu_type": "food",
+      "subcategory": "Desserts"
+    }
+  },
+  {
+    "id": "357914bc-fe5a-4464-9f52-efbdd2f5dfce",
+    "name": "Chiken Gyros, Tzatziki & Hand-Cut Fries",
+    "category_id": "afa83854-4e3b-49d9-bb7e-95a42057da71",
+    "price": "AED 65.00",
+    "description": "Marinated chicken gyros on freshly made house pita with tzatziki, served with fresh-cut, double-fried potatoes and a crisp garden salad.",
+    "available": true,
+    "display_order": 2,
+    "image_url": "/assets/images/menu/1774432173737-2s6ith.webp",
+    "menu_categories": {
+      "name": "Meat Lovers",
+      "menu_type": "food",
+      "subcategory": "Meat Lovers"
+    }
+  },
+  {
+    "id": "d5602fb5-4baa-4ca1-bf29-5cf2401f33a2",
+    "name": "Salmon Risotto ",
+    "category_id": "a79d8c1b-c338-4c7d-b5e9-e43fd01aa245",
+    "price": "AED 120.00",
+    "description": "Salmon, asparagus, risotto rice, spinach, serve with lemon and dill sauce.",
+    "available": true,
+    "display_order": 2,
+    "image_url": "/assets/images/menu/1774431830150-u0bdr.webp",
+    "menu_categories": {
+      "name": "Grill Sea Food",
+      "menu_type": "food",
+      "subcategory": "Grill Sea Food"
+    }
+  },
+  {
+    "id": "7d3f0f24-b100-49c0-bda9-fa9a451bb4a4",
+    "name": "Americano",
+    "category_id": "48638c9d-bfec-488f-b425-5ddfe336c74e",
+    "price": "AED 26.00",
+    "description": "Espresso with hot water.",
+    "available": true,
+    "display_order": 2,
+    "image_url": "/assets/images/menu/1774446324404-g2th7.webp",
+    "menu_categories": {
+      "name": "Coffee (Hot)",
+      "menu_type": "bar",
+      "subcategory": "Coffee (Hot)"
+    }
+  },
+  {
+    "id": "95449f1d-3222-4916-81a8-c003262e9da4",
+    "name": "Fruit Punch",
+    "category_id": "d8a801c2-c100-4c33-94f7-d073179f1de7",
+    "price": "AED 45.00 - AED 65.00",
+    "description": "Mixed fresh cut fruits, lychee syrup, soda",
+    "available": true,
+    "display_order": 2,
+    "image_url": "/assets/images/menu/1774447792745-1n9my.webp",
+    "menu_categories": {
+      "name": "Mocktails",
+      "menu_type": "bar",
+      "subcategory": "Mocktails"
+    }
+  },
+  {
+    "id": "8b32619f-b4c0-45f5-8b69-afb6264394a8",
+    "name": "Sparkling Water",
+    "category_id": "8849dd02-57d0-4a4f-a67b-9a8946e08d4f",
+    "price": "AED 20.00 - AED 30.00",
+    "description": "Sparkling mineral water.",
+    "available": true,
+    "display_order": 2,
+    "image_url": "/assets/images/menu/1774448248268-f902bm.webp",
+    "menu_categories": {
+      "name": "Water",
+      "menu_type": "bar",
+      "subcategory": "Water"
+    }
+  },
+  {
+    "id": "15226d6f-371e-4d51-8be0-be7b260a3d16",
+    "name": "Spanish Latte",
+    "category_id": "48638c9d-bfec-488f-b425-5ddfe336c74e",
+    "price": "AED 35.00",
+    "description": "Latte with condensed milk.",
+    "available": true,
+    "display_order": 2,
+    "image_url": "/assets/images/menu/1774446447483-loljgd.webp",
+    "menu_categories": {
+      "name": "Coffee (Hot)",
+      "menu_type": "bar",
+      "subcategory": "Coffee (Hot)"
+    }
+  },
+  {
+    "id": "b822f4d4-82da-418c-befa-fb24f6e2f194",
+    "name": "Shisha \"Maxx Royal Emerald Gold\"",
+    "category_id": "d2a51698-d996-43a6-9716-5bf1d980d686",
+    "price": "AED 45.00",
+    "description": "Luxury Maxx Royal shisha device.",
+    "available": true,
+    "display_order": 2,
+    "image_url": "/assets/images/menu/1771673499850-pf7i1i.webp",
+    "menu_categories": {
+      "name": "Extras",
+      "menu_type": "shisha",
+      "subcategory": "Extras"
+    }
+  },
+  {
+    "id": "c47cbc88-a450-44f4-833a-e92c0b88f5e0",
+    "name": "Lady Killer",
+    "category_id": "fecbd7cf-9c8a-484a-bb51-eac88930fcc5",
+    "price": "AED 75.00",
+    "description": "Smooth Turkish blend.",
+    "available": true,
+    "display_order": 2,
+    "image_url": "/assets/images/menu/1771673326930-sxyd6z.webp",
+    "menu_categories": {
+      "name": "Turkish Shisha",
+      "menu_type": "shisha",
+      "subcategory": "Turkish Shisha"
+    }
+  },
+  {
+    "id": "5a53fe40-0f24-488a-9bc1-9a097022c313",
+    "name": "Peach Iced Tea",
+    "category_id": "4fddf531-a1b6-4987-9582-2e932576ff61",
+    "price": "AED 95.00",
+    "description": "Refreshing peach tea blend.",
+    "available": true,
+    "display_order": 2,
+    "image_url": "/assets/images/menu/1771673386419-8vrfg4.webp",
+    "menu_categories": {
+      "name": "Russian Shisha",
+      "menu_type": "shisha",
+      "subcategory": "Russian Shisha"
+    }
+  },
+  {
+    "id": "e10399e0-cfd6-43d5-ac67-ac65f2d8b0a5",
+    "name": "Mixed Vegetables Souflaki",
+    "category_id": "42729cac-f4d3-423f-ad99-f480030ef31b",
+    "price": "AED 50.00",
+    "description": "Grilled mixed vegetables with feta.",
+    "available": true,
+    "display_order": 2,
+    "image_url": "/assets/images/menu/1774433391663-3up2nj.webp",
+    "menu_categories": {
+      "name": "Veggies",
+      "menu_type": "food",
+      "subcategory": "Veggies"
+    }
+  },
+  {
+    "id": "f8eefb47-c2a4-4c60-b8d2-3e0fce663449",
+    "name": "Green Tea",
+    "category_id": "d238f8d3-6c1b-4375-a82c-ef2dbc501d02",
+    "price": "AED 55.00",
+    "description": "Flavored green tea with nana mint.",
+    "available": true,
+    "display_order": 2,
+    "image_url": "/assets/images/menu/1774447597886-qaukiq.webp",
+    "menu_categories": {
+      "name": "Speciality Organic Tea",
+      "menu_type": "bar",
+      "subcategory": "Speciality Organic Tea"
+    }
+  },
+  {
+    "id": "97f1daa5-3b68-47e4-a8c7-2d00fc493d96",
+    "name": "Rooibos Iced Tea",
+    "category_id": "4b8e9387-b884-4011-b97e-5e500d13cbe3",
+    "price": "AED 35.00",
+    "description": "Smooth, naturally caffeine-free rooibos brewed and served over ice for a refreshing, earthy finish.",
+    "available": true,
+    "display_order": 2,
+    "image_url": "/assets/images/menu/1774447914832-racjwq.webp",
+    "menu_categories": {
+      "name": "Tono's Signature",
+      "menu_type": "bar",
+      "subcategory": "Tono's Signature"
+    }
+  },
+  {
+    "id": "654dd23a-8f3d-495f-9960-f6ac68926ea3",
+    "name": "Green Apple",
+    "category_id": "ee50bd49-5acc-4b5b-9e28-36d23258f3b9",
+    "price": "AED 38.00",
+    "description": "Crisp, refreshing freshly pressed green apples.",
+    "available": true,
+    "display_order": 2,
+    "image_url": "/assets/images/menu/1771672298483-pubnj6.webp",
+    "menu_categories": {
+      "name": "Freshly Squeezed Juices",
+      "menu_type": "bar",
+      "subcategory": "Freshly Squeezed Juices"
+    }
+  },
+  {
+    "id": "6587a7fd-50fb-47bf-8a5e-a39e1ac639e9",
+    "name": "Milk Oolong with banana & cinnamon",
+    "category_id": "d238f8d3-6c1b-4375-a82c-ef2dbc501d02",
+    "price": "AED 55.00",
+    "description": "Tea leaves, fire flower, fresh banana & cinnamon sticks.\n",
+    "available": true,
+    "display_order": 3,
+    "image_url": "/assets/images/menu/1774447608443-i9cmn9.webp",
+    "menu_categories": {
+      "name": "Speciality Organic Tea",
+      "menu_type": "bar",
+      "subcategory": "Speciality Organic Tea"
+    }
+  },
+  {
+    "id": "79303e64-46ba-4c28-8a67-ac2a1391eda4",
+    "name": "Lamb Kebab",
+    "category_id": "afa83854-4e3b-49d9-bb7e-95a42057da71",
+    "price": "AED 65.00",
+    "description": "Minced lamb meat marinated with herbs and paprika, grilled in charcoal. Served with tomato sauce yogurt with parsley and frite potatoes. Of course served with the tasty and famous",
+    "available": true,
+    "display_order": 3,
+    "image_url": "/assets/images/menu/1774432251963-eb6igd.webp",
+    "menu_categories": {
+      "name": "Meat Lovers",
+      "menu_type": "food",
+      "subcategory": "Meat Lovers"
+    }
+  },
+  {
+    "id": "32e6b880-5e46-46c5-a1f3-4f8ba36eed2f",
+    "name": "Iced Matcha",
+    "category_id": "4b8e9387-b884-4011-b97e-5e500d13cbe3",
+    "price": "AED 45.00",
+    "description": "Matcha, agave, oat milk.",
+    "available": true,
+    "display_order": 3,
+    "image_url": "/assets/images/menu/1774447928208-di4y1e.webp",
+    "menu_categories": {
+      "name": "Tono's Signature",
+      "menu_type": "bar",
+      "subcategory": "Tono's Signature"
+    }
+  },
+  {
+    "id": "e0114f16-380a-46fc-b046-bbec2002a1dc",
+    "name": "Carrot",
+    "category_id": "ee50bd49-5acc-4b5b-9e28-36d23258f3b9",
+    "price": "AED 38.00",
+    "description": "Freshly pressed sweet carrot juice.",
+    "available": true,
+    "display_order": 3,
+    "image_url": "/assets/images/menu/1774448004873-zrv6k4.webp",
+    "menu_categories": {
+      "name": "Freshly Squeezed Juices",
+      "menu_type": "bar",
+      "subcategory": "Freshly Squeezed Juices"
+    }
+  },
+  {
+    "id": "2af78dfc-df4c-45bd-a698-e57759cf58e6",
+    "name": "Marbella",
+    "category_id": "fecbd7cf-9c8a-484a-bb51-eac88930fcc5",
+    "price": "AED 75.00",
+    "description": "Mediterranean inspired flavor.",
+    "available": true,
+    "display_order": 3,
+    "image_url": "/assets/images/menu/1771673337926-h5pqrh.webp",
+    "menu_categories": {
+      "name": "Turkish Shisha",
+      "menu_type": "shisha",
+      "subcategory": "Turkish Shisha"
+    }
+  },
+  {
+    "id": "44037e03-4f9e-44e1-aff4-c7f34d1f8abf",
+    "name": "Beetroot Labneh on Toast",
+    "category_id": "67681dbc-cf9d-452d-9539-1ac0e116b981",
+    "price": "AED 68.00",
+    "description": "Avocado served with beetroot labneh, accompanied by mixed salad and mixed nuts.",
+    "available": true,
+    "display_order": 3,
+    "image_url": "/assets/images/menu/1774433797908-wch8g.webp",
+    "menu_categories": {
+      "name": "Breakfast",
+      "menu_type": "food",
+      "subcategory": "Breakfast"
+    }
+  },
+  {
+    "id": "550f8c03-28dc-452d-9255-9227fc0ef2de",
+    "name": "Sprite",
+    "category_id": "4f759038-b9c8-4b65-921d-5d6a570c1c7b",
+    "price": "AED 18.00",
+    "description": "Classic Sprite.",
+    "available": true,
+    "display_order": 3,
+    "image_url": "/assets/images/menu/1774448270200-13ilma.webp",
+    "menu_categories": {
+      "name": "Soft Drinks",
+      "menu_type": "bar",
+      "subcategory": "Soft Drinks"
+    }
+  },
+  {
+    "id": "4bb29558-0474-404f-9a08-57dd1b7833f3",
+    "name": "Coffee With Orange",
+    "category_id": "d4ecbc08-a68c-4f97-b026-7c5b9bef4626",
+    "price": "AED 40.00",
+    "description": "Rich coffee brightened with a hint of fresh orange.",
+    "available": true,
+    "display_order": 3,
+    "image_url": "/assets/images/menu/1774447311059-ck9q6.webp",
+    "menu_categories": {
+      "name": "Coffee (Iced)",
+      "menu_type": "bar",
+      "subcategory": "Coffee (Iced)"
+    }
+  },
+  {
+    "id": "7048c0c2-58b9-4425-a66d-04da8e32c5fe",
+    "name": "Fanta",
+    "category_id": "4f759038-b9c8-4b65-921d-5d6a570c1c7b",
+    "price": "AED 18.00",
+    "description": "Classic Fanta.",
+    "available": true,
+    "display_order": 3,
+    "image_url": "/assets/images/menu/1774448279035-ero15f.webp",
+    "menu_categories": {
+      "name": "Soft Drinks",
+      "menu_type": "bar",
+      "subcategory": "Soft Drinks"
+    }
+  },
+  {
+    "id": "9133c82d-69d7-49e3-a945-0c13fd3b367d",
+    "name": "Raspberry Matcha",
+    "category_id": "d4ecbc08-a68c-4f97-b026-7c5b9bef4626",
+    "price": "AED 40.00",
+    "description": "",
+    "available": true,
+    "display_order": 3,
+    "image_url": "/assets/images/menu/1774447382139-5i8oed.webp",
+    "menu_categories": {
+      "name": "Coffee (Iced)",
+      "menu_type": "bar",
+      "subcategory": "Coffee (Iced)"
+    }
+  },
+  {
+    "id": "4c70c270-dca4-493e-888a-ba48438ea14d",
+    "name": "Lentil Soup",
+    "category_id": "681a4aa5-02c1-4e23-8a5e-b68e1b86a044",
+    "price": "AED 45.00",
+    "description": "Lentil soup served with croutons and lemon on the side.",
+    "available": true,
+    "display_order": 3,
+    "image_url": "/assets/images/menu/1774430053063-auhjt.webp",
+    "menu_categories": {
+      "name": "Soup",
+      "menu_type": "food",
+      "subcategory": "Soup"
+    }
+  },
+  {
+    "id": "d6638f1d-6068-4404-8827-508ef57ada53",
+    "name": "Cheese Cake",
+    "category_id": "41f1e83d-20fc-469c-bd82-d5e4ded62ac8",
+    "price": "AED 50.00",
+    "description": "Creamy cheesecake with fresh cream topped with mix berries.",
+    "available": true,
+    "display_order": 3,
+    "image_url": "/assets/images/menu/1774433449986-z2p0sm.webp",
+    "menu_categories": {
+      "name": "Desserts",
+      "menu_type": "food",
+      "subcategory": "Desserts"
+    }
+  },
+  {
+    "id": "b37ac0f0-50ec-4800-9545-476c3f581129",
+    "name": "Shrimps / Gambi",
+    "category_id": "a79d8c1b-c338-4c7d-b5e9-e43fd01aa245",
+    "price": "AED 99.00",
+    "description": "Marinated tiger prawns, garnished with spring onion.",
+    "available": true,
+    "display_order": 3,
+    "image_url": "/assets/images/menu/1774431958144-rvwf4o.webp",
+    "menu_categories": {
+      "name": "Grill Sea Food",
+      "menu_type": "food",
+      "subcategory": "Grill Sea Food"
+    }
+  },
+  {
+    "id": "215a7ac3-5903-46d6-83bb-f09cee5dd6cf",
+    "name": "Mushroom Risotto",
+    "category_id": "e2d8873c-2fdc-48b9-b571-a7e36175e745",
+    "price": "AED 75.00",
+    "description": "Risotto rice, chopped onions, celery, and mushrooms topping with parmigiana cheese",
+    "available": true,
+    "display_order": 3,
+    "image_url": "/assets/images/menu/1774432866326-050bjn.webp",
+    "menu_categories": {
+      "name": "Pasta",
+      "menu_type": "food",
+      "subcategory": "Pasta"
+    }
+  },
+  {
+    "id": "bd5a3c60-12f2-4ee3-82be-f6d643d2dc8f",
+    "name": "Marinated Olives",
+    "category_id": "ad9fcd04-19a5-4e9b-b9c0-171aa396751a",
+    "price": "AED 45.00",
+    "description": "Olives marinated with herbs and olive oil.",
+    "available": true,
+    "display_order": 3,
+    "image_url": "/assets/images/menu/1774431324609-x45qxj.webp",
+    "menu_categories": {
+      "name": "Appetizers",
+      "menu_type": "food",
+      "subcategory": "Appetizers"
+    }
+  },
+  {
+    "id": "5ee7b69e-6a79-4a17-9db1-514b0fa0ca00",
+    "name": "Caf\u00e9 Latte",
+    "category_id": "48638c9d-bfec-488f-b425-5ddfe336c74e",
+    "price": "AED 28.00",
+    "description": "Espresso with steamed milk.",
+    "available": true,
+    "display_order": 3,
+    "image_url": "/assets/images/menu/1774446342649-d3wyzj.webp",
+    "menu_categories": {
+      "name": "Coffee (Hot)",
+      "menu_type": "bar",
+      "subcategory": "Coffee (Hot)"
+    }
+  },
+  {
+    "id": "454e4b70-564a-42b2-86f9-81d5da2f3272",
+    "name": "Blueberry",
+    "category_id": "8da37c86-42bf-45cd-b77b-57ce9bcdc804",
+    "price": "AED 55.00",
+    "description": "Fresh blueberry flavor.",
+    "available": true,
+    "display_order": 3,
+    "image_url": "/assets/images/menu/1771673236155-jjqki8.webp",
+    "menu_categories": {
+      "name": "Arabic Shisha",
+      "menu_type": "shisha",
+      "subcategory": "Arabic Shisha"
+    }
+  },
+  {
+    "id": "2beacf05-9d3c-4936-864c-d54b3a407934",
+    "name": "Strawberry Lemonade with Basil",
+    "category_id": "4fddf531-a1b6-4987-9582-2e932576ff61",
+    "price": "AED 95.00",
+    "description": "Fresh strawberry lemonade with basil.",
+    "available": true,
+    "display_order": 3,
+    "image_url": "/assets/images/menu/1771673399961-lo3etp.webp",
+    "menu_categories": {
+      "name": "Russian Shisha",
+      "menu_type": "shisha",
+      "subcategory": "Russian Shisha"
+    }
+  },
+  {
+    "id": "2dce89f2-ad6f-426e-957f-4233da9187b7",
+    "name": "Chicken Garden Salad",
+    "category_id": "f6aad305-3337-4348-942b-5f0b6af8fd95",
+    "price": "AED 75.00",
+    "description": "Char-grilled chicken fillet over fluffy quinoa, ripe avocado and garden lettuce leaves, tossed in a Greek thyme-honey dressing and finished with a bright sprinkle of sumac.",
+    "available": true,
+    "display_order": 3,
+    "image_url": "/assets/images/menu/1774430246082-7zbydp.webp",
+    "menu_categories": {
+      "name": "Salads",
+      "menu_type": "food",
+      "subcategory": "Salads"
+    }
+  },
+  {
+    "id": "98a8e583-64cf-454e-bcb9-d2213dd43848",
+    "name": "Change Bowl - Arabic",
+    "category_id": "a0c42b0b-bbfe-43b2-952f-b65edbb00739",
+    "price": "AED 30.00",
+    "description": "Replace bowl for Arabic shisha.",
+    "available": true,
+    "display_order": 3,
+    "image_url": "/assets/images/menu/1771673711538-e9bn1s.webp",
+    "menu_categories": {
+      "name": "Change Bowl",
+      "menu_type": "shisha",
+      "subcategory": "Change Bowl"
+    }
+  },
+  {
+    "id": "4dd9a58b-ab12-451b-af26-c34b8f68bbbf",
+    "name": "Smoked Salmon Burger",
+    "category_id": "139a1b4e-61c0-4cbb-8e0f-b87f3f20173e",
+    "price": "AED 75.00",
+    "description": "Delicate smoked salmon layered in a soft bun with crisp greens and creamy sauce for a light yet satisfying bite.",
+    "available": true,
+    "display_order": 3,
+    "image_url": "/assets/images/menu/1774431168172-d0pe07.webp",
+    "menu_categories": {
+      "name": "Burger",
+      "menu_type": "food",
+      "subcategory": "Burger"
+    }
+  },
+  {
+    "id": "fc03f577-6e75-4b3e-851c-b898d9bb0fab",
+    "name": "Flat White",
+    "category_id": "48638c9d-bfec-488f-b425-5ddfe336c74e",
+    "price": "AED 30.00",
+    "description": "A double shot of espresso with silky, steamed microfoam. Strong, smooth, and perfectly balanced.",
+    "available": true,
+    "display_order": 4,
+    "image_url": "/assets/images/menu/1774446355522-tq85x.webp",
+    "menu_categories": {
+      "name": "Coffee (Hot)",
+      "menu_type": "bar",
+      "subcategory": "Coffee (Hot)"
+    }
+  },
+  {
+    "id": "020c2167-c1c7-4660-8079-c0308ae53fe6",
+    "name": "Shrimp Avo Toast",
+    "category_id": "67681dbc-cf9d-452d-9539-1ac0e116b981",
+    "price": "AED 68.00",
+    "description": "Sourdough,guacamole,shrimp,feta cheese topped with basil leaves and  kale with tomato on the side.",
+    "available": true,
+    "display_order": 4,
+    "image_url": "/assets/images/menu/1774368380513-o6flrc.webp",
+    "menu_categories": {
+      "name": "Breakfast",
+      "menu_type": "food",
+      "subcategory": "Breakfast"
+    }
+  },
+  {
+    "id": "cbd9a854-2533-4a08-8f87-00c313a1867d",
+    "name": "Classic Greek Salad",
+    "category_id": "f6aad305-3337-4348-942b-5f0b6af8fd95",
+    "price": "AED 60.00",
+    "description": "A bright take on the classic: cherry tomatoes, feta, crisp cucumber, grilled bell peppers, lemon juice drops, Kalamata olives, oregano and extra-virgin olive oil.",
+    "available": true,
+    "display_order": 4,
+    "image_url": "/assets/images/menu/1774430089053-4ytwh.webp",
+    "menu_categories": {
+      "name": "Salads",
+      "menu_type": "food",
+      "subcategory": "Salads"
+    }
+  },
+  {
+    "id": "a37c7b96-a789-48f9-9b71-4627d4946a94",
+    "name": "Chamomile with Mandarin",
+    "category_id": "d238f8d3-6c1b-4375-a82c-ef2dbc501d02",
+    "price": "AED 55.00",
+    "description": "Pure chamomile flowers with fresh mandarin.",
+    "available": true,
+    "display_order": 4,
+    "image_url": "/assets/images/menu/1774447620352-qs5osw.webp",
+    "menu_categories": {
+      "name": "Speciality Organic Tea",
+      "menu_type": "bar",
+      "subcategory": "Speciality Organic Tea"
+    }
+  },
+  {
+    "id": "056b1025-9947-4d63-9e6f-283850c406bc",
+    "name": "Tomato Soup",
+    "category_id": "681a4aa5-02c1-4e23-8a5e-b68e1b86a044",
+    "price": "AED 45.00",
+    "description": "Fresh tomatoes, onion, carrots, celery served with crispy croutons and lemon wedges",
+    "available": true,
+    "display_order": 4,
+    "image_url": "/assets/images/menu/1774430035927-pwjoeb.webp",
+    "menu_categories": {
+      "name": "Soup",
+      "menu_type": "food",
+      "subcategory": "Soup"
+    }
+  },
+  {
+    "id": "4c33bd6f-482f-4fb1-ab01-7e0b866aa798",
+    "name": "Iced Latte",
+    "category_id": "d4ecbc08-a68c-4f97-b026-7c5b9bef4626",
+    "price": "AED 32.00",
+    "description": "A refreshing blend of our signature espresso and cold milk served over ice.",
+    "available": true,
+    "display_order": 4,
+    "image_url": "/assets/images/menu/1774447408137-28vwcc.webp",
+    "menu_categories": {
+      "name": "Coffee (Iced)",
+      "menu_type": "bar",
+      "subcategory": "Coffee (Iced)"
+    }
+  },
+  {
+    "id": "83711d21-531d-4633-96aa-c148e8e02943",
+    "name": "Hibiscus iced tea",
+    "category_id": "4b8e9387-b884-4011-b97e-5e500d13cbe3",
+    "price": "AED 35.00",
+    "description": "Brewed hibiscus flowers with twist of sweet & citrusy taste.",
+    "available": true,
+    "display_order": 4,
+    "image_url": "/assets/images/menu/1774447938530-61ukee.webp",
+    "menu_categories": {
+      "name": "Tono's Signature",
+      "menu_type": "bar",
+      "subcategory": "Tono's Signature"
+    }
+  },
+  {
+    "id": "8777c325-44f3-476b-a630-b40f5178265a",
+    "name": "Fruit Platte",
+    "category_id": "41f1e83d-20fc-469c-bd82-d5e4ded62ac8",
+    "price": "AED 55.00",
+    "description": "Sweet melon,dragon fruit,apple,passion fruit and mix berries.",
+    "available": true,
+    "display_order": 4,
+    "image_url": "/assets/images/menu/1774433461493-bc3d3.webp",
+    "menu_categories": {
+      "name": "Desserts",
+      "menu_type": "food",
+      "subcategory": "Desserts"
+    }
+  },
+  {
+    "id": "4d34bf64-89fe-46d2-9e72-07d230439164",
+    "name": "Linguini Pasta",
+    "category_id": "e2d8873c-2fdc-48b9-b571-a7e36175e745",
+    "price": "AED 75.00",
+    "description": "Prawns, tomato sauce, served with parmigiana cheese.",
+    "available": true,
+    "display_order": 4,
+    "image_url": "/assets/images/menu/1774432976909-1aorq.webp",
+    "menu_categories": {
+      "name": "Pasta",
+      "menu_type": "food",
+      "subcategory": "Pasta"
+    }
+  },
+  {
+    "id": "350c5c54-9af8-4f4b-83c9-fd7e35712e23",
+    "name": "Sea bass",
+    "category_id": "a79d8c1b-c338-4c7d-b5e9-e43fd01aa245",
+    "price": "AED 105.00",
+    "description": "Grilled Seabass, mix grilled vegetables, kalamata, cherry tomato, garlic, olive oil and butter.",
+    "available": true,
+    "display_order": 4,
+    "image_url": "/assets/images/menu/1774432082392-kk7q24.webp",
+    "menu_categories": {
+      "name": "Grill Sea Food",
+      "menu_type": "food",
+      "subcategory": "Grill Sea Food"
+    }
+  },
+  {
+    "id": "664092b8-45c3-46b6-8ae9-aeb0a0c517d3",
+    "name": "Greek Chicken Souvlaki",
+    "category_id": "afa83854-4e3b-49d9-bb7e-95a42057da71",
+    "price": "AED 65.00",
+    "description": "Marinated with lemon paprika and olive oil oregano will served with rocca and grilled tomato.",
+    "available": true,
+    "display_order": 4,
+    "image_url": "/assets/images/menu/1774432304403-34nx7k.webp",
+    "menu_categories": {
+      "name": "Meat Lovers",
+      "menu_type": "food",
+      "subcategory": "Meat Lovers"
+    }
+  },
+  {
+    "id": "dce55b8a-dab2-475b-954b-2d791f2a0643",
+    "name": "Zucchini Herb Fritters",
+    "category_id": "ad9fcd04-19a5-4e9b-b9c0-171aa396751a",
+    "price": "AED 45.00",
+    "description": "Crisp-on-the-outside zucchini and fresh-herb fritters, tender inside, served with our house tzatziki for dipping.",
+    "available": true,
+    "display_order": 4,
+    "image_url": "/assets/images/menu/1774431407473-ue156r.webp",
+    "menu_categories": {
+      "name": "Appetizers",
+      "menu_type": "food",
+      "subcategory": "Appetizers"
+    }
+  },
+  {
+    "id": "e9a529ad-f694-4418-a7c7-ca381fbf7e52",
+    "name": "Lemon & Mint",
+    "category_id": "ee50bd49-5acc-4b5b-9e28-36d23258f3b9",
+    "price": "AED 38.00",
+    "description": "Fresh lemon juice with mint.",
+    "available": true,
+    "display_order": 4,
+    "image_url": "/assets/images/menu/1774448107616-bolflf.webp",
+    "menu_categories": {
+      "name": "Freshly Squeezed Juices",
+      "menu_type": "bar",
+      "subcategory": "Freshly Squeezed Juices"
+    }
+  },
+  {
+    "id": "815f55f1-bcdc-4a1e-8bb9-fbdb89f67aec",
+    "name": "Red Bull",
+    "category_id": "4f759038-b9c8-4b65-921d-5d6a570c1c7b",
+    "price": "AED 35.00",
+    "description": "Energy drink.",
+    "available": true,
+    "display_order": 4,
+    "image_url": "/assets/images/menu/1774448288403-kzr30q.webp",
+    "menu_categories": {
+      "name": "Soft Drinks",
+      "menu_type": "bar",
+      "subcategory": "Soft Drinks"
+    }
+  },
+  {
+    "id": "39ba78a1-031e-459a-9a19-297a73457225",
+    "name": "Fruit and Citrus Lemonade",
+    "category_id": "4fddf531-a1b6-4987-9582-2e932576ff61",
+    "price": "AED 95.00",
+    "description": "Mixed fruit citrus blend.",
+    "available": true,
+    "display_order": 4,
+    "image_url": "/assets/images/menu/1771673415380-uf8bhc.webp",
+    "menu_categories": {
+      "name": "Russian Shisha",
+      "menu_type": "shisha",
+      "subcategory": "Russian Shisha"
+    }
+  },
+  {
+    "id": "1fd3a968-b8ad-49ce-946c-c1d12701c3d6",
+    "name": "Love 66",
+    "category_id": "fecbd7cf-9c8a-484a-bb51-eac88930fcc5",
+    "price": "AED 75.00",
+    "description": "Premium Turkish mix.",
+    "available": true,
+    "display_order": 4,
+    "image_url": "/assets/images/menu/1771673347474-0l6uxq.webp",
+    "menu_categories": {
+      "name": "Turkish Shisha",
+      "menu_type": "shisha",
+      "subcategory": "Turkish Shisha"
+    }
+  },
+  {
+    "id": "4348fc56-0ae1-4394-8980-708e04f5b0e6",
+    "name": "Grape",
+    "category_id": "8da37c86-42bf-45cd-b77b-57ce9bcdc804",
+    "price": "AED 55.00",
+    "description": "Sweet grape flavor.",
+    "available": true,
+    "display_order": 4,
+    "image_url": "/assets/images/menu/1771673248002-3e25ea.webp",
+    "menu_categories": {
+      "name": "Arabic Shisha",
+      "menu_type": "shisha",
+      "subcategory": "Arabic Shisha"
+    }
+  },
+  {
+    "id": "2e7a2896-e335-4b76-9e2d-ea7db00735cd",
+    "name": "Jamaican Mocktail",
+    "category_id": "d8a801c2-c100-4c33-94f7-d073179f1de7",
+    "price": "AED 38.00",
+    "description": "Refreshing island-inspired fruit drink.",
+    "available": true,
+    "display_order": 4,
+    "image_url": "/assets/images/menu/1774447844793-1g3yn9.webp",
+    "menu_categories": {
+      "name": "Mocktails",
+      "menu_type": "bar",
+      "subcategory": "Mocktails"
+    }
+  },
+  {
+    "id": "6ddd394c-04d6-48ba-a79b-d0be4fdbdaf4",
+    "name": "Change Bowl - Turkish",
+    "category_id": "a0c42b0b-bbfe-43b2-952f-b65edbb00739",
+    "price": "AED 40.00",
+    "description": "Replace bowl for Turkish shisha.",
+    "available": true,
+    "display_order": 4,
+    "image_url": "/assets/images/menu/1771673724172-blm9vm.webp",
+    "menu_categories": {
+      "name": "Change Bowl",
+      "menu_type": "shisha",
+      "subcategory": "Change Bowl"
+    }
+  },
+  {
+    "id": "10c29735-7408-437d-a6bc-5a3f0e112d06",
+    "name": "Quinoa Salad",
+    "category_id": "f6aad305-3337-4348-942b-5f0b6af8fd95",
+    "price": "AED 75.00",
+    "description": "Kale, pomegranate molasses, cherry tomatoes, broccoli quinoa, walnut, avocado, vinaigrette, eggs, feta cheese and grilled chicken.",
+    "available": true,
+    "display_order": 4,
+    "image_url": "/assets/images/menu/1774430435361-jp7v13.webp",
+    "menu_categories": {
+      "name": "Salads",
+      "menu_type": "food",
+      "subcategory": "Salads"
+    }
+  },
+  {
+    "id": "cb18f034-587b-49c0-8157-4be8a2ac33a8",
+    "name": "Chicken Wrap",
+    "category_id": "460f5931-ae48-4944-86da-e0067aa0cadf",
+    "price": "AED 62.00",
+    "description": "Grilled chicken wrapped in a soft tortilla with fresh veggies and flavorful sauce\u2014perfect for a quick, satisfying bite.",
+    "available": true,
+    "display_order": 4,
+    "image_url": "/assets/images/menu/1774431014335-i0gf5.webp",
+    "menu_categories": {
+      "name": "Sandwich",
+      "menu_type": "food",
+      "subcategory": "Sandwich"
+    }
+  },
+  {
+    "id": "1a7f1259-825f-47da-812c-79c007524639",
+    "name": "Breeze",
+    "category_id": "d8a801c2-c100-4c33-94f7-d073179f1de7",
+    "price": "AED 38.00",
+    "description": "Sweet summer strawberries blended with zesty lime and sparkling water, served chilled over ice.",
+    "available": true,
+    "display_order": 5,
+    "image_url": "/assets/images/menu/1774447870735-9mnd1p.webp",
+    "menu_categories": {
+      "name": "Mocktails",
+      "menu_type": "bar",
+      "subcategory": "Mocktails"
+    }
+  },
+  {
+    "id": "a4ac74cb-f6a2-4870-aa43-9b4b0512ad39",
+    "name": "Tuna Avo Toast",
+    "category_id": "67681dbc-cf9d-452d-9539-1ac0e116b981",
+    "price": "AED 68.00",
+    "description": "Sourdough,guacamole,tuna, sesame seeds, chili flakes,teriyaki sauce and Sakura leaves.",
+    "available": true,
+    "display_order": 5,
+    "image_url": "/assets/images/menu/1774433836566-qh0gwr.webp",
+    "menu_categories": {
+      "name": "Breakfast",
+      "menu_type": "food",
+      "subcategory": "Breakfast"
+    }
+  },
+  {
+    "id": "559ee8c5-43d7-4bae-94f0-2bf7604b1e84",
+    "name": "Iced Cappuccino",
+    "category_id": "d4ecbc08-a68c-4f97-b026-7c5b9bef4626",
+    "price": "AED 32.00",
+    "description": "Rich espresso poured over ice and cold milk, topped with a thick, airy layer of velvety cold foam.",
+    "available": true,
+    "display_order": 5,
+    "image_url": "/assets/images/menu/1773233577105-ezdvs2.webp",
+    "menu_categories": {
+      "name": "Coffee (Iced)",
+      "menu_type": "bar",
+      "subcategory": "Coffee (Iced)"
+    }
+  },
+  {
+    "id": "c056efbd-29b8-42f7-b039-62c5232cd6a9",
+    "name": "Shrimp Caesor Salad",
+    "category_id": "f6aad305-3337-4348-942b-5f0b6af8fd95",
+    "price": "AED 75.00",
+    "description": "Mixed greens with cherry tomatoes, cucumbers, red onions, Kalamata olives, and creamy goat cheese, drizzled with olive oil and lemon.",
+    "available": true,
+    "display_order": 5,
+    "image_url": "/assets/images/menu/1774430410968-4h8wyi.webp",
+    "menu_categories": {
+      "name": "Salads",
+      "menu_type": "food",
+      "subcategory": "Salads"
+    }
+  },
+  {
+    "id": "0bc1404e-6ceb-4615-b2f1-6738aeca00d4",
+    "name": "Masala Chai",
+    "category_id": "d238f8d3-6c1b-4375-a82c-ef2dbc501d02",
+    "price": "AED 55.00",
+    "description": "Spicy black tea with hint of sweet condensed milk.",
+    "available": true,
+    "display_order": 5,
+    "image_url": "/assets/images/menu/1774447630270-usb4vy.webp",
+    "menu_categories": {
+      "name": "Speciality Organic Tea",
+      "menu_type": "bar",
+      "subcategory": "Speciality Organic Tea"
+    }
+  },
+  {
+    "id": "826eb72b-6210-4b10-94b2-b90d9adee94c",
+    "name": "Booster",
+    "category_id": "ee50bd49-5acc-4b5b-9e28-36d23258f3b9",
+    "price": "AED 38.00",
+    "description": "Energizing blend to power you: carrot, beetroot, apple, and ginger juices.",
+    "available": true,
+    "display_order": 5,
+    "image_url": "/assets/images/menu/1774448155711-ulc4ie.webp",
+    "menu_categories": {
+      "name": "Freshly Squeezed Juices",
+      "menu_type": "bar",
+      "subcategory": "Freshly Squeezed Juices"
+    }
+  },
+  {
+    "id": "4032422e-ca09-4d3f-b68c-0f79fd32a787",
+    "name": "Change Bowl - Russian",
+    "category_id": "a0c42b0b-bbfe-43b2-952f-b65edbb00739",
+    "price": "AED 50.00",
+    "description": "Replace bowl for Russian shisha.",
+    "available": true,
+    "display_order": 5,
+    "image_url": "/assets/images/menu/1771673733156-jqs2rm.webp",
+    "menu_categories": {
+      "name": "Change Bowl",
+      "menu_type": "shisha",
+      "subcategory": "Change Bowl"
+    }
+  },
+  {
+    "id": "70517c27-23f7-4a71-8b57-971b8449cd3b",
+    "name": "Salmon Pasta",
+    "category_id": "e2d8873c-2fdc-48b9-b571-a7e36175e745",
+    "price": "AED 80.00",
+    "description": "Salmon, pasta, salmon caviar, cream and parmesan cheese.",
+    "available": true,
+    "display_order": 5,
+    "image_url": "/assets/images/menu/1774433069041-d04jqn.webp",
+    "menu_categories": {
+      "name": "Pasta",
+      "menu_type": "food",
+      "subcategory": "Pasta"
+    }
+  },
+  {
+    "id": "b1f5f8f6-4a4d-4958-9a57-6bdf767ab3e8",
+    "name": "Garlic Shrimp",
+    "category_id": "ad9fcd04-19a5-4e9b-b9c0-171aa396751a",
+    "price": "AED 75.00",
+    "description": "Juicy shrimp saut\u00e9ed in rich garlic butter, finished with a hint of herbs for a bold, satisfying taste.",
+    "available": true,
+    "display_order": 5,
+    "image_url": "/assets/images/menu/1774431537479-3wjt0c.webp",
+    "menu_categories": {
+      "name": "Appetizers",
+      "menu_type": "food",
+      "subcategory": "Appetizers"
+    }
+  },
+  {
+    "id": "6a34f5ee-0bda-4f47-a695-c3523f3c500c",
+    "name": "Lemon Chicken",
+    "category_id": "afa83854-4e3b-49d9-bb7e-95a42057da71",
+    "price": "AED 95.00",
+    "description": "Chicken cream, kashkaval cheese, potato, zucchini, parmesan, olive oil.",
+    "available": true,
+    "display_order": 5,
+    "image_url": "/assets/images/menu/1774432330287-k6u7b4.webp",
+    "menu_categories": {
+      "name": "Meat Lovers",
+      "menu_type": "food",
+      "subcategory": "Meat Lovers"
+    }
+  },
+  {
+    "id": "e53da9f0-2442-45b8-a61f-c7e4332d4c7a",
+    "name": "Mint",
+    "category_id": "8da37c86-42bf-45cd-b77b-57ce9bcdc804",
+    "price": "AED 55.00",
+    "description": "Pure mint flavor.",
+    "available": true,
+    "display_order": 5,
+    "image_url": "/assets/images/menu/1771673256901-988wrh.webp",
+    "menu_categories": {
+      "name": "Arabic Shisha",
+      "menu_type": "shisha",
+      "subcategory": "Arabic Shisha"
+    }
+  },
+  {
+    "id": "080e043d-6f0d-44ac-b76c-4de167977f9b",
+    "name": "Green Smoothie",
+    "category_id": "4fddf531-a1b6-4987-9582-2e932576ff61",
+    "price": "AED 95.00",
+    "description": "Healthy green smoothie flavor.",
+    "available": true,
+    "display_order": 5,
+    "image_url": "/assets/images/menu/1771673424686-d7acvj.webp",
+    "menu_categories": {
+      "name": "Russian Shisha",
+      "menu_type": "shisha",
+      "subcategory": "Russian Shisha"
+    }
+  },
+  {
+    "id": "89fb20ef-317f-4161-80b7-d280f7feabe2",
+    "name": "Avocado Benedict",
+    "category_id": "67681dbc-cf9d-452d-9539-1ac0e116b981",
+    "price": "AED 68.00",
+    "description": "Sourdough, guacamole, eggs, cherry tomatoes,hollandaise sauce topped with mix sakura leaves.",
+    "available": true,
+    "display_order": 6,
+    "image_url": "/assets/images/menu/1774429095403-nmwb3.webp",
+    "menu_categories": {
+      "name": "Breakfast",
+      "menu_type": "food",
+      "subcategory": "Breakfast"
+    }
+  },
+  {
+    "id": "9565513e-2d14-4fcd-9329-e15829d99ced",
+    "name": "Taglia Alfredo",
+    "category_id": "e2d8873c-2fdc-48b9-b571-a7e36175e745",
+    "price": "AED 75.00",
+    "description": "Tender tagliatelle pasta coated in a rich and creamy Alfredo sauce, finished with Parmesan cheese and a touch of fresh herbs.",
+    "available": true,
+    "display_order": 6,
+    "image_url": "/assets/images/menu/1774433106901-bb5f8m.webp",
+    "menu_categories": {
+      "name": "Pasta",
+      "menu_type": "food",
+      "subcategory": "Pasta"
+    }
+  },
+  {
+    "id": "a0b60e34-0113-4909-afd5-67e138c3347a",
+    "name": "Chicken Tigania with Yogurt & Warm Sourdough",
+    "category_id": "ad9fcd04-19a5-4e9b-b9c0-171aa396751a",
+    "price": "AED 75.00",
+    "description": "Skillet-seared chicken thighs (tigania), served with thick Greek yogurt and freshly grilled sourdough bread.",
+    "available": true,
+    "display_order": 6,
+    "image_url": "/assets/images/menu/1774431676554-p627gg.webp",
+    "menu_categories": {
+      "name": "Appetizers",
+      "menu_type": "food",
+      "subcategory": "Appetizers"
+    }
+  },
+  {
+    "id": "9a38cf95-5bb5-4e71-b638-30903c6f3cde",
+    "name": "Sun-Kissed Chicken Bowl",
+    "category_id": "afa83854-4e3b-49d9-bb7e-95a42057da71",
+    "price": "AED 75.00",
+    "description": "Grilled chicken served over a vibrant mix of fresh greens, grains, and sun-ripened vegetables, finished with a zesty dressing.",
+    "available": true,
+    "display_order": 6,
+    "image_url": "/assets/images/menu/1774432437518-b2ekvu.webp",
+    "menu_categories": {
+      "name": "Meat Lovers",
+      "menu_type": "food",
+      "subcategory": "Meat Lovers"
+    }
+  },
+  {
+    "id": "d6fc0c2b-b19f-467d-8a95-a2d00d6a954d",
+    "name": "Cappuccino",
+    "category_id": "48638c9d-bfec-488f-b425-5ddfe336c74e",
+    "price": "AED 28.00",
+    "description": "Espresso with foamed milk.",
+    "available": true,
+    "display_order": 6,
+    "image_url": "/assets/images/menu/1774446422564-7rfsa0p.webp",
+    "menu_categories": {
+      "name": "Coffee (Hot)",
+      "menu_type": "bar",
+      "subcategory": "Coffee (Hot)"
+    }
+  },
+  {
+    "id": "17edfdcd-72db-4d5d-a2ea-62e6d3db15dc",
+    "name": "Blueberry Cake",
+    "category_id": "4fddf531-a1b6-4987-9582-2e932576ff61",
+    "price": "AED 95.00",
+    "description": "Sweet blueberry cake flavor.",
+    "available": true,
+    "display_order": 6,
+    "image_url": "/assets/images/menu/1771673433541-q2dbqa.webp",
+    "menu_categories": {
+      "name": "Russian Shisha",
+      "menu_type": "shisha",
+      "subcategory": "Russian Shisha"
+    }
+  },
+  {
+    "id": "ffab8f90-ea07-478b-b869-debae858a4cf",
+    "name": "Orange",
+    "category_id": "8da37c86-42bf-45cd-b77b-57ce9bcdc804",
+    "price": "AED 55.00",
+    "description": "Citrus orange flavor.",
+    "available": true,
+    "display_order": 6,
+    "image_url": "/assets/images/menu/1771673264423-5cay9.webp",
+    "menu_categories": {
+      "name": "Arabic Shisha",
+      "menu_type": "shisha",
+      "subcategory": "Arabic Shisha"
+    }
+  },
+  {
+    "id": "72cdf077-d810-4056-bb83-26df43196eed",
+    "name": "Berry Queen",
+    "category_id": "d238f8d3-6c1b-4375-a82c-ef2dbc501d02",
+    "price": "AED 55.00",
+    "description": "Hibiscus based sweet berries mixed flavoured fruit melanges.",
+    "available": true,
+    "display_order": 6,
+    "image_url": "/assets/images/menu/1774447639113-crratt.webp",
+    "menu_categories": {
+      "name": "Speciality Organic Tea",
+      "menu_type": "bar",
+      "subcategory": "Speciality Organic Tea"
+    }
+  },
+  {
+    "id": "66846f35-892f-4eb7-94e1-c3033eb5cfe6",
+    "name": "Yoga Bowl",
+    "category_id": "f6aad305-3337-4348-942b-5f0b6af8fd95",
+    "price": "AED 70.00",
+    "description": "Healthy, delicious, and made fresh\u2014Yoga Bowl serves nourishing smoothie bowls and wholesome meals designed to fuel your body and mind.",
+    "available": true,
+    "display_order": 6,
+    "image_url": "/assets/images/menu/1774430555211-xycu1n.webp",
+    "menu_categories": {
+      "name": "Salads",
+      "menu_type": "food",
+      "subcategory": "Salads"
+    }
+  },
+  {
+    "id": "eda4f0da-c6f4-43a4-ae83-cc058f86ccc7",
+    "name": "English breakfast tea",
+    "category_id": "d238f8d3-6c1b-4375-a82c-ef2dbc501d02",
+    "price": "AED 18.00",
+    "description": "A traditional, robust blend of black teas. Rich, full-bodied, and invigorating\u2014perfect for starting your day.",
+    "available": true,
+    "display_order": 7,
+    "image_url": "/assets/images/menu/1774447650537-pt57fl.webp",
+    "menu_categories": {
+      "name": "Speciality Organic Tea",
+      "menu_type": "bar",
+      "subcategory": "Speciality Organic Tea"
+    }
+  },
+  {
+    "id": "eb9bda77-9c10-458c-8895-912d20f40e3c",
+    "name": "Greek Poached Egg",
+    "category_id": "67681dbc-cf9d-452d-9539-1ac0e116b981",
+    "price": "AED 58.00",
+    "description": "Greek yogurt, simit bread, halloumi, eggs,hollandaise and pesto sauce.",
+    "available": true,
+    "display_order": 7,
+    "image_url": "/assets/images/menu/1774434176900-mspezy.webp",
+    "menu_categories": {
+      "name": "Breakfast",
+      "menu_type": "food",
+      "subcategory": "Breakfast"
+    }
+  },
+  {
+    "id": "4f425fe1-dfed-4d07-a758-620c03892325",
+    "name": "Royal Salmon Benedict",
+    "category_id": "67681dbc-cf9d-452d-9539-1ac0e116b981",
+    "price": "AED 55.00",
+    "description": "Croissant, smoked salmon, eggs,hollandaise sauce,spinach,capsicum with sakura leaves.",
+    "available": true,
+    "display_order": 7,
+    "image_url": "/assets/images/menu/1774428317315-yip7h.webp",
+    "menu_categories": {
+      "name": "Breakfast",
+      "menu_type": "food",
+      "subcategory": "Breakfast"
+    }
+  },
+  {
+    "id": "2b2d3deb-5126-4ee7-b33a-2f38432954b2",
+    "name": "Chicken Penny Pesto",
+    "category_id": "e2d8873c-2fdc-48b9-b571-a7e36175e745",
+    "price": "AED 65.00",
+    "description": "Tender grilled chicken tossed with penne pasta, fresh vegetables, and a fragrant basil pistou sauce, finished with a sprinkle of Parmesan cheese.",
+    "available": true,
+    "display_order": 7,
+    "image_url": "/assets/images/menu/1774433165950-ub9qo.webp",
+    "menu_categories": {
+      "name": "Pasta",
+      "menu_type": "food",
+      "subcategory": "Pasta"
+    }
+  },
+  {
+    "id": "1ff5b7f4-8a1f-4e6d-9d66-ad248ee632e4",
+    "name": "Chicken Mushroom Roll",
+    "category_id": "afa83854-4e3b-49d9-bb7e-95a42057da71",
+    "price": "AED 95.00",
+    "description": "Tender chicken and saut\u00e9ed mushrooms wrapped in a soft roll with a creamy, savory sauce.",
+    "available": true,
+    "display_order": 7,
+    "image_url": "/assets/images/menu/1774432510042-kyfxw.webp",
+    "menu_categories": {
+      "name": "Meat Lovers",
+      "menu_type": "food",
+      "subcategory": "Meat Lovers"
+    }
+  },
+  {
+    "id": "f5f0893e-9c70-48a3-8cd9-1012857aa05b",
+    "name": "Hot Cocoa",
+    "category_id": "48638c9d-bfec-488f-b425-5ddfe336c74e",
+    "price": "AED 35.00",
+    "description": "Creamy and smooth, made with our signature rich chocolate sauce and topped with mini marshmallows.",
+    "available": true,
+    "display_order": 7,
+    "image_url": "/assets/images/menu/1774446465251-oi4gh.webp",
+    "menu_categories": {
+      "name": "Coffee (Hot)",
+      "menu_type": "bar",
+      "subcategory": "Coffee (Hot)"
+    }
+  },
+  {
+    "id": "f09e6ec8-de8e-4329-a6ae-cb9e00f91932",
+    "name": "Matcha Latte",
+    "category_id": "48638c9d-bfec-488f-b425-5ddfe336c74e",
+    "price": "AED 40.00",
+    "description": "Creamy milk blended with premium matcha for a smooth, lightly sweetened green tea latte.",
+    "available": true,
+    "display_order": 7,
+    "image_url": "/assets/images/menu/1774446480502-c6q9xf.webp",
+    "menu_categories": {
+      "name": "Coffee (Hot)",
+      "menu_type": "bar",
+      "subcategory": "Coffee (Hot)"
+    }
+  },
+  {
+    "id": "3ac8fbd0-d0f6-48a2-b545-a79d0347c2bb",
+    "name": "Frape With Ice-cream",
+    "category_id": "d4ecbc08-a68c-4f97-b026-7c5b9bef4626",
+    "price": "AED 45.00",
+    "description": "A rich, velvety blend of ice cream, coffee, and ice, creating the perfect balance of bold flavor and creamy texture.",
+    "available": true,
+    "display_order": 7,
+    "image_url": "/assets/images/menu/1773233598066-35vu4.webp",
+    "menu_categories": {
+      "name": "Coffee (Iced)",
+      "menu_type": "bar",
+      "subcategory": "Coffee (Iced)"
+    }
+  },
+  {
+    "id": "cfe910f4-478a-4db3-83d9-41fbe3ed4772",
+    "name": "Gum Cinnamon",
+    "category_id": "8da37c86-42bf-45cd-b77b-57ce9bcdc804",
+    "price": "AED 55.00",
+    "description": "Gum with cinnamon spice.",
+    "available": true,
+    "display_order": 7,
+    "image_url": "/assets/images/menu/1771673275491-qi9s1o.webp",
+    "menu_categories": {
+      "name": "Arabic Shisha",
+      "menu_type": "shisha",
+      "subcategory": "Arabic Shisha"
+    }
+  },
+  {
+    "id": "061b51cc-c99a-4a21-8a45-15e2c593ba36",
+    "name": "MasterMix",
+    "category_id": "4fddf531-a1b6-4987-9582-2e932576ff61",
+    "price": "AED 95.00",
+    "description": "Premium Russian master blend.",
+    "available": true,
+    "display_order": 7,
+    "image_url": "/assets/images/menu/1771673446454-j4u4np.webp",
+    "menu_categories": {
+      "name": "Russian Shisha",
+      "menu_type": "shisha",
+      "subcategory": "Russian Shisha"
+    }
+  },
+  {
+    "id": "6c6c701e-4b9f-4199-b434-ae448affae31",
+    "name": "Bread Basket",
+    "category_id": "ad9fcd04-19a5-4e9b-b9c0-171aa396751a",
+    "price": "AED 15.00",
+    "description": "Tonos Fresh breads.",
+    "available": true,
+    "display_order": 7,
+    "image_url": "/assets/images/menu/1774431736163-vtbrm.webp",
+    "menu_categories": {
+      "name": "Appetizers",
+      "menu_type": "food",
+      "subcategory": "Appetizers"
+    }
+  },
+  {
+    "id": "7cb0261a-6cd9-4a33-8741-ce94883fda51",
+    "name": "Egg Omelet",
+    "category_id": "67681dbc-cf9d-452d-9539-1ac0e116b981",
+    "price": "AED 45.00",
+    "description": "Button mushrooms, spinach, cherry tomatoes, loso rosso, Sakura and olive oil.",
+    "available": true,
+    "display_order": 8,
+    "image_url": "/assets/images/menu/1774434201538-u658xp.webp",
+    "menu_categories": {
+      "name": "Breakfast",
+      "menu_type": "food",
+      "subcategory": "Breakfast"
+    }
+  },
+  {
+    "id": "3d9c8229-4d95-4827-a259-f877c0bddd51",
+    "name": "Orzo kofta bowl",
+    "category_id": "afa83854-4e3b-49d9-bb7e-95a42057da71",
+    "price": "AED 75.00",
+    "description": "Seasoned kofta paired with warm orzo, crisp greens, and vibrant toppings for a rich and satisfying bowl.",
+    "available": true,
+    "display_order": 8,
+    "image_url": "/assets/images/menu/1774432566843-1rdp3.webp",
+    "menu_categories": {
+      "name": "Meat Lovers",
+      "menu_type": "food",
+      "subcategory": "Meat Lovers"
+    }
+  },
+  {
+    "id": "b4ea1f08-905a-4e8b-b1f1-8b702eb8ff15",
+    "name": "Iced Chocolate",
+    "category_id": "d4ecbc08-a68c-4f97-b026-7c5b9bef4626",
+    "price": "AED 35.00",
+    "description": "A refreshing blend of premium cocoa, chilled milk, and ice cubes, topped with whipped cream.",
+    "available": true,
+    "display_order": 8,
+    "image_url": "/assets/images/menu/1773233618108-lgmnlg.webp",
+    "menu_categories": {
+      "name": "Coffee (Iced)",
+      "menu_type": "bar",
+      "subcategory": "Coffee (Iced)"
+    }
+  },
+  {
+    "id": "a743c4be-6070-4270-b2db-f0523fb02bcf",
+    "name": "Chicken Pine Arrabiata",
+    "category_id": "e2d8873c-2fdc-48b9-b571-a7e36175e745",
+    "price": "AED 75.00",
+    "description": "Penne pasta tossed in a spicy tomato-garlic sauce with a hint of chili, finished with fresh herbs and a drizzle of olive oil.",
+    "available": true,
+    "display_order": 8,
+    "image_url": "/assets/images/menu/1774433267248-93nsdq.webp",
+    "menu_categories": {
+      "name": "Pasta",
+      "menu_type": "food",
+      "subcategory": "Pasta"
+    }
+  },
+  {
+    "id": "2ec90516-439f-4a85-96b1-7c8fdb23ea56",
+    "name": "Two Apples",
+    "category_id": "8da37c86-42bf-45cd-b77b-57ce9bcdc804",
+    "price": "AED 55.00",
+    "description": "Classic double apple flavor.",
+    "available": true,
+    "display_order": 8,
+    "image_url": "/assets/images/menu/1771673288599-spiil8.webp",
+    "menu_categories": {
+      "name": "Arabic Shisha",
+      "menu_type": "shisha",
+      "subcategory": "Arabic Shisha"
+    }
+  },
+  {
+    "id": "32bc5042-1dac-4282-b42e-6158d24c5b31",
+    "name": "Greek Moussaka",
+    "category_id": "afa83854-4e3b-49d9-bb7e-95a42057da71",
+    "price": "AED 65.00",
+    "description": "Tender chicken and savory mushrooms wrapped in a golden, flaky pastry \u2014 a perfect bite of comfort and flavor.",
+    "available": true,
+    "display_order": 9,
+    "image_url": "/assets/images/menu/1774432619100-fjn9sb.webp",
+    "menu_categories": {
+      "name": "Meat Lovers",
+      "menu_type": "food",
+      "subcategory": "Meat Lovers"
+    }
+  },
+  {
+    "id": "98710848-0bcf-40c6-898d-9f4e96fad2e4",
+    "name": "Espresso Macchiato",
+    "category_id": "48638c9d-bfec-488f-b425-5ddfe336c74e",
+    "price": "AED 30.00",
+    "description": "Espresso \u201cstained\u201d with a dollop of milk.",
+    "available": true,
+    "display_order": 9,
+    "image_url": "/assets/images/menu/1774447028651-i7dv7c.webp",
+    "menu_categories": {
+      "name": "Coffee (Hot)",
+      "menu_type": "bar",
+      "subcategory": "Coffee (Hot)"
+    }
+  },
+  {
+    "id": "1cadab8b-54f4-4697-96b1-3380d4785423",
+    "name": "Moroccan Tea",
+    "category_id": "d238f8d3-6c1b-4375-a82c-ef2dbc501d02",
+    "price": "AED 55.00",
+    "description": "Hot green tea with fresh mint leaves and sugar. A sweet, invigorating staple.",
+    "available": true,
+    "display_order": 9,
+    "image_url": "/assets/images/menu/1774447750296-7bs46c.webp",
+    "menu_categories": {
+      "name": "Speciality Organic Tea",
+      "menu_type": "bar",
+      "subcategory": "Speciality Organic Tea"
+    }
+  },
+  {
+    "id": "9bb65f52-3727-488c-8786-73b8a8abd638",
+    "name": "Two Apples (Nakhla)",
+    "category_id": "8da37c86-42bf-45cd-b77b-57ce9bcdc804",
+    "price": "AED 55.00",
+    "description": "Premium Nakhla double apple.",
+    "available": true,
+    "display_order": 9,
+    "image_url": "/assets/images/menu/1771673303051-l5q7a8.webp",
+    "menu_categories": {
+      "name": "Arabic Shisha",
+      "menu_type": "shisha",
+      "subcategory": "Arabic Shisha"
+    }
+  },
+  {
+    "id": "868d15a6-35e9-499f-8cef-bb151e8c04c5",
+    "name": "Egg with Sujuk",
+    "category_id": "67681dbc-cf9d-452d-9539-1ac0e116b981",
+    "price": "AED 55.00",
+    "description": "Eggs with sujuk ,chilli flakes and oregano. Served with simit bread on the side.",
+    "available": true,
+    "display_order": 10,
+    "image_url": "/assets/images/menu/1774428531560-qsl37l.webp",
+    "menu_categories": {
+      "name": "Breakfast",
+      "menu_type": "food",
+      "subcategory": "Breakfast"
+    }
+  },
+  {
+    "id": "2753a8a0-7843-4c9a-b6a3-46bcb4c94e9d",
+    "name": "Shakshouka",
+    "category_id": "67681dbc-cf9d-452d-9539-1ac0e116b981",
+    "price": "AED 55.00",
+    "description": "Tomato,red capsicum,feta cheese,eggs,kalamata,basil serve with sourdough bread.",
+    "available": true,
+    "display_order": 11,
+    "image_url": "/assets/images/menu/1774429023641-c83kok.webp",
+    "menu_categories": {
+      "name": "Breakfast",
+      "menu_type": "food",
+      "subcategory": "Breakfast"
+    }
+  },
+  {
+    "id": "5e047463-754a-4cac-88ff-b87c31619b86",
+    "name": "Affogato",
+    "category_id": "48638c9d-bfec-488f-b425-5ddfe336c74e",
+    "price": "AED 30.00",
+    "description": "A scoop of creamy vanilla gelato \"drowned\" in a fresh shot of hot, bold espresso.",
+    "available": true,
+    "display_order": 11,
+    "image_url": "/assets/images/menu/1774446717756-dhmdia.webp",
+    "menu_categories": {
+      "name": "Coffee (Hot)",
+      "menu_type": "bar",
+      "subcategory": "Coffee (Hot)"
+    }
+  },
+  {
+    "id": "7f40ac37-765c-4b17-bd39-6614a00c2d31",
+    "name": "Turkish/Greek Coffee",
+    "category_id": "48638c9d-bfec-488f-b425-5ddfe336c74e",
+    "price": "AED 25.00",
+    "description": "Traditional strong coffee.",
+    "available": true,
+    "display_order": 11,
+    "image_url": "/assets/images/menu/1774446824049-6z2rq4.webp",
+    "menu_categories": {
+      "name": "Coffee (Hot)",
+      "menu_type": "bar",
+      "subcategory": "Coffee (Hot)"
+    }
+  },
+  {
+    "id": "bd99bb22-7230-468f-875b-40462cb6152d",
+    "name": "Croissant Benedict",
+    "category_id": "67681dbc-cf9d-452d-9539-1ac0e116b981",
+    "price": "AED 53.00",
+    "description": "Plain croissant,portabella mushroom,eggs,truffle,hollandaise sauce garnished with sakura and chives.",
+    "available": true,
+    "display_order": 13,
+    "image_url": "/assets/images/menu/1774429278329-8v5s57.webp",
+    "menu_categories": {
+      "name": "Breakfast",
+      "menu_type": "food",
+      "subcategory": "Breakfast"
+    }
+  },
+  {
+    "id": "dcca9cca-3fbf-4302-840a-b89be6bb3c90",
+    "name": "Royal Salmon Benedict",
+    "category_id": "67681dbc-cf9d-452d-9539-1ac0e116b981",
+    "price": "AED 55.00",
+    "description": "Croissant, smoked salmon, eggs,hollandaise sauce,spinach,capsicum with sakura leaves.",
+    "available": true,
+    "display_order": 13,
+    "image_url": "/assets/images/menu/1774428840278-crr4km.webp",
+    "menu_categories": {
+      "name": "Breakfast",
+      "menu_type": "food",
+      "subcategory": "Breakfast"
+    }
+  },
+  {
+    "id": "c3a39c2e-84f2-4b7f-9d9a-8a1268d3ec12",
+    "name": "Zataar Croissant",
+    "category_id": "67681dbc-cf9d-452d-9539-1ac0e116b981",
+    "price": "AED 17.00",
+    "description": "Traditional croissant with zataar.",
+    "available": true,
+    "display_order": 14,
+    "image_url": "/assets/images/menu/1774429319771-4mnjgf.webp",
+    "menu_categories": {
+      "name": "Breakfast",
+      "menu_type": "food",
+      "subcategory": "Breakfast"
+    }
+  },
+  {
+    "id": "87d5ca8f-7617-4079-b576-88f3ae012e71",
+    "name": "Butter Croissant",
+    "category_id": "67681dbc-cf9d-452d-9539-1ac0e116b981",
+    "price": "AED 15.00",
+    "description": "Fresh butter croissant.",
+    "available": true,
+    "display_order": 15,
+    "image_url": "/assets/images/menu/1774429337320-ir9y4.webp",
+    "menu_categories": {
+      "name": "Breakfast",
+      "menu_type": "food",
+      "subcategory": "Breakfast"
+    }
+  },
+  {
+    "id": "ba8aa0f7-0dc8-4ea8-921c-232c1bd74c40",
+    "name": "Cheese Croissant",
+    "category_id": "67681dbc-cf9d-452d-9539-1ac0e116b981",
+    "price": "AED 23.00",
+    "description": "Croissant filled with cheese.",
+    "available": true,
+    "display_order": 16,
+    "image_url": "/assets/images/menu/1774429352685-l6ayh8.webp",
+    "menu_categories": {
+      "name": "Breakfast",
+      "menu_type": "food",
+      "subcategory": "Breakfast"
+    }
+  },
+  {
+    "id": "328154f3-7a1c-4c4e-8cf5-076b915d8e34",
+    "name": "Pan Chocolate",
+    "category_id": "67681dbc-cf9d-452d-9539-1ac0e116b981",
+    "price": "AED 20.00",
+    "description": "Croissant with chocolate filling.",
+    "available": true,
+    "display_order": 17,
+    "image_url": "/assets/images/menu/1774429386929-13g8u7.webp",
+    "menu_categories": {
+      "name": "Breakfast",
+      "menu_type": "food",
+      "subcategory": "Breakfast"
+    }
+  },
+  {
+    "id": "00587840-d441-46fe-be2e-48adf5aa0eb7",
+    "name": "Almond Croissant",
+    "category_id": "67681dbc-cf9d-452d-9539-1ac0e116b981",
+    "price": "AED 23.00",
+    "description": "Croissant with almond cream.",
+    "available": true,
+    "display_order": 18,
+    "image_url": "/assets/images/menu/1774429369034-rfuzx.webp",
+    "menu_categories": {
+      "name": "Breakfast",
+      "menu_type": "food",
+      "subcategory": "Breakfast"
+    }
+  },
+  {
+    "id": "79ba403d-fa71-4d5a-9fbb-f5e708634573",
+    "name": "Tonos Syrniki",
+    "category_id": "67681dbc-cf9d-452d-9539-1ac0e116b981",
+    "price": "AED 55.00",
+    "description": "Syrniki, mix berry jam, sour cream, mix berries and mint.",
+    "available": true,
+    "display_order": 19,
+    "image_url": "/assets/images/menu/1774429679510-7mxejo.webp",
+    "menu_categories": {
+      "name": "Breakfast",
+      "menu_type": "food",
+      "subcategory": "Breakfast"
+    }
+  },
+  {
+    "id": "9750f276-2caa-44fe-b62a-db384f8da607",
+    "name": "Banana Granola Bowl",
+    "category_id": "67681dbc-cf9d-452d-9539-1ac0e116b981",
+    "price": "AED 58.00",
+    "description": "Greek yogurt, granola, chocolate chips, caramelized banana, mix berries, mix berry sauce, peanut butter.",
+    "available": true,
+    "display_order": 19,
+    "image_url": "/assets/images/menu/1774429650804-iitc2q.webp",
+    "menu_categories": {
+      "name": "Breakfast",
+      "menu_type": "food",
+      "subcategory": "Breakfast"
+    }
+  },
+  {
+    "id": "d19987f4-3498-4859-9900-b80fd16f37e7",
+    "name": "Acai Bowl",
+    "category_id": "67681dbc-cf9d-452d-9539-1ac0e116b981",
+    "price": "AED 60.00",
+    "description": "Healthy acai topped with mixed berries, granola, coconut flakes and creamy peanut butter.",
+    "available": true,
+    "display_order": 21,
+    "image_url": "/assets/images/menu/1774429727991-e05tjk.webp",
+    "menu_categories": {
+      "name": "Breakfast",
+      "menu_type": "food",
+      "subcategory": "Breakfast"
+    }
+  },
+  {
+    "id": "df36b3eb-b29f-40c3-8440-7a288fa2e654",
+    "name": "Crepe",
+    "category_id": "67681dbc-cf9d-452d-9539-1ac0e116b981",
+    "price": "AED 45.00",
+    "description": "Flour, butter, milk, chocolate sauce, mix berries, icing sugar, mint leaves",
+    "available": true,
+    "display_order": 21,
+    "image_url": "/assets/images/menu/1774429763302-axtxne.webp",
+    "menu_categories": {
+      "name": "Breakfast",
+      "menu_type": "food",
+      "subcategory": "Breakfast"
+    }
+  },
+  {
+    "id": "73a8ad2f-7b73-41cc-b0d6-176e5117f063",
+    "name": "French Toast",
+    "category_id": "67681dbc-cf9d-452d-9539-1ac0e116b981",
+    "price": "AED 52.00",
+    "description": "Brioche bread, mix berries, cream and caramelized banana.",
+    "available": true,
+    "display_order": 23,
+    "image_url": "/assets/images/menu/1774429876574-06z7nli.webp",
+    "menu_categories": {
+      "name": "Breakfast",
+      "menu_type": "food",
+      "subcategory": "Breakfast"
+    }
+  },
+  {
+    "id": "497a18e9-574f-47d9-b42d-434b86922443",
+    "name": "Crepe Salmon",
+    "category_id": "67681dbc-cf9d-452d-9539-1ac0e116b981",
+    "price": "AED 62.00",
+    "description": "Freshly made crepe, smoked salmon, sour cream topped with salmon caviar.",
+    "available": true,
+    "display_order": 24,
+    "image_url": "/assets/images/menu/1774429906536-l2hgj.webp",
+    "menu_categories": {
+      "name": "Breakfast",
+      "menu_type": "food",
+      "subcategory": "Breakfast"
+    }
+  },
+  {
+    "id": "87ab1d21-f27a-4b07-a78f-cd1694366f45",
+    "name": "Caramelized Banana Creep",
+    "category_id": "67681dbc-cf9d-452d-9539-1ac0e116b981",
+    "price": "AED 45.00",
+    "description": "Soft crepe filled with caramelized bananas and rich caramel sauce.",
+    "available": true,
+    "display_order": 35,
+    "image_url": "/assets/images/menu/1774508140482-1ms0eo.webp",
+    "menu_categories": {
+      "name": "Breakfast",
+      "menu_type": "food",
+      "subcategory": "Breakfast"
+    }
+  }
+]

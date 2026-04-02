@@ -4,25 +4,25 @@ import Icon from '@/components/ui/AppIcon';
 
 export default function MediterraneanStory() {
   const values = [
-  {
-    id: 'value_fresh',
-    icon: 'SparklesIcon',
-    title: 'Fresh Ingredients',
-    description: 'Sourced daily from local markets and imported from Greece'
-  },
-  {
-    id: 'value_olive',
-    icon: 'BeakerIcon',
-    title: 'Premium Olive Oil',
-    description: 'Extra virgin olive oil from Kalamata, Greece'
-  },
-  {
-    id: 'value_family',
-    icon: 'HeartIcon',
-    title: 'Family Recipes',
-    description: 'Traditional recipes passed down since 1985'
-  }];
-
+    {
+      id: 'value_fresh',
+      icon: 'SparklesIcon',
+      title: 'Fresh Ingredients',
+      description: 'Sourced daily from local markets and imported from Greece',
+    },
+    {
+      id: 'value_olive',
+      icon: 'BeakerIcon',
+      title: 'Premium Olive Oil',
+      description: 'Extra virgin olive oil from Kalamata, Greece',
+    },
+    {
+      id: 'value_family',
+      icon: 'HeartIcon',
+      title: 'Family Recipes',
+      description: 'Traditional recipes passed down since 1985',
+    },
+  ];
 
   return (
     <section className="section-padding bg-cream reveal">
@@ -32,9 +32,10 @@ export default function MediterraneanStory() {
           <div className="relative">
             <div className="aspect-[4/5] rounded-[48px] overflow-hidden border-2 border-primary/40 transition-all duration-500 hover:border-primary/60 hover:shadow-blue-glow-lg">
               <AppImage
-                src="https://images.unsplash.com/photo-1662121783914-9ee843f21504"
+                src="/assets/images/homepage/santorini-aerial.webp"
                 alt="Aerial view of white buildings and blue domes in Santorini Greece overlooking Aegean Sea"
-                className="w-full h-full object-cover transition-all duration-700" />
+                className="w-full h-full object-cover transition-all duration-700"
+              />
             </div>
             {/* Decorative Element */}
             <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-primary/20 rounded-full blur-3xl animate-glow-pulse"></div>
@@ -50,21 +51,22 @@ export default function MediterraneanStory() {
               </h2>
             </div>
 
-            <p className="text-lg text-muted-foreground leading-relaxed">At Tonos Greek Restaurant, we bring the soul of the Greek islands straight to the heart of Downtown Dubai. Nestled on Sheikh Mohammed bin Rashid Boulevard in Boulevard Plaza, our kitchen celebrates the vibrancy of traditional Greek and Mediterranean cuisine with love and authenticity
-
-
-
-
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              At Tonos Greek Restaurant, we bring the soul of the Greek islands straight to the
+              heart of Downtown Dubai. Nestled on Sheikh Mohammed bin Rashid Boulevard in Boulevard
+              Plaza, our kitchen celebrates the vibrancy of traditional Greek and Mediterranean
+              cuisine with love and authenticity
             </p>
 
             {/* Values Grid */}
             <div className="grid gap-6 pt-8">
-              {values.map((value) =>
-              <div
-                key={value.id}
-                className="flex items-start gap-4 p-6 bg-white rounded-3xl border border-border hover:border-primary transition-all">
-                
+              {values.map((value) => (
+                <div
+                  key={value.id}
+                  className="flex items-start gap-4 p-6 bg-white rounded-3xl border border-border hover:border-primary transition-all"
+                >
                   <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center shrink-0">
+                    {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                     <Icon name={value.icon as any} size={24} className="text-primary" />
                   </div>
                   <div>
@@ -72,7 +74,7 @@ export default function MediterraneanStory() {
                     <p className="text-sm text-muted-foreground">{value.description}</p>
                   </div>
                 </div>
-              )}
+              ))}
             </div>
 
             <div className="pt-4">
@@ -83,6 +85,6 @@ export default function MediterraneanStory() {
           </div>
         </div>
       </div>
-    </section>);
-
+    </section>
+  );
 }

@@ -1,14 +1,12 @@
 'use client';
 import { useState, useEffect } from 'react';
 
-
-
 export default function LocationMap() {
-  const [isHydrated, setIsHydrated] = useState(false)
+  const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
-    setIsHydrated(true)
-  }, [])
+    setIsHydrated(true);
+  }, []);
 
   return (
     <div className="space-y-8">
@@ -34,5 +32,5 @@ export default function LocationMap() {
         )}
       </div>
     </div>
-  )
+  );
 }

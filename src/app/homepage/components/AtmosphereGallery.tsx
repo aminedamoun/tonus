@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import AppImage from '@/components/ui/AppImage';
 import Icon from '@/components/ui/AppIcon';
-import { createClient } from '@/lib/supabase/client';
+import galleryData from '@/data/gallery-images.json';
 
 interface GalleryImage {
   id: string;
@@ -13,30 +13,14 @@ interface GalleryImage {
 }
 
 export default function AtmosphereGallery() {
-  const [images, setImages] = useState<GalleryImage[]>([]);
-  const [loading, setLoading] = useState(true);
+  // Load active gallery images from local JSON, sorted by display_order
+  const [images] = useState<GalleryImage[]>(() =>
+    (galleryData as GalleryImage[])
+      .filter((img) => img.is_active)
+      .sort((a, b) => a.display_order - b.display_order)
+  );
+  const loading = false;
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
-  const supabase = createClient();
-
-  useEffect(() => {
-    fetchGalleryImages();
-  }, []);
-
-  const fetchGalleryImages = async () => {
-    setLoading(true);
-    const { data, error } = await supabase
-      .from('gallery_images')
-      .select('*')
-      .eq('is_active', true)
-      .order('display_order', { ascending: true });
-
-    if (error) {
-      console.error('Error fetching gallery images:', error);
-    } else {
-      setImages(data || []);
-    }
-    setLoading(false);
-  };
 
   const openLightbox = (index: number) => {
     setSelectedImageIndex(index);
@@ -79,6 +63,7 @@ export default function AtmosphereGallery() {
       window.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'unset';
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedImageIndex, images.length]);
 
   if (loading) {
@@ -111,8 +96,8 @@ export default function AtmosphereGallery() {
               Experience the <span className="text-primary">Ambiance</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Step into a space that captures the essence of Greek hospitality,
-              where every detail reflects Mediterranean warmth.
+              Step into a space that captures the essence of Greek hospitality, where every detail
+              reflects Mediterranean warmth.
             </p>
           </div>
 
@@ -157,7 +142,10 @@ export default function AtmosphereGallery() {
         >
           {/* Close Button */}
           <button
-            onClick={(e) => { e.stopPropagation(); closeLightbox(); }}
+            onClick={(e) => {
+              e.stopPropagation();
+              closeLightbox();
+            }}
             className="absolute top-6 right-6 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-white/20 hover:bg-white/20 transition-all"
             style={{ zIndex: 10001 }}
           >
@@ -166,7 +154,10 @@ export default function AtmosphereGallery() {
 
           {/* Previous Button */}
           <button
-            onClick={(e) => { e.stopPropagation(); goToPrevious(); }}
+            onClick={(e) => {
+              e.stopPropagation();
+              goToPrevious();
+            }}
             className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-white/20 hover:bg-white/20 transition-all"
             style={{ zIndex: 10001, opacity: selectedImageIndex === 0 ? 0.3 : 1 }}
           >
@@ -175,7 +166,10 @@ export default function AtmosphereGallery() {
 
           {/* Next Button */}
           <button
-            onClick={(e) => { e.stopPropagation(); goToNext(); }}
+            onClick={(e) => {
+              e.stopPropagation();
+              goToNext();
+            }}
             className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-white/20 hover:bg-white/20 transition-all"
             style={{ zIndex: 10001, opacity: selectedImageIndex === images.length - 1 ? 0.3 : 1 }}
           >

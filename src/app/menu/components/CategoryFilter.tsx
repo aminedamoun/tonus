@@ -1,8 +1,8 @@
 'use client';
 interface CategoryFilterProps {
-  categories: string[]
-  activeCategory: string
-  onCategoryChange: (category: string) => void
+  categories: string[];
+  activeCategory: string;
+  onCategoryChange: (category: string) => void;
 }
 
 export default function CategoryFilter({
@@ -22,5 +22,5 @@ export default function CategoryFilter({
         </button>
       ))}
     </div>
-  )
+  );
 }

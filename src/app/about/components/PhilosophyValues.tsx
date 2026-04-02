@@ -1,11 +1,11 @@
 import Icon from '@/components/ui/AppIcon';
 
 interface Value {
-  id: string
-  icon: string
-  title: string
-  description: string
-  featured?: boolean
+  id: string;
+  icon: string;
+  title: string;
+  description: string;
+  featured?: boolean;
 }
 
 export default function PhilosophyValues() {
@@ -54,7 +54,7 @@ export default function PhilosophyValues() {
       description:
         'We believe food brings people together. Our restaurant is a gathering place for families, friends, and neighbors.',
     },
-  ]
+  ];
 
   return (
     <div className="space-y-12">
@@ -64,8 +64,8 @@ export default function PhilosophyValues() {
           The <span className="text-primary">Mediterranean</span> Way
         </h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Our philosophy is simple: honor tradition, celebrate quality, and share 
-          the warmth of Greek hospitality with every guest.
+          Our philosophy is simple: honor tradition, celebrate quality, and share the warmth of
+          Greek hospitality with every guest.
         </p>
       </div>
 
@@ -75,6 +75,7 @@ export default function PhilosophyValues() {
         <div className="lg:col-span-7 group">
           <div className="floating-card p-10 h-full space-y-6 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 border-2 border-primary/20 hover:border-primary/40 transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2">
             <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-blue-glow transition-all duration-500 group-hover:rotate-6">
+              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
               <Icon name={values[0].icon as any} size={32} className="text-white" />
             </div>
             <h3 className="text-3xl font-serif text-foreground">{values[0].title}</h3>
@@ -87,12 +88,11 @@ export default function PhilosophyValues() {
         <div className="lg:col-span-5 group">
           <div className="floating-card p-8 h-full space-y-4 hover:bg-primary/5 transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2">
             <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center border-2 border-primary/30 group-hover:border-primary/60 group-hover:shadow-blue-glow transition-all duration-500 group-hover:-rotate-6">
+              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
               <Icon name={values[1].icon as any} size={28} className="text-primary" />
             </div>
             <h3 className="text-2xl font-serif text-foreground">{values[1].title}</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              {values[1].description}
-            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">{values[1].description}</p>
           </div>
         </div>
 
@@ -100,18 +100,18 @@ export default function PhilosophyValues() {
         <div className="lg:col-span-5 group">
           <div className="floating-card p-8 h-full space-y-4 hover:bg-primary/5 transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2">
             <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center border-2 border-primary/30 group-hover:border-primary/60 group-hover:shadow-blue-glow transition-all duration-500 group-hover:rotate-6">
+              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
               <Icon name={values[3].icon as any} size={28} className="text-primary" />
             </div>
             <h3 className="text-2xl font-serif text-foreground">{values[3].title}</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              {values[3].description}
-            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">{values[3].description}</p>
           </div>
         </div>
 
         <div className="lg:col-span-7 group">
           <div className="floating-card p-10 h-full space-y-6 bg-gradient-to-br from-primary/10 via-transparent to-primary/5 border-2 border-primary/20 hover:border-primary/40 transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2">
             <div className="w-16 h-16 bg-gradient-to-br from-primary to-primary/70 rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-blue-glow transition-all duration-500 group-hover:-rotate-6">
+              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
               <Icon name={values[2].icon as any} size={32} className="text-white" />
             </div>
             <h3 className="text-3xl font-serif text-foreground">{values[2].title}</h3>
@@ -125,27 +125,25 @@ export default function PhilosophyValues() {
         <div className="lg:col-span-6 group">
           <div className="floating-card p-8 h-full space-y-4 hover:bg-primary/5 transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2">
             <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center border-2 border-primary/30 group-hover:border-primary/60 group-hover:shadow-blue-glow transition-all duration-500 group-hover:-rotate-6">
+              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
               <Icon name={values[4].icon as any} size={28} className="text-primary" />
             </div>
             <h3 className="text-2xl font-serif text-foreground">{values[4].title}</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              {values[4].description}
-            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">{values[4].description}</p>
           </div>
         </div>
 
         <div className="lg:col-span-6 group">
           <div className="floating-card p-8 h-full space-y-4 hover:bg-primary/5 transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2">
             <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center border-2 border-primary/30 group-hover:border-primary/60 group-hover:shadow-blue-glow transition-all duration-500 group-hover:rotate-6">
+              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
               <Icon name={values[5].icon as any} size={28} className="text-primary" />
             </div>
             <h3 className="text-2xl font-serif text-foreground">{values[5].title}</h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              {values[5].description}
-            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">{values[5].description}</p>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }

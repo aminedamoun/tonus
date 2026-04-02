@@ -22,7 +22,7 @@ export default function AlternativeMethods() {
       href: 'tel:+971581391113',
       color: 'bg-primary',
     },
-  ]
+  ];
 
   return (
     <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -35,6 +35,7 @@ export default function AlternativeMethods() {
           className="floating-card p-8 flex flex-col items-center text-center space-y-4 hover:scale-105 transition-transform"
         >
           <div className={`w-16 h-16 ${method.color} rounded-2xl flex items-center justify-center`}>
+            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
             <Icon name={method.icon as any} size={32} className="text-white" />
           </div>
           <div>
@@ -47,5 +48,5 @@ export default function AlternativeMethods() {
         </a>
       ))}
     </div>
-  )
+  );
 }

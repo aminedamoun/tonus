@@ -1,12 +1,12 @@
 'use client';
 import { useState } from 'react';
- import Icon from'@/components/ui/AppIcon';
+import Icon from '@/components/ui/AppIcon';
 
 interface FormData {
-  name: string
-  email: string
-  phone: string
-  message: string
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
 }
 
 export default function ContactForm() {
@@ -15,14 +15,14 @@ export default function ContactForm() {
     email: '',
     phone: '',
     message: '',
-  })
+  });
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [showSuccess, setShowSuccess] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
     try {
       const response = await fetch(
@@ -42,26 +42,24 @@ export default function ContactForm() {
         throw new Error(data.error || 'Failed to send message');
       }
 
-      setIsSubmitting(false)
-      setShowSuccess(true)
+      setIsSubmitting(false);
+      setShowSuccess(true);
 
       // Reset form after 3 seconds
       setTimeout(() => {
-        setShowSuccess(false)
-        setFormData({ name: '', email: '', phone: '', message: '' })
-      }, 3000)
+        setShowSuccess(false);
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      }, 3000);
     } catch (error) {
       console.error('Error sending message:', error);
       setIsSubmitting(false);
       alert('Failed to send message. Please try again or contact us directly.');
     }
-  }
+  };
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   return (
     <div className="floating-card max-w-2xl mx-auto p-8 md:p-12">
@@ -72,7 +70,7 @@ export default function ContactForm() {
           </div>
           <h3 className="text-3xl font-serif text-foreground">Message Sent!</h3>
           <p className="text-muted-foreground">
-            Thank you for reaching out. We'll respond to your inquiry within 24 hours.
+            Thank you for reaching out. We&apos;ll respond to your inquiry within 24 hours.
           </p>
         </div>
       ) : (
@@ -160,5 +158,5 @@ export default function ContactForm() {
         </form>
       )}
     </div>
-  )
+  );
 }

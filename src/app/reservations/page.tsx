@@ -1,26 +1,26 @@
 'use client';
 import { useEffect } from 'react';
- import Header from'@/components/common/Header';
- import Footer from'@/components/common/Footer';
- import BookingForm from'./components/BookingForm';
- import AlternativeMethods from'./components/AlternativeMethods';
- import ReservationPolicies from'./components/ReservationPolicies';
- import Icon from'@/components/ui/AppIcon';
- import Link from'next/link';
+import Header from '@/components/common/Header';
+import Footer from '@/components/common/Footer';
+import BookingForm from './components/BookingForm';
+import AlternativeMethods from './components/AlternativeMethods';
+import ReservationPolicies from './components/ReservationPolicies';
+import Icon from '@/components/ui/AppIcon';
+import Link from 'next/link';
 
 export default function ReservationsPage() {
   useEffect(() => {
-    const reveals = document.querySelectorAll('.reveal')
-    if (!reveals?.length) return
+    const reveals = document.querySelectorAll('.reveal');
+    if (!reveals?.length) return;
 
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('active')),
       { threshold: 0.1 }
-    )
-    reveals?.forEach((el) => observer?.observe(el))
+    );
+    reveals?.forEach((el) => observer?.observe(el));
 
     return () => observer?.disconnect();
-  }, [])
+  }, []);
 
   return (
     <>
@@ -35,8 +35,8 @@ export default function ReservationsPage() {
               <span className="text-primary">Mediterranean</span> Experience
             </h1>
             <p className="text-muted-foreground text-base">
-              Book your table at GreekRestaurant and embark on a culinary journey 
-              through the Greek islands. We look forward to welcoming you.
+              Book your table at GreekRestaurant and embark on a culinary journey through the Greek
+              islands. We look forward to welcoming you.
             </p>
             <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
               <Icon name="ClockIcon" size={20} className="text-primary" />
@@ -57,7 +57,7 @@ export default function ReservationsPage() {
               Or Book via <span className="text-primary">Alternative Methods</span>
             </h2>
             <p className="text-muted-foreground">
-              Prefer a quick call or message? We're here to help.
+              Prefer a quick call or message? We&apos;re here to help.
             </p>
           </div>
           <AlternativeMethods />
@@ -104,5 +104,5 @@ export default function ReservationsPage() {
       </main>
       <Footer />
     </>
-  )
+  );
 }

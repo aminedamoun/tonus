@@ -1,0 +1,51 @@
+[
+  {
+    "id": "6a8f5955-ebcc-4235-8769-1d5dfd834692",
+    "image_url": "/assets/images/gallery/about/about-gallery-1774470998475.webp",
+    "alt_text": "Fresh Mediterranean vegetables and herbs arranged on rustic wooden table",
+    "display_order": 1,
+    "is_active": true
+  },
+  {
+    "id": "7f849607-fdb1-4d19-b814-59d1aae0c0d4",
+    "image_url": "/assets/images/gallery/about/about-gallery-1774506659666.webp",
+    "alt_text": "tonos interior",
+    "display_order": 2,
+    "is_active": true
+  },
+  {
+    "id": "90dd0fbb-a1e2-4b32-ad66-f2785f02c0e0",
+    "image_url": "/assets/images/gallery/about/about-gallery-1774506674714.webp",
+    "alt_text": "tonos interior 2",
+    "display_order": 3,
+    "is_active": true
+  },
+  {
+    "id": "70f587c0-b326-483d-b908-69235de89089",
+    "image_url": "/assets/images/gallery/about/about-gallery-1775120397056.webp",
+    "alt_text": "Tonos full view",
+    "display_order": 3,
+    "is_active": true
+  },
+  {
+    "id": "cebe86d5-a320-48ec-97ee-b0edf7cb1f30",
+    "image_url": "/assets/images/gallery/about/about-gallery-1774506721144.webp",
+    "alt_text": "tonos interior 2",
+    "display_order": 4,
+    "is_active": true
+  },
+  {
+    "id": "7ace7e17-3fa9-4fd8-83cd-f55c9543b2a9",
+    "image_url": "/assets/images/gallery/about/about-gallery-1774506745857.webp",
+    "alt_text": "tonos interiror 3",
+    "display_order": 5,
+    "is_active": true
+  },
+  {
+    "id": "020ce85d-47ec-45e5-94a8-85ff5022ad85",
+    "image_url": "/assets/images/gallery/about/about-gallery-1774507036901.webp",
+    "alt_text": "tonos exterior",
+    "display_order": 6,
+    "is_active": true
+  }
+]

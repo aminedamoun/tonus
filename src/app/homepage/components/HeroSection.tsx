@@ -1,9 +1,9 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Icon from '@/components/ui/AppIcon';
 import { createWhatsAppLink } from '@/lib/whatsapp';
-import { createClient } from '@/lib/supabase/client';
+import heroAdBlocks from '@/data/hero-ad-blocks.json';
 
 interface PromoCard {
   id: string;
@@ -72,7 +72,7 @@ function StarIcon({ className }: { className?: string }) {
   );
 }
 
-function BubbleCard({ card, index }: { card: PromoCard; index: number }) {
+function BubbleCard({ card, index: _index }: { card: PromoCard; index: number }) {
   const handleClick = () => {
     window.open(createWhatsAppLink(card.whatsappMessage), '_blank');
   };
@@ -94,7 +94,8 @@ function BubbleCard({ card, index }: { card: PromoCard; index: number }) {
           backdropFilter: 'blur(24px)',
           WebkitBackdropFilter: 'blur(24px)',
           border: '1px solid rgba(255, 255, 255, 0.28)',
-          boxShadow: '0 8px 32px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.1), inset 0 1px 0 rgba(255,255,255,0.2)',
+          boxShadow:
+            '0 8px 32px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.1), inset 0 1px 0 rgba(255,255,255,0.2)',
           padding: '22px 22px 16px',
           minWidth: '270px',
           maxWidth: '300px',
@@ -106,7 +107,10 @@ function BubbleCard({ card, index }: { card: PromoCard; index: number }) {
             <span className="text-xl leading-none">{card.emoji}</span>
             <h3
               className="font-serif text-white font-semibold leading-tight"
-              style={{ fontSize: '1.05rem', textShadow: '0 2px 10px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.8)' }}
+              style={{
+                fontSize: '1.05rem',
+                textShadow: '0 2px 10px rgba(0,0,0,0.9), 0 1px 3px rgba(0,0,0,0.8)',
+              }}
             >
               {card.title}
             </h3>
@@ -159,7 +163,8 @@ function BubbleCard({ card, index }: { card: PromoCard; index: number }) {
         <div
           className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 pointer-events-none"
           style={{
-            background: 'linear-gradient(135deg, rgba(137,207,240,0.18) 0%, rgba(255,215,0,0.09) 100%)',
+            background:
+              'linear-gradient(135deg, rgba(137,207,240,0.18) 0%, rgba(255,215,0,0.09) 100%)',
             transition: 'opacity 0.35s ease',
           }}
         />
@@ -171,81 +176,54 @@ function BubbleCard({ card, index }: { card: PromoCard; index: number }) {
 export default function HeroSection() {
   const videoDesktopRef = useRef<HTMLVideoElement>(null);
   const videoMobileRef = useRef<HTMLVideoElement>(null);
-  const [heroVideoUrl, setHeroVideoUrl] = useState('https://698ef95f42985dd050940011.imgix.net/banner_1.webm');
-  const [promoCards, setPromoCards] = useState<PromoCard[]>(DEFAULT_CARDS);
+  const heroVideoUrl = '/assets/banner_1.webm';
 
-  // Detect MIME type from URL extension
-  const getVideoMimeType = (url: string): string => {
-    const lower = url.toLowerCase();
-    if (lower.includes('.webm')) return 'video/webm';
-    if (lower.includes('.ogg') || lower.includes('.ogv')) return 'video/ogg';
-    return 'video/mp4';
+  // Build promo cards from local JSON data
+  const promoCards: PromoCard[] =
+    heroAdBlocks.length > 0
+      ? heroAdBlocks.map((block, idx) => ({
+          id: block.id,
+          slot: block.slot,
+          title: block.title || DEFAULT_CARDS[idx]?.title || '',
+          text: block.description || DEFAULT_CARDS[idx]?.text || '',
+          whatsappMessage: block.whatsapp_message || DEFAULT_CARDS[idx]?.whatsappMessage || '',
+          emoji: block.emoji || DEFAULT_CARDS[idx]?.emoji || '⭐',
+          starRating: block.star_rating ?? 5,
+          floatClass: FLOAT_CLASSES[idx % 3],
+          delay: DELAYS[idx % 3],
+        }))
+      : DEFAULT_CARDS;
+
+  const playVideo = (video: HTMLVideoElement | null) => {
+    if (!video) return;
+    video.muted = true;
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        setTimeout(() => {
+          video.play().catch(() => {});
+        }, 500);
+      });
+    }
   };
 
+  // Play videos on mount
   useEffect(() => {
-    const supabase = createClient();
+    const desktop = videoDesktopRef.current;
+    const mobile = videoMobileRef.current;
 
-    // Fetch hero video
-    supabase
-      .from('site_settings')
-      .select('value')
-      .eq('key', 'hero_video_url')
-      .single()
-      .then(({ data }) => {
-        if (data?.value) setHeroVideoUrl(data.value);
-      });
-
-    // Fetch hero ad blocks (promo cards)
-    supabase
-      .from('hero_ad_blocks')
-      .select('id, slot, title, description, emoji, whatsapp_message, star_rating')
-      .order('slot', { ascending: true })
-      .then(({ data, error }) => {
-        if (!error && data && data.length > 0) {
-          const cards: PromoCard[] = data.map((block: {
-            id: string;
-            slot: number;
-            title: string;
-            description: string;
-            emoji: string;
-            whatsapp_message: string;
-            star_rating: number;
-          }, idx: number) => ({
-            id: block.id,
-            slot: block.slot,
-            title: block.title || DEFAULT_CARDS[idx]?.title || '',
-            text: block.description || DEFAULT_CARDS[idx]?.text || '',
-            whatsappMessage: block.whatsapp_message || DEFAULT_CARDS[idx]?.whatsappMessage || '',
-            emoji: block.emoji || DEFAULT_CARDS[idx]?.emoji || '⭐',
-            starRating: block.star_rating ?? 5,
-            floatClass: FLOAT_CLASSES[(idx) % 3],
-            delay: DELAYS[(idx) % 3],
-          }));
-          setPromoCards(cards);
-        }
-      });
+    if (desktop) {
+      desktop.load();
+      playVideo(desktop);
+    }
+    if (mobile) {
+      mobile.load();
+      playVideo(mobile);
+    }
   }, []);
 
   useEffect(() => {
-    // Force play on both video elements after mount
-    const playVideo = (video: HTMLVideoElement | null) => {
-      if (!video) return;
-      video.muted = true;
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // Retry once on failure
-          setTimeout(() => {
-            video.play().catch(() => {});
-          }, 500);
-        });
-      }
-    };
-
-    playVideo(videoDesktopRef.current);
-    playVideo(videoMobileRef.current);
-
-    // Also handle visibility change to resume video when tab becomes active
+    // Resume video when tab becomes active again
     const handleVisibility = () => {
       if (!document.hidden) {
         playVideo(videoDesktopRef.current);
@@ -363,14 +341,9 @@ export default function HeroSection() {
             muted
             playsInline
             className="hero-video-bg hidden md:block"
-            preload="metadata"
-            crossOrigin="anonymous"
-          >
-            <source
-              src={heroVideoUrl}
-              type={getVideoMimeType(heroVideoUrl)}
-            />
-          </video>
+            preload="auto"
+            src={heroVideoUrl}
+          />
           {/* Mobile video */}
           <video
             ref={videoMobileRef}
@@ -379,14 +352,9 @@ export default function HeroSection() {
             muted
             playsInline
             className="hero-video-bg md:hidden"
-            preload="metadata"
-            crossOrigin="anonymous"
-          >
-            <source
-              src={heroVideoUrl}
-              type={getVideoMimeType(heroVideoUrl)}
-            />
-          </video>
+            preload="auto"
+            src={heroVideoUrl}
+          />
           <div className="hero-video-overlay absolute inset-0"></div>
         </div>
 
@@ -396,7 +364,8 @@ export default function HeroSection() {
             {/* Left Content */}
             <div className="space-y-10">
               <h1 className="md:text-8xl lg:text-9xl font-serif tracking-tight text-white drop-shadow-lg font-thin text-[64px]">
-                Authentic<br />
+                Authentic
+                <br />
                 <span className="italic">Greek Flavors</span>
               </h1>
 
@@ -412,7 +381,9 @@ export default function HeroSection() {
                   <p className="text-sm font-bold text-white">
                     Located in the heart of <span className="text-primary">Downtown Dubai</span>
                     <br />
-                    <span className="opacity-80 font-medium">Open daily from 8:00 AM - 12:00 AM</span>
+                    <span className="opacity-80 font-medium">
+                      Open daily from 8:00 AM - 12:00 AM
+                    </span>
                   </p>
                 </div>
 
@@ -430,15 +401,17 @@ export default function HeroSection() {
                       border: '2px solid rgba(255,255,255,0.55)',
                       boxShadow: '0 4px 14px rgba(0,0,0,0.2)',
                     }}
-                    onMouseEnter={e => {
+                    onMouseEnter={(e) => {
                       (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.22)';
                       (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.85)';
-                      (e.currentTarget as HTMLElement).style.boxShadow = '0 0 12px rgba(137,207,240,0.35), 0 4px 20px rgba(0,0,0,0.25)';
+                      (e.currentTarget as HTMLElement).style.boxShadow =
+                        '0 0 12px rgba(137,207,240,0.35), 0 4px 20px rgba(0,0,0,0.25)';
                     }}
-                    onMouseLeave={e => {
+                    onMouseLeave={(e) => {
                       (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.12)';
                       (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.55)';
-                      (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 14px rgba(0,0,0,0.2)';
+                      (e.currentTarget as HTMLElement).style.boxShadow =
+                        '0 4px 14px rgba(0,0,0,0.2)';
                     }}
                   >
                     View Menu
@@ -451,7 +424,10 @@ export default function HeroSection() {
             <div className="hidden md:flex flex-col gap-8 items-end justify-center relative py-8">
               {/* Floating gold stars (independent of cards) */}
               {floatingStars.map((star) => (
-                <StarIcon key={star.id} className={`${star.cls} ${star.size} pointer-events-none`} />
+                <StarIcon
+                  key={star.id}
+                  className={`${star.cls} ${star.size} pointer-events-none`}
+                />
               ))}
 
               {promoCards.map((card, index) => (

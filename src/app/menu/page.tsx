@@ -1,25 +1,25 @@
 'use client';
 import { useEffect } from 'react';
- import Header from'@/components/common/Header';
- import Footer from'@/components/common/Footer';
- import MenuInteractive from'./components/MenuInteractive';
- import QuickOrderBanner from'./components/QuickOrderBanner';
- import Icon from'@/components/ui/AppIcon';
- import Link from'next/link';
+import Header from '@/components/common/Header';
+import Footer from '@/components/common/Footer';
+import MenuInteractive from './components/MenuInteractive';
+import QuickOrderBanner from './components/QuickOrderBanner';
+import Icon from '@/components/ui/AppIcon';
+import Link from 'next/link';
 
 export default function MenuPage() {
   useEffect(() => {
-    const reveals = document.querySelectorAll('.reveal')
-    if (!reveals?.length) return
+    const reveals = document.querySelectorAll('.reveal');
+    if (!reveals?.length) return;
 
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('active')),
       { threshold: 0.1 }
-    )
-    reveals?.forEach((el) => observer?.observe(el))
+    );
+    reveals?.forEach((el) => observer?.observe(el));
 
     return () => observer?.disconnect();
-  }, [])
+  }, []);
 
   return (
     <>
@@ -33,8 +33,8 @@ export default function MenuPage() {
               <span className="text-primary">Recipes</span>
             </h1>
             <p className="text-base text-muted-foreground leading-relaxed">
-              Every dish is prepared with the finest Mediterranean ingredients, 
-              using authentic recipes passed down through generations.
+              Every dish is prepared with the finest Mediterranean ingredients, using authentic
+              recipes passed down through generations.
             </p>
           </div>
         </section>
@@ -71,5 +71,5 @@ export default function MenuPage() {
       <Footer />
       <QuickOrderBanner />
     </>
-  )
+  );
 }

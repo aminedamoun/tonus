@@ -1,7 +1,8 @@
 'use client';
 import { useState, useEffect } from 'react';
 import MenuItemCard from './MenuItemCard';
-import { createClient } from '@/lib/supabase/client';
+import menuItemsData from '@/data/menu-items.json';
+import menuCategoriesData from '@/data/menu-categories.json';
 import Icon from '@/components/ui/AppIcon';
 
 interface MenuItem {
@@ -21,16 +22,6 @@ interface Category {
   menu_type: string;
   subcategory: string;
   display_order: number;
-}
-
-interface DbMenuItem {
-  id: string;
-  name: string;
-  description?: string;
-  price: string;
-  category_id: string;
-  available: boolean;
-  image_url?: string;
 }
 
 type MenuType = 'food' | 'bar' | 'shisha';
@@ -57,7 +48,7 @@ const BAR_CATEGORY_ORDER = [
   'Coffee (Iced)',
   'Speciality Organic Tea',
   'Mocktails',
-  "Tono\'s Signature",
+  "Tono's Signature",
   'Freshly Squeezed Juices',
   'Water',
   'Soft Drinks',
@@ -76,18 +67,22 @@ const SHISHA_CATEGORY_ORDER = [
 
 function getCategoryOrder(menuType: MenuType): string[] {
   switch (menuType) {
-    case 'food': return FOOD_CATEGORY_ORDER;
-    case 'bar': return BAR_CATEGORY_ORDER;
-    case 'shisha': return SHISHA_CATEGORY_ORDER;
-    default: return [];
+    case 'food':
+      return FOOD_CATEGORY_ORDER;
+    case 'bar':
+      return BAR_CATEGORY_ORDER;
+    case 'shisha':
+      return SHISHA_CATEGORY_ORDER;
+    default:
+      return [];
   }
 }
 
 function sortCategories(categories: string[], menuType: MenuType): string[] {
   const order = getCategoryOrder(menuType);
   const sorted = [...categories].sort((a, b) => {
-    const idxA = order.findIndex(o => o.toLowerCase() === a.toLowerCase());
-    const idxB = order.findIndex(o => o.toLowerCase() === b.toLowerCase());
+    const idxA = order.findIndex((o) => o.toLowerCase() === a.toLowerCase());
+    const idxB = order.findIndex((o) => o.toLowerCase() === b.toLowerCase());
     const posA = idxA === -1 ? 9999 : idxA;
     const posB = idxB === -1 ? 9999 : idxB;
     return posA - posB;
@@ -105,84 +100,52 @@ export default function MenuInteractive() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Validate environment variables
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-    if (!supabaseUrl || !supabaseKey || supabaseUrl.includes('your-') || supabaseKey.includes('your-')) {
-      setError('Supabase configuration is missing. Please check your environment variables.');
-      setLoading(false);
-      return;
-    }
-
-    fetchData();
-  }, [menuType]);
-
-  const fetchData = async () => {
     setLoading(true);
     setError(null);
-    
+
     try {
-      const supabase = createClient();
-      
-      // Fetch categories for current menu type
-      const { data: categoriesData, error: categoriesError } = await supabase
-        .from('menu_categories')
-        .select('*')
-        .eq('menu_type', menuType)
-        .order('display_order', { ascending: true });
+      // Filter categories for current menu type from local JSON
+      const filteredCategories = menuCategoriesData
+        .filter((cat) => cat.menu_type === menuType)
+        .sort((a, b) => a.display_order - b.display_order) as Category[];
 
-      if (categoriesError) {
-        console.error('Error fetching categories:', categoriesError);
-        throw new Error(categoriesError.message || 'Failed to fetch categories');
-      }
-      
-      if (categoriesData) {
-        setCategories(categoriesData);
-        setActiveSubcategory('All');
-      }
+      setCategories(filteredCategories);
+      setActiveSubcategory('All');
 
-      // Fetch menu items for current menu type
-      const { data: itemsData, error: itemsError } = await supabase
-        .from('menu_items')
-        .select(`
-          *,
-          menu_categories!inner(menu_type, name, subcategory)
-        `)
-        .eq('menu_categories.menu_type', menuType)
-        .order('display_order', { ascending: true });
+      // Filter menu items for current menu type from local JSON
+      const filteredItems = menuItemsData
+        .filter((item) => item.menu_categories.menu_type === menuType)
+        .sort((a, b) => a.display_order - b.display_order);
 
-      if (itemsError) {
-        console.error('Error fetching menu items:', itemsError);
-        throw new Error(itemsError.message || 'Failed to fetch menu items');
-      }
-      
-      if (itemsData) {
-        const formattedItems: MenuItem[] = itemsData.map((item: any) => ({
-          id: item.id,
-          name: item.name,
-          description: item.description || '',
-          price: item.price,
-          category: item.menu_categories.name,
-          subcategory: item.menu_categories.subcategory,
-          available: item.available,
-          imageUrl: item.image_url
-        }));
-        setMenuItems(formattedItems);
-      }
-    } catch (err: any) {
-      console.error('Fetch error:', err);
-      setError(err.message || 'Failed to load menu data. Please check your connection and try again.');
+      const formattedItems: MenuItem[] = filteredItems.map((item) => ({
+        id: item.id,
+        name: item.name,
+        description: item.description || '',
+        price: item.price,
+        category: item.menu_categories.name,
+        subcategory: item.menu_categories.subcategory,
+        available: item.available,
+        imageUrl: item.image_url,
+      }));
+      setMenuItems(formattedItems);
+    } catch (err) {
+      console.error('Error loading menu data:', err);
+      setError('Failed to load menu data.');
     } finally {
       setLoading(false);
     }
-  };
+  }, [menuType]);
 
-  const uniqueSubcategories = ['All', ...sortCategories([...new Set(categories.map(cat => cat.name))], menuType)];
+  const uniqueSubcategories = [
+    'All',
+    ...sortCategories([...new Set(categories.map((cat) => cat.name))], menuType),
+  ];
 
   const filteredItems = menuItems.filter((item) => {
-    const matchesSubcategory = activeSubcategory === 'All' || item.subcategory === activeSubcategory;
-    const matchesSearch = searchQuery === '' || 
+    const matchesSubcategory =
+      activeSubcategory === 'All' || item.subcategory === activeSubcategory;
+    const matchesSearch =
+      searchQuery === '' ||
       item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       item.description.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesSubcategory && matchesSearch;
@@ -244,10 +207,7 @@ export default function MenuInteractive() {
         <h3 className="text-2xl font-bold text-foreground mb-4">Unable to Load Menu</h3>
         <p className="text-lg text-muted-foreground mb-6 max-w-md mx-auto">{error}</p>
         <button
-          onClick={() => {
-            setError(null);
-            fetchData();
-          }}
+          onClick={() => window.location.reload()}
           className="px-8 py-4 bg-primary text-white rounded-full font-bold hover:bg-primary/90 transition-all duration-300 shadow-blue-glow"
         >
           Try Again
@@ -293,7 +253,11 @@ export default function MenuInteractive() {
       {/* Search Bar */}
       <div className="max-w-2xl mx-auto">
         <div className="relative">
-          <Icon name="MagnifyingGlassIcon" size={20} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
+          <Icon
+            name="MagnifyingGlassIcon"
+            size={20}
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground"
+          />
           <input
             type="text"
             placeholder="Search menu items..."
@@ -313,10 +277,7 @@ export default function MenuInteractive() {
       </div>
 
       {/* Animated content wrapper */}
-      <div
-        key={menuType}
-        className="animate-menu-fade space-y-12"
-      >
+      <div key={menuType} className="animate-menu-fade space-y-12">
         {/* Subcategory Filter */}
         {uniqueSubcategories.length > 1 && (
           <div className="flex flex-wrap justify-start md:justify-center gap-2">
@@ -366,9 +327,15 @@ export default function MenuInteractive() {
           </div>
         ) : (
           <div className="text-center py-20">
-            <Icon name="InformationCircleIcon" size={48} className="mx-auto text-muted-foreground mb-4" />
+            <Icon
+              name="InformationCircleIcon"
+              size={48}
+              className="mx-auto text-muted-foreground mb-4"
+            />
             <p className="text-xl text-muted-foreground">
-              {searchQuery ? `No items found matching "${searchQuery}"` : 'No items found in this category.'}
+              {searchQuery
+                ? `No items found matching "${searchQuery}"`
+                : 'No items found in this category.'}
             </p>
           </div>
         )}

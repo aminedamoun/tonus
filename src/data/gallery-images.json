@@ -1,0 +1,121 @@
+[
+  {
+    "id": "8da13c15-4b39-446e-9380-edd9c72d87e1",
+    "image_url": "/assets/images/gallery/1773305748883-tonosgreekgallery.webp",
+    "alt_text": "Tonosgreekrestaurent",
+    "display_order": 1,
+    "is_active": true
+  },
+  {
+    "id": "faa57d1b-bda5-42be-a693-17288bb45a3c",
+    "image_url": "/assets/images/gallery/1773305776750-tonosgreekgallery1.webp",
+    "alt_text": "Tonosgreekrestaurent",
+    "display_order": 2,
+    "is_active": true
+  },
+  {
+    "id": "742f28b4-bdf9-4c7f-a258-9d516d4d8256",
+    "image_url": "/assets/images/gallery/1772259688011-tonosinterior1.webp",
+    "alt_text": "Guests enjoying dinner at elegantly set table with Mediterranean ambiance",
+    "display_order": 3,
+    "is_active": true
+  },
+  {
+    "id": "1273a110-78a2-4dff-8db6-33113146dc4e",
+    "image_url": "/assets/images/gallery/1775120252017-tonosfull.webp",
+    "alt_text": "tonos full",
+    "display_order": 4,
+    "is_active": true
+  },
+  {
+    "id": "2deceb64-b4c9-42c6-9598-0927afd936ab",
+    "image_url": "/assets/images/gallery/1773305823957-tonosgreekgallery3.webp",
+    "alt_text": "tonosinterior2",
+    "display_order": 5,
+    "is_active": true
+  },
+  {
+    "id": "2196c8c5-a718-45b2-85e4-bd82bb647fe3",
+    "image_url": "/assets/images/gallery/1773305876086-tonosgreekgallery4.webp",
+    "alt_text": "tonosinterior4",
+    "display_order": 6,
+    "is_active": true
+  },
+  {
+    "id": "49eabb23-b2d1-43f9-a96e-ebe891674963",
+    "image_url": "/assets/images/gallery/1775120301376-tonotea.webp",
+    "alt_text": "tonos table",
+    "display_order": 6,
+    "is_active": true
+  },
+  {
+    "id": "c02dd53c-8f8a-40bc-9257-01f090c8812d",
+    "image_url": "/assets/images/gallery/1775120333613-tonosext.webp",
+    "alt_text": "tonos outside table",
+    "display_order": 7,
+    "is_active": true
+  },
+  {
+    "id": "2a3b6688-ac00-4959-ba47-00a992c9d1de",
+    "image_url": "/assets/images/gallery/1773305914603-tonosgreekgallery6.webp",
+    "alt_text": "tonosinterior6",
+    "display_order": 7,
+    "is_active": true
+  },
+  {
+    "id": "2300123c-7855-4bd1-90c2-7397772384ee",
+    "image_url": "/assets/images/gallery/1773305935377-tonosgreekgallery7.webp",
+    "alt_text": "tonosinterior7",
+    "display_order": 8,
+    "is_active": true
+  },
+  {
+    "id": "205337aa-7a7b-4679-8798-a3fee310c4cf",
+    "image_url": "/assets/images/gallery/1772259671369-tonosexterior1.webp",
+    "alt_text": "Beautifully plated Greek mezze dishes with fresh vegetables and dips",
+    "display_order": 9,
+    "is_active": true
+  },
+  {
+    "id": "b3a1d30c-28ad-4d18-abd8-e705a40dd4e7",
+    "image_url": "/assets/images/gallery/1775120375970-tonostable.webp",
+    "alt_text": "tonos outside",
+    "display_order": 10,
+    "is_active": true
+  },
+  {
+    "id": "a309bd49-edea-4560-b0ce-252528bf015b",
+    "image_url": "/assets/images/gallery/1773306056707-tonosgreekgallery13.webp",
+    "alt_text": "Tonossheesha",
+    "display_order": 10,
+    "is_active": true
+  },
+  {
+    "id": "30e01351-dde5-4f65-a34f-fc21a4c584d3",
+    "image_url": "/assets/images/gallery/1774507427040-tonosgreekgallery14.png",
+    "alt_text": "tonos tree",
+    "display_order": 10,
+    "is_active": false
+  },
+  {
+    "id": "4a1167a8-605e-4f4f-9569-08271f558aa5",
+    "image_url": "/assets/images/gallery/1773306024332-tonosgreekgallery12.webp",
+    "alt_text": "tonosinterior12",
+    "display_order": 10,
+    "is_active": true
+  },
+  {
+    "id": "1fadfee0-d784-4860-94b9-1be26d2183da",
+    "image_url": "/assets/images/gallery/1773306009142-tonosgreekgallery11.webp",
+    "alt_text": "tonosoutdoor",
+    "display_order": 11,
+    "is_active": true
+  },
+  {
+    "id": "757b0d1d-4db3-4510-8e90-15ed45676441",
+    "image_url": "/assets/images/gallery/1773305988384-tonosgreekgallery10.webp",
+    "alt_text": "tonosexterior10",
+    "display_order": 13,
+    "is_active": true
+  }
+]

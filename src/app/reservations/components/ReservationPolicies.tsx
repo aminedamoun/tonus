@@ -1,15 +1,15 @@
 'use client';
 import { useState } from 'react';
- import Icon from'@/components/ui/AppIcon';
+import Icon from '@/components/ui/AppIcon';
 
 interface Policy {
-  id: string
-  question: string
-  answer: string
+  id: string;
+  question: string;
+  answer: string;
 }
 
 export default function ReservationPolicies() {
-  const [openId, setOpenId] = useState<string | null>('policy_cancellation')
+  const [openId, setOpenId] = useState<string | null>('policy_cancellation');
 
   const policies: Policy[] = [
     {
@@ -36,15 +36,12 @@ export default function ReservationPolicies() {
       answer:
         'Yes, we accommodate various dietary requirements including vegetarian, vegan, gluten-free, and halal options. Please inform us of any allergies or dietary restrictions when making your reservation, and our chef will prepare accordingly.',
     },
-  ]
+  ];
 
   return (
     <div className="max-w-3xl mx-auto space-y-4">
       {policies.map((policy) => (
-        <div
-          key={policy.id}
-          className="floating-card overflow-hidden transition-all duration-300"
-        >
+        <div key={policy.id} className="floating-card overflow-hidden transition-all duration-300">
           <button
             onClick={() => setOpenId(openId === policy.id ? null : policy.id)}
             className="w-full flex items-center justify-between p-6 text-left"
@@ -66,5 +63,5 @@ export default function ReservationPolicies() {
         </div>
       ))}
     </div>
-  )
+  );
 }

@@ -1,5 +1,5 @@
 import Link from 'next/link';
- import Icon from'@/components/ui/AppIcon';
+import Icon from '@/components/ui/AppIcon';
 
 export default function CTABanner() {
   return (
@@ -11,7 +11,7 @@ export default function CTABanner() {
             <span className="text-primary">Mediterranean</span>
           </h2>
           <p className="text-lg md:text-xl text-secondary-foreground/80 max-w-2xl mx-auto">
-            Reserve your table today and embark on a culinary journey through the Greek islands. 
+            Reserve your table today and embark on a culinary journey through the Greek islands.
             Fresh ingredients, authentic recipes, unforgettable flavors.
           </p>
           <div className="flex flex-wrap justify-center gap-4 pt-4">
@@ -34,5 +34,5 @@ export default function CTABanner() {
         </div>
       </div>
     </section>
-  )
+  );
 }

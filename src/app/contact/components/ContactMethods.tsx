@@ -2,12 +2,12 @@ import Icon from '@/components/ui/AppIcon';
 import { createWhatsAppLink, createContactMessage } from '@/lib/whatsapp';
 
 interface ContactMethod {
-  id: string
-  icon: string
-  label: string
-  value: string
-  href: string
-  color: string
+  id: string;
+  icon: string;
+  label: string;
+  value: string;
+  href: string;
+  color: string;
 }
 
 export default function ContactMethods() {
@@ -47,7 +47,7 @@ export default function ContactMethods() {
       href: 'https://www.instagram.com/tonosgreekrestaurant',
       color: 'bg-accent',
     },
-  ]
+  ];
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -59,7 +59,10 @@ export default function ContactMethods() {
           rel={method.href.startsWith('http') ? 'noopener noreferrer' : undefined}
           className="floating-card p-6 flex flex-col items-center text-center space-y-4"
         >
-          <div className={`w-14 h-14 ${method.color} rounded-2xl flex items-center justify-center border-2 border-white/20 shadow-blue-glow transition-all duration-500 hover:border-white/40 hover:shadow-blue-glow-lg`}>
+          <div
+            className={`w-14 h-14 ${method.color} rounded-2xl flex items-center justify-center border-2 border-white/20 shadow-blue-glow transition-all duration-500 hover:border-white/40 hover:shadow-blue-glow-lg`}
+          >
+            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
             <Icon name={method.icon as any} size={28} className="text-white" />
           </div>
           <div>
@@ -71,5 +74,5 @@ export default function ContactMethods() {
         </a>
       ))}
     </div>
-  )
+  );
 }

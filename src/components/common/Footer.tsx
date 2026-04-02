@@ -6,9 +6,19 @@ export default function Footer() {
   const currentYear = 2026;
 
   const socialLinks = [
-  { id: 'social_instagram', icon: 'CameraIcon', href: 'https://www.instagram.com/tonosgreekrestaurant', label: 'Instagram' },
-  { id: 'social_whatsapp', icon: 'ChatBubbleLeftRightIcon', href: 'https://wa.me/971581391113', label: 'WhatsApp' }];
-
+    {
+      id: 'social_instagram',
+      icon: 'CameraIcon',
+      href: 'https://www.instagram.com/tonosgreekrestaurant',
+      label: 'Instagram',
+    },
+    {
+      id: 'social_whatsapp',
+      icon: 'ChatBubbleLeftRightIcon',
+      href: 'https://wa.me/971581391113',
+      label: 'WhatsApp',
+    },
+  ];
 
   return (
     <footer className="bg-white border-t border-border py-12">
@@ -22,53 +32,68 @@ export default function Footer() {
                 src="/assets/images/logotonos-1770983075095.png"
                 alt="Tonos Restaurant Logo"
                 fill
-                className="object-contain" />
-
+                className="object-contain"
+              />
             </div>
-            <span className="text-lg font-serif font-medium tracking-wider text-secondary">Tonos
-
+            <span className="text-lg font-serif font-medium tracking-wider text-secondary">
+              Tonos
             </span>
           </div>
 
           {/* Navigation Links - Center */}
           <nav className="flex flex-wrap items-center justify-center gap-8">
-            <Link href="/homepage" className="font-sans text-sm font-semibold text-foreground hover:text-primary transition-colors">
+            <Link
+              href="/homepage"
+              className="font-sans text-sm font-semibold text-foreground hover:text-primary transition-colors"
+            >
               Home
             </Link>
-            <Link href="/menu" className="font-sans text-sm font-semibold text-foreground hover:text-primary transition-colors">
+            <Link
+              href="/menu"
+              className="font-sans text-sm font-semibold text-foreground hover:text-primary transition-colors"
+            >
               Menu
             </Link>
-            <Link href="/delivery" className="font-sans text-sm font-semibold text-foreground hover:text-primary transition-colors">
+            <Link
+              href="/delivery"
+              className="font-sans text-sm font-semibold text-foreground hover:text-primary transition-colors"
+            >
               Delivery
             </Link>
-            <Link href="/reservations" className="font-sans text-sm font-semibold text-foreground hover:text-primary transition-colors">
+            <Link
+              href="/reservations"
+              className="font-sans text-sm font-semibold text-foreground hover:text-primary transition-colors"
+            >
               Reservations
             </Link>
-            <Link href="/about" className="font-sans text-sm font-semibold text-foreground hover:text-primary transition-colors">
+            <Link
+              href="/about"
+              className="font-sans text-sm font-semibold text-foreground hover:text-primary transition-colors"
+            >
               About
             </Link>
-            <Link href="/contact" className="font-sans text-sm font-semibold text-foreground hover:text-primary transition-colors">
+            <Link
+              href="/contact"
+              className="font-sans text-sm font-semibold text-foreground hover:text-primary transition-colors"
+            >
               Contact
-            </Link>
-            <Link href="/admin-panel" className="font-sans text-sm font-semibold text-foreground hover:text-primary transition-colors">
-              Admin Panel
             </Link>
           </nav>
 
           {/* Social Links - Right */}
           <div className="flex items-center gap-6">
-            {socialLinks?.map((social) =>
-            <a
-              key={social?.id}
-              href={social?.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-sans text-sm font-semibold text-foreground hover:text-primary transition-colors"
-              aria-label={social?.label}>
-
+            {socialLinks?.map((social) => (
+              <a
+                key={social?.id}
+                href={social?.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-sans text-sm font-semibold text-foreground hover:text-primary transition-colors"
+                aria-label={social?.label}
+              >
                 {social?.label}
               </a>
-            )}
+            ))}
           </div>
         </div>
 
@@ -78,15 +103,21 @@ export default function Footer() {
             © {currentYear} Tonos Greek Restaurant
           </p>
           <div className="flex gap-8">
-            <Link href="#" className="font-sans text-sm font-semibold text-foreground hover:text-primary transition-colors">
+            <Link
+              href="#"
+              className="font-sans text-sm font-semibold text-foreground hover:text-primary transition-colors"
+            >
               Privacy
             </Link>
-            <Link href="#" className="font-sans text-sm font-semibold text-foreground hover:text-primary transition-colors">
+            <Link
+              href="#"
+              className="font-sans text-sm font-semibold text-foreground hover:text-primary transition-colors"
+            >
               Terms
             </Link>
           </div>
         </div>
       </div>
-    </footer>);
-
+    </footer>
+  );
 }

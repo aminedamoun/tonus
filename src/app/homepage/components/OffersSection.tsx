@@ -1,8 +1,8 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import AppImage from '@/components/ui/AppImage';
 import Icon from '@/components/ui/AppIcon';
-import { createClient } from '@/lib/supabase/client';
+import offersData from '@/data/offers.json';
 import { createWhatsAppLink } from '@/lib/whatsapp';
 
 interface Offer {
@@ -22,9 +22,7 @@ function StarRating({ rating }: { rating: number }) {
       {[1, 2, 3, 4, 5].map((star) => (
         <svg
           key={star}
-          className={`w-4 h-4 ${
-            star <= rating ? 'text-yellow-400' : 'text-gray-300'
-          }`}
+          className={`w-4 h-4 ${star <= rating ? 'text-yellow-400' : 'text-gray-300'}`}
           fill="currentColor"
           viewBox="0 0 20 20"
         >
@@ -36,49 +34,25 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 export default function OffersSection() {
-  const [offers, setOffers] = useState<Offer[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    fetchOffers();
-  }, []);
-
-  const fetchOffers = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const supabase = createClient();
-      
-      const { data, error: fetchError } = await supabase
-        .from('offers')
-        .select('*')
-        .eq('available', true)
-        .order('display_order', { ascending: true })
-        .limit(3);
-
-      if (fetchError) throw fetchError;
-      
-      if (data) {
-        const formattedOffers: Offer[] = data.map((offer: any) => ({
-          id: offer.id,
-          title: offer.title,
-          description: offer.description || '',
-          price: offer.price,
-          imageUrl: offer.image_url,
-          validUntil: offer.valid_until,
-          available: offer.available,
-          starRating: offer.star_rating ?? 5,
-        }));
-        setOffers(formattedOffers);
-      }
-    } catch (err) {
-      console.error('Error fetching offers:', err);
-      setError('Failed to load offers. Please try again.');
-    } finally {
-      setLoading(false);
-    }
-  };
+  // Load available offers from local JSON, sorted by display_order, limited to 3
+  const [offers] = useState<Offer[]>(() =>
+    offersData
+      .filter((offer) => offer.available)
+      .sort((a, b) => (a.display_order ?? 0) - (b.display_order ?? 0))
+      .slice(0, 3)
+      .map((offer) => ({
+        id: offer.id,
+        title: offer.title,
+        description: offer.description || '',
+        price: offer.price,
+        imageUrl: offer.image_url,
+        validUntil: offer.valid_until,
+        available: offer.available,
+        starRating: offer.star_rating ?? 5,
+      }))
+  );
+  const loading = false;
+  const error: string | null = null;
 
   const formatValidUntil = (dateString?: string) => {
     if (!dateString) return null;
@@ -100,9 +74,12 @@ export default function OffersSection() {
           <h2 className="text-5xl md:text-7xl font-serif italic text-foreground">
             Special <span className="text-primary">Offers</span>
           </h2>
-          <p className="text-sm font-medium text-primary/70 tracking-widest uppercase">Handpicked for you</p>
+          <p className="text-sm font-medium text-primary/70 tracking-widest uppercase">
+            Handpicked for you
+          </p>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Take advantage of our exclusive offers and experience authentic Greek cuisine at special prices.
+            Take advantage of our exclusive offers and experience authentic Greek cuisine at special
+            prices.
           </p>
         </div>
 
@@ -121,9 +98,6 @@ export default function OffersSection() {
               <Icon name="ExclamationTriangleIcon" size={32} className="text-red-500" />
             </div>
             <p className="text-red-500 mb-4">{error}</p>
-            <button onClick={fetchOffers} className="btn-primary">
-              Try Again
-            </button>
           </div>
         )}
 

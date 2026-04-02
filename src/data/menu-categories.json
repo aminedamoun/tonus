@@ -1,0 +1,198 @@
+[
+  {
+    "id": "17aee32a-2314-4336-8993-4b1d14df432a",
+    "name": "Most Liked",
+    "menu_type": "shisha",
+    "subcategory": "Most Liked",
+    "display_order": 1
+  },
+  {
+    "id": "48638c9d-bfec-488f-b425-5ddfe336c74e",
+    "name": "Coffee (Hot)",
+    "menu_type": "bar",
+    "subcategory": "Coffee (Hot)",
+    "display_order": 1
+  },
+  {
+    "id": "423fcdec-9cf7-4d5b-815f-f06064522258",
+    "name": "Most Liked",
+    "menu_type": "food",
+    "subcategory": "Most Liked",
+    "display_order": 1
+  },
+  {
+    "id": "8da37c86-42bf-45cd-b77b-57ce9bcdc804",
+    "name": "Arabic Shisha",
+    "menu_type": "shisha",
+    "subcategory": "Arabic Shisha",
+    "display_order": 2
+  },
+  {
+    "id": "d4ecbc08-a68c-4f97-b026-7c5b9bef4626",
+    "name": "Coffee (Iced)",
+    "menu_type": "bar",
+    "subcategory": "Coffee (Iced)",
+    "display_order": 2
+  },
+  {
+    "id": "67681dbc-cf9d-452d-9539-1ac0e116b981",
+    "name": "Breakfast",
+    "menu_type": "food",
+    "subcategory": "Breakfast",
+    "display_order": 2
+  },
+  {
+    "id": "d238f8d3-6c1b-4375-a82c-ef2dbc501d02",
+    "name": "Speciality Organic Tea",
+    "menu_type": "bar",
+    "subcategory": "Speciality Organic Tea",
+    "display_order": 3
+  },
+  {
+    "id": "681a4aa5-02c1-4e23-8a5e-b68e1b86a044",
+    "name": "Soup",
+    "menu_type": "food",
+    "subcategory": "Soup",
+    "display_order": 3
+  },
+  {
+    "id": "fecbd7cf-9c8a-484a-bb51-eac88930fcc5",
+    "name": "Turkish Shisha",
+    "menu_type": "shisha",
+    "subcategory": "Turkish Shisha",
+    "display_order": 3
+  },
+  {
+    "id": "d8a801c2-c100-4c33-94f7-d073179f1de7",
+    "name": "Mocktails",
+    "menu_type": "bar",
+    "subcategory": "Mocktails",
+    "display_order": 4
+  },
+  {
+    "id": "f6aad305-3337-4348-942b-5f0b6af8fd95",
+    "name": "Salads",
+    "menu_type": "food",
+    "subcategory": "Salads",
+    "display_order": 4
+  },
+  {
+    "id": "4fddf531-a1b6-4987-9582-2e932576ff61",
+    "name": "Russian Shisha",
+    "menu_type": "shisha",
+    "subcategory": "Russian Shisha",
+    "display_order": 4
+  },
+  {
+    "id": "4b8e9387-b884-4011-b97e-5e500d13cbe3",
+    "name": "Tono's Signature",
+    "menu_type": "bar",
+    "subcategory": "Tono's Signature",
+    "display_order": 5
+  },
+  {
+    "id": "7a58e436-19d0-4319-9120-5c8e947de448",
+    "name": "Signature Shisha",
+    "menu_type": "shisha",
+    "subcategory": "Signature Shisha",
+    "display_order": 5
+  },
+  {
+    "id": "460f5931-ae48-4944-86da-e0067aa0cadf",
+    "name": "Sandwich",
+    "menu_type": "food",
+    "subcategory": "Sandwich",
+    "display_order": 5
+  },
+  {
+    "id": "d2a51698-d996-43a6-9716-5bf1d980d686",
+    "name": "Extras",
+    "menu_type": "shisha",
+    "subcategory": "Extras",
+    "display_order": 6
+  },
+  {
+    "id": "ee50bd49-5acc-4b5b-9e28-36d23258f3b9",
+    "name": "Freshly Squeezed Juices",
+    "menu_type": "bar",
+    "subcategory": "Freshly Squeezed Juices",
+    "display_order": 6
+  },
+  {
+    "id": "139a1b4e-61c0-4cbb-8e0f-b87f3f20173e",
+    "name": "Burger",
+    "menu_type": "food",
+    "subcategory": "Burger",
+    "display_order": 6
+  },
+  {
+    "id": "8849dd02-57d0-4a4f-a67b-9a8946e08d4f",
+    "name": "Water",
+    "menu_type": "bar",
+    "subcategory": "Water",
+    "display_order": 7
+  },
+  {
+    "id": "a0c42b0b-bbfe-43b2-952f-b65edbb00739",
+    "name": "Change Bowl",
+    "menu_type": "shisha",
+    "subcategory": "Change Bowl",
+    "display_order": 7
+  },
+  {
+    "id": "ad9fcd04-19a5-4e9b-b9c0-171aa396751a",
+    "name": "Appetizers",
+    "menu_type": "food",
+    "subcategory": "Appetizers",
+    "display_order": 7
+  },
+  {
+    "id": "4f759038-b9c8-4b65-921d-5d6a570c1c7b",
+    "name": "Soft Drinks",
+    "menu_type": "bar",
+    "subcategory": "Soft Drinks",
+    "display_order": 8
+  },
+  {
+    "id": "a79d8c1b-c338-4c7d-b5e9-e43fd01aa245",
+    "name": "Grill Sea Food",
+    "menu_type": "food",
+    "subcategory": "Grill Sea Food",
+    "display_order": 8
+  },
+  {
+    "id": "afa83854-4e3b-49d9-bb7e-95a42057da71",
+    "name": "Meat Lovers",
+    "menu_type": "food",
+    "subcategory": "Meat Lovers",
+    "display_order": 9
+  },
+  {
+    "id": "e2d8873c-2fdc-48b9-b571-a7e36175e745",
+    "name": "Pasta",
+    "menu_type": "food",
+    "subcategory": "Pasta",
+    "display_order": 10
+  },
+  {
+    "id": "a9045e46-b2e9-4ca1-bee0-04dd8516452a",
+    "name": "Sides",
+    "menu_type": "food",
+    "subcategory": "Sides",
+    "display_order": 11
+  },
+  {
+    "id": "42729cac-f4d3-423f-ad99-f480030ef31b",
+    "name": "Veggies",
+    "menu_type": "food",
+    "subcategory": "Veggies",
+    "display_order": 12
+  },
+  {
+    "id": "41f1e83d-20fc-469c-bd82-d5e4ded62ac8",
+    "name": "Desserts",
+    "menu_type": "food",
+    "subcategory": "Desserts",
+    "display_order": 13
+  }
+]

@@ -1,17 +1,17 @@
 'use client';
 import { useState } from 'react';
- import Icon from'@/components/ui/AppIcon';
+import Icon from '@/components/ui/AppIcon';
 
 interface FormData {
-  fullName: string
-  phone: string
-  email: string
-  date: string
-  time: string
-  guests: string
-  seatingArea: 'non-smoking' | 'smoking'; 
-  seatingType:'indoor' | 'outdoor'
-  specialRequests: string
+  fullName: string;
+  phone: string;
+  email: string;
+  date: string;
+  time: string;
+  guests: string;
+  seatingArea: 'non-smoking' | 'smoking';
+  seatingType: 'indoor' | 'outdoor';
+  specialRequests: string;
 }
 
 export default function BookingForm() {
@@ -25,22 +25,33 @@ export default function BookingForm() {
     seatingArea: 'non-smoking',
     seatingType: 'indoor',
     specialRequests: '',
-  })
+  });
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [showSuccess, setShowSuccess] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const timeSlots = [
-    '12:00 PM', '12:30 PM', '1:00 PM', '1:30 PM', '2:00 PM',
-    '6:00 PM', '6:30 PM', '7:00 PM', '7:30 PM', '8:00 PM',
-    '8:30 PM', '9:00 PM', '9:30 PM', '10:00 PM',
-  ]
+    '12:00 PM',
+    '12:30 PM',
+    '1:00 PM',
+    '1:30 PM',
+    '2:00 PM',
+    '6:00 PM',
+    '6:30 PM',
+    '7:00 PM',
+    '7:30 PM',
+    '8:00 PM',
+    '8:30 PM',
+    '9:00 PM',
+    '9:30 PM',
+    '10:00 PM',
+  ];
 
-  const guestOptions = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10+']
+  const guestOptions = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10+'];
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
     try {
       const response = await fetch(
@@ -60,12 +71,12 @@ export default function BookingForm() {
         throw new Error(data.error || 'Failed to send reservation');
       }
 
-      setIsSubmitting(false)
-      setShowSuccess(true)
+      setIsSubmitting(false);
+      setShowSuccess(true);
 
       // Reset form after 3 seconds
       setTimeout(() => {
-        setShowSuccess(false)
+        setShowSuccess(false);
         setFormData({
           fullName: '',
           phone: '',
@@ -76,20 +87,20 @@ export default function BookingForm() {
           seatingArea: 'non-smoking',
           seatingType: 'indoor',
           specialRequests: '',
-        })
-      }, 3000)
+        });
+      }, 3000);
     } catch (error) {
       console.error('Error sending reservation:', error);
       setIsSubmitting(false);
       alert('Failed to send reservation. Please try again or contact us directly.');
     }
-  }
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value })
-  }
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   return (
     <div className="floating-card max-w-2xl mx-auto p-8 md:p-12">
@@ -100,7 +111,7 @@ export default function BookingForm() {
           </div>
           <h3 className="text-3xl font-serif text-foreground">Reservation Confirmed!</h3>
           <p className="text-muted-foreground">
-            We've sent a confirmation email to {formData.email}. <br />
+            We&apos;ve sent a confirmation email to {formData.email}. <br />
             We look forward to welcoming you!
           </p>
         </div>
@@ -235,9 +246,11 @@ export default function BookingForm() {
                     onChange={handleChange}
                     className="sr-only"
                   />
-                  <div className={`seating-card ${
-                    formData.seatingArea === 'non-smoking' ? 'seating-card-active' : ''
-                  }`}>
+                  <div
+                    className={`seating-card ${
+                      formData.seatingArea === 'non-smoking' ? 'seating-card-active' : ''
+                    }`}
+                  >
                     <Icon name="NoSymbolIcon" size={24} className="mb-2" />
                     <span className="font-semibold text-sm">Non-Smoking</span>
                   </div>
@@ -251,9 +264,11 @@ export default function BookingForm() {
                     onChange={handleChange}
                     className="sr-only"
                   />
-                  <div className={`seating-card ${
-                    formData.seatingArea === 'smoking' ? 'seating-card-active' : ''
-                  }`}>
+                  <div
+                    className={`seating-card ${
+                      formData.seatingArea === 'smoking' ? 'seating-card-active' : ''
+                    }`}
+                  >
                     <Icon name="FireIcon" size={24} className="mb-2" />
                     <span className="font-semibold text-sm">Smoking Area</span>
                   </div>
@@ -276,9 +291,11 @@ export default function BookingForm() {
                     onChange={handleChange}
                     className="sr-only"
                   />
-                  <div className={`seating-card ${
-                    formData.seatingType === 'indoor' ? 'seating-card-active' : ''
-                  }`}>
+                  <div
+                    className={`seating-card ${
+                      formData.seatingType === 'indoor' ? 'seating-card-active' : ''
+                    }`}
+                  >
                     <Icon name="HomeIcon" size={24} className="mb-2" />
                     <span className="font-semibold text-sm">Indoor</span>
                   </div>
@@ -292,9 +309,11 @@ export default function BookingForm() {
                     onChange={handleChange}
                     className="sr-only"
                   />
-                  <div className={`seating-card ${
-                    formData.seatingType === 'outdoor' ? 'seating-card-active' : ''
-                  }`}>
+                  <div
+                    className={`seating-card ${
+                      formData.seatingType === 'outdoor' ? 'seating-card-active' : ''
+                    }`}
+                  >
                     <Icon name="SunIcon" size={24} className="mb-2" />
                     <span className="font-semibold text-sm">Outdoor</span>
                   </div>
@@ -336,11 +355,11 @@ export default function BookingForm() {
           </button>
 
           <p className="text-xs text-muted-foreground text-center">
-            By submitting, you agree to our reservation policies. 
-            Cancellations must be made 24 hours in advance.
+            By submitting, you agree to our reservation policies. Cancellations must be made 24
+            hours in advance.
           </p>
         </form>
       )}
     </div>
-  )
+  );
 }

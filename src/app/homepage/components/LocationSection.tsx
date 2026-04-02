@@ -4,11 +4,11 @@ import Icon from '@/components/ui/AppIcon';
 import Image from 'next/image';
 
 export default function LocationSection() {
-  const [isHydrated, setIsHydrated] = useState(false)
+  const [isHydrated, setIsHydrated] = useState(false);
 
   useEffect(() => {
-    setIsHydrated(true)
-  }, [])
+    setIsHydrated(true);
+  }, []);
 
   return (
     <section className="section-padding bg-white reveal">
@@ -93,7 +93,7 @@ export default function LocationSection() {
                         <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
                         <span className="text-xs font-bold text-foreground">Open 24 Hours</span>
                       </div>
-                      
+
                       {/* Service Hours Grid */}
                       <div className="grid gap-1.5 mt-2">
                         {/* Lunch */}
@@ -101,23 +101,29 @@ export default function LocationSection() {
                           <span className="inline-flex items-center justify-center min-w-[75px] px-2 py-0.5 bg-amber-500/10 text-amber-700 dark:text-amber-400 text-[10px] font-semibold rounded-md border border-amber-500/20 group-hover:border-amber-500/40 transition-colors">
                             🍽️ Lunch
                           </span>
-                          <span className="text-xs text-muted-foreground pt-0.5">Mon-Fri 11 AM–4 PM</span>
+                          <span className="text-xs text-muted-foreground pt-0.5">
+                            Mon-Fri 11 AM–4 PM
+                          </span>
                         </div>
-                        
+
                         {/* Happy Hours */}
                         <div className="flex items-start gap-2 group">
                           <span className="inline-flex items-center justify-center min-w-[75px] px-2 py-0.5 bg-purple-500/10 text-purple-700 dark:text-purple-400 text-[10px] font-semibold rounded-md border border-purple-500/20 group-hover:border-purple-500/40 transition-colors">
                             🍹 Happy
                           </span>
-                          <span className="text-xs text-muted-foreground pt-0.5">Daily 10 AM–5 PM</span>
+                          <span className="text-xs text-muted-foreground pt-0.5">
+                            Daily 10 AM–5 PM
+                          </span>
                         </div>
-                        
+
                         {/* Delivery */}
                         <div className="flex items-start gap-2 group">
                           <span className="inline-flex items-center justify-center min-w-[75px] px-2 py-0.5 bg-blue-500/10 text-blue-700 dark:text-blue-400 text-[10px] font-semibold rounded-md border border-blue-500/20 group-hover:border-blue-500/40 transition-colors">
                             🚚 Delivery
                           </span>
-                          <span className="text-xs text-muted-foreground pt-0.5">Daily 11 AM–2:30 AM</span>
+                          <span className="text-xs text-muted-foreground pt-0.5">
+                            Daily 11 AM–2:30 AM
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -134,7 +140,8 @@ export default function LocationSection() {
                       ADDRESS
                     </p>
                     <p className="text-sm font-semibold text-foreground">
-                      FF3, Boulevard Plaza - Shop - Tower 2 Sheikh Mohammed bin Rashid Blvd - Burj Khalifa - Downtown Dubai - Dubai
+                      FF3, Boulevard Plaza - Shop - Tower 2 Sheikh Mohammed bin Rashid Blvd - Burj
+                      Khalifa - Downtown Dubai - Dubai
                     </p>
                   </div>
                 </div>
@@ -162,5 +169,5 @@ export default function LocationSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
