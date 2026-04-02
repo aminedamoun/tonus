@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import galleryData from '@/data/gallery-images.json';
 import ImageUpload from './ImageUpload';
+import { toPreviewSrc } from '../utils';
 
 interface GalleryImage {
   id: string;
@@ -125,7 +126,7 @@ export default function GalleryAdmin({ password }: GalleryAdminProps) {
           <div className="w-48">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={draft.image_url}
+              src={toPreviewSrc(draft.image_url)}
               alt={draft.alt_text || 'Preview'}
               className="w-full aspect-video rounded-xl object-cover border border-gray-200"
             />
@@ -248,7 +249,7 @@ export default function GalleryAdmin({ password }: GalleryAdminProps) {
               {img.image_url ? (
                 /* eslint-disable-next-line @next/next/no-img-element */
                 <img
-                  src={img.image_url}
+                  src={toPreviewSrc(img.image_url)}
                   alt={img.alt_text}
                   className="w-full aspect-video rounded-xl object-cover"
                 />

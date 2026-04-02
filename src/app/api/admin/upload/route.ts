@@ -91,8 +91,9 @@ export async function POST(request: NextRequest) {
     await commitFile(targetPath, base64Content, `Upload image ${filename} via admin panel`);
 
     const url = `/assets/images/${folder}/${filename}`;
+    const previewUrl = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/${BRANCH}/${targetPath}`;
 
-    return NextResponse.json({ success: true, url });
+    return NextResponse.json({ success: true, url, previewUrl });
   } catch (error) {
     console.error('Upload error:', error);
     return NextResponse.json(

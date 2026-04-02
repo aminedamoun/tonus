@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import offersData from '@/data/offers.json';
 import ImageUpload from './ImageUpload';
+import { toPreviewSrc } from '../utils';
 
 interface Offer {
   id: string;
@@ -294,7 +295,7 @@ export default function OffersAdmin({ password }: OffersAdminProps) {
                 {offer.image_url ? (
                   /* eslint-disable-next-line @next/next/no-img-element */
                   <img
-                    src={offer.image_url}
+                    src={toPreviewSrc(offer.image_url)}
                     alt={offer.title}
                     className="h-20 w-20 rounded-lg object-cover"
                   />

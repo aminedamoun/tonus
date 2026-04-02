@@ -9,6 +9,8 @@ interface ImageUploadProps {
   onUploaded: (url: string) => void;
 }
 
+import { toPreviewSrc } from '../utils';
+
 export default function ImageUpload({
   password,
   folder = 'menu',
@@ -17,6 +19,7 @@ export default function ImageUpload({
 }: ImageUploadProps) {
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState('');
+  const [localPreview, setLocalPreview] = useState('');
   const fileRef = useRef<HTMLInputElement>(null);
 
   const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,6 +38,9 @@ export default function ImageUpload({
     setUploading(true);
     setError('');
 
+    // Show instant local preview
+    setLocalPreview(URL.createObjectURL(file));
+
     try {
       const formData = new FormData();
       formData.append('file', file);
@@ -50,6 +56,8 @@ export default function ImageUpload({
       if (!res.ok) throw new Error(data.error || 'Upload failed');
 
       onUploaded(data.url);
+      // Use GitHub raw URL for preview since local path won't work until next deploy
+      setLocalPreview(data.previewUrl || toPreviewSrc(data.url));
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Upload failed');
     } finally {
@@ -60,10 +68,19 @@ export default function ImageUpload({
 
   return (
     <div className="space-y-2">
-      {currentUrl && (
+      {(localPreview || currentUrl) && (
         <div className="w-20 h-20 rounded-lg overflow-hidden bg-gray-100">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={currentUrl} alt="Current" className="w-full h-full object-cover" />
+          <img
+            src={localPreview || toPreviewSrc(currentUrl || '')}
+            alt="Current"
+            className="w-full h-full object-cover"
+            onError={(e) => {
+              // Fall back to local path if GitHub raw fails
+              const target = e.target as HTMLImageElement;
+              if (currentUrl && target.src !== currentUrl) target.src = currentUrl;
+            }}
+          />
         </div>
       )}
       <div className="flex items-center gap-2">

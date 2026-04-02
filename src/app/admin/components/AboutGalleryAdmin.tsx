@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import aboutGalleryData from '@/data/about-gallery-images.json';
 import ImageUpload from './ImageUpload';
+import { toPreviewSrc } from '../utils';
 
 interface GalleryImage {
   id: string;
@@ -113,7 +114,7 @@ export default function AboutGalleryAdmin({ password }: AboutGalleryAdminProps) 
                 {image.image_url ? (
                   /* eslint-disable-next-line @next/next/no-img-element */
                   <img
-                    src={image.image_url}
+                    src={toPreviewSrc(image.image_url)}
                     alt={image.alt_text}
                     className="w-full h-full object-cover"
                   />

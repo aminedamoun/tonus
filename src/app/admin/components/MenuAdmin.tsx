@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo } from 'react';
 import menuItemsData from '@/data/menu-items.json';
 import menuCategoriesData from '@/data/menu-categories.json';
 import ImageUpload from './ImageUpload';
+import { toPreviewSrc } from '../utils';
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
@@ -538,7 +539,7 @@ export default function MenuAdmin({ password }: { password: string }) {
                                   {item.image_url ? (
                                     /* eslint-disable-next-line @next/next/no-img-element */
                                     <img
-                                      src={item.image_url}
+                                      src={toPreviewSrc(item.image_url)}
                                       alt={item.name}
                                       className="w-full h-full object-cover"
                                     />
