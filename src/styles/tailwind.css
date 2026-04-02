@@ -1,0 +1,471 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Greek Restaurant Theme Colors */
+    --color-background: #FFFFFF; /* white */
+    --color-foreground: #1a1a1a; /* charcoal */
+    --color-border: #e5e5e5; /* gray-200 */
+    --color-input: #f5f5f5; /* gray-100 */
+    --color-ring: #89CFF0; /* baby-blue-400 */
+    
+    --color-card: #FFFFFF; /* white */
+    --color-card-foreground: #1a1a1a; /* charcoal */
+    
+    --color-popover: #FFFFFF; /* white */
+    --color-popover-foreground: #1a1a1a; /* charcoal */
+    
+    --color-muted: #f5f5f5; /* gray-100 */
+    --color-muted-foreground: #6b7280; /* gray-500 */
+    
+    --color-primary: #89CFF0; /* baby-blue-400 */
+    --color-primary-foreground: #1a1a1a; /* charcoal */
+    
+    --color-secondary: #1E3A5F; /* deep-blue-900 */
+    --color-secondary-foreground: #FFFFFF; /* white */
+    
+    --color-accent: #708238; /* olive-green-600 */
+    --color-accent-foreground: #FFFFFF; /* white */
+    
+    --color-destructive: #ef4444; /* red-500 */
+    --color-destructive-foreground: #FFFFFF; /* white */
+    
+    --color-success: #10b981; /* emerald-500 */
+    --color-success-foreground: #FFFFFF; /* white */
+    
+    --color-warning: #f59e0b; /* amber-500 */
+    --color-warning-foreground: #FFFFFF; /* white */
+    
+    --color-error: #dc2626; /* red-600 */
+    --color-error-foreground: #FFFFFF; /* white */
+    
+    /* Mediterranean Cream Background */
+    --color-cream: #fefdfb; /* cream-50 */
+    
+    /* Greek Pattern Overlay */
+    --color-pattern: rgba(137, 207, 240, 0.05); /* baby-blue with opacity */
+    --color-hover-light-blue: #e0f2fe;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+ h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif !important;
+
+} }
+
+
+@layer components {
+  /* Greek Restaurant Component Styles */
+  
+  .hero-video-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(26, 26, 26, 0.2) 0%,
+      rgba(26, 26, 26, 0.3) 100%
+    );
+  }
+  
+  .floating-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 2px solid rgba(137, 207, 240, 0.4);
+    box-shadow: none;
+    border-radius: 2rem;
+    transition: all 0.45s ease-out;
+  }
+  
+  .floating-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 0 15px rgba(137, 207, 240, 0.25), 0 0 30px rgba(137, 207, 240, 0.15), 0 10px 40px rgba(137, 207, 240, 0.1);
+    border-color: rgba(137, 207, 240, 0.6);
+  }
+  
+  .pill-badge {
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
+    font-weight: 700;
+    padding: 6px 20px;
+    border-radius: 100px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: inline-block;
+  }
+  
+  .dish-card {
+    background: var(--color-card);
+    border-radius: 32px;
+    overflow: hidden;
+    border: 2px solid rgba(137, 207, 240, 0.4);
+    transition: all 0.45s ease-out;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dish-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 0 15px rgba(137, 207, 240, 0.25), 0 0 30px rgba(137, 207, 240, 0.15), 0 10px 40px rgba(137, 207, 240, 0.1);
+    border-color: rgba(137, 207, 240, 0.6);
+  }
+  
+  .dish-card img {
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .dish-card:hover img {
+    transform: scale(1.05);
+  }
+  
+  .greek-pattern-bg {
+    background-image: 
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 20px,
+        var(--color-pattern) 20px,
+        var(--color-pattern) 40px
+      );
+  }
+  
+  .form-input {
+    @apply w-full px-4 py-3 rounded-2xl border border-border bg-input;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary;
+    @apply transition-all duration-200;
+  }
+  
+  .btn-primary {
+    @apply px-8 py-4 rounded-full font-bold text-sm uppercase tracking-wider;
+    @apply bg-primary text-primary-foreground;
+    @apply transition-all duration-300;
+    @apply shadow-lg;
+    box-shadow: 0 4px 14px 0 rgba(137, 207, 240, 0.39);
+  }
+  
+  .btn-primary:hover {
+    @apply scale-105;
+    box-shadow: 0 0 12px rgba(137, 207, 240, 0.35), 0 0 24px rgba(137, 207, 240, 0.2), 0 6px 20px rgba(137, 207, 240, 0.15);
+  }
+  
+  .btn-primary:active {
+    @apply scale-95;
+    box-shadow: 0 0 12px rgba(137, 207, 240, 0.35), 0 0 24px rgba(137, 207, 240, 0.2), 0 6px 20px rgba(137, 207, 240, 0.15);
+  }
+  
+  .btn-secondary {
+    @apply px-8 py-4 rounded-full font-bold text-sm uppercase tracking-wider;
+    @apply bg-secondary text-secondary-foreground;
+    @apply hover:scale-105 active:scale-95;
+    @apply transition-all duration-200;
+    @apply shadow-lg hover:shadow-xl;
+  }
+  
+  .btn-ghost {
+    @apply px-8 py-4 rounded-full font-semibold text-sm;
+    @apply border-2 border-foreground text-foreground;
+    @apply hover:bg-foreground hover:text-background;
+    @apply transition-all duration-200;
+  }
+  
+  .section-padding {
+    @apply py-20 md:py-32;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto px-6 md:px-8;
+  }
+  
+  /* Scroll Reveal Animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Navigation Underline Animation */
+  .nav-link {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--color-primary);
+    transform: translateX(-101%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    transform: translateX(0);
+  }
+  
+  /* Map Info Card */
+  .map-info-card {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 2px solid rgba(137, 207, 240, 0.4);
+    box-shadow: none;
+    border-radius: 32px;
+    padding: 2rem;
+    transition: all 0.45s ease-out;
+  }
+  
+  .map-info-card:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 0 15px rgba(137, 207, 240, 0.25), 0 0 30px rgba(137, 207, 240, 0.15);
+    border-color: rgba(137, 207, 240, 0.6);
+  }
+  
+  /* Category Filter Pills */
+  .filter-pill {
+    @apply px-6 py-2 rounded-full font-semibold text-sm;
+    @apply border-2 border-border text-foreground;
+    @apply hover:border-primary hover:text-primary;
+    @apply transition-all duration-200 cursor-pointer;
+  }
+  
+  .filter-pill.active {
+    @apply bg-primary text-primary-foreground border-primary;
+  }
+  
+  /* Seating Preference Cards */
+  .seating-option {
+    @apply cursor-pointer;
+  }
+  
+  .seating-card {
+    @apply flex flex-col items-center justify-center;
+    @apply py-6 px-4 rounded-2xl;
+    @apply border-2 border-border bg-input;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:border-primary hover:shadow-lg;
+  }
+.seating-card-active  {
+    @apply border-primary;
+    box-shadow: 0 0 20px rgba(137, 207, 240, 0.3), 0 0 40px rgba(137, 207, 240, 0.15);
+  }
+  
+  .seating-card:hover {
+    @apply transform -translate-y-1;
+  }
+  
+  .seating-card-active:hover {
+    box-shadow: 0 0 25px rgba(137, 207, 240, 0.4), 0 0 50px rgba(137, 207, 240, 0.2);
+  }
+  
+  /* Availability Badge */
+  .availability-badge {
+    @apply px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider;
+  }
+  
+  .availability-badge.available {
+    @apply bg-success text-success-foreground;
+  }
+  
+  .availability-badge.unavailable {
+    @apply bg-muted text-muted-foreground;
+  }
+  
+  /* Loading Spinner */
+  .spinner {
+    border: 3px solid rgba(137, 207, 240, 0.2);
+    border-top-color: var(--color-primary);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 0.8s linear infinite;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s ease-in-out infinite;
+}
+
+/* Fade-in animation for menu items */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+/* Menu tab content transition */
+@keyframes menuFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-menu-fade {
+  animation: menuFadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Timeline Animations */
+.timeline-dot {
+  opacity: 0;
+  transform: translate(-50%, 0) scale(0);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.timeline-dot-visible {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
+.timeline-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-card-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Pulse animation for timeline dots */
+@keyframes timeline-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+  }
+}
+
+.timeline-dot-visible {
+  animation: timeline-pulse 2s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-muted);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-secondary);
+}
+
+/* Selection */
+::selection {
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+::-moz-selection {
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+.promo-glass-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow:
+    0 20px 48px rgba(0,0,0,0.45),
+    0 0 0 1px rgba(255,215,0,0.25),
+    0 0 24px rgba(59,130,246,0.35),
+    0 0 48px rgba(255,215,0,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.2) !important;
+}
