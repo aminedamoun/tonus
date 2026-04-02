@@ -54,9 +54,9 @@ async function commitFile(path: string, content: string, message: string) {
 
 export async function POST(request: NextRequest) {
   try {
-    const adminPassword = process.env.ADMIN_PASSWORD || 'tonos2024';
-    const authHeader = request.headers.get('x-admin-password');
-    if (authHeader !== adminPassword) {
+    const adminPassword = (process.env.ADMIN_PASSWORD || 'tonos2024').trim();
+    const authHeader = (request.headers.get('x-admin-password') || '').trim();
+    if (!authHeader || authHeader !== adminPassword) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
