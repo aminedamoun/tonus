@@ -5,6 +5,15 @@ const REPO_OWNER = 'aminedamoun';
 const REPO_NAME = 'tonus';
 const BRANCH = 'main';
 
+const ALLOWED_FILES = [
+  'src/data/menu-items.json',
+  'src/data/menu-categories.json',
+  'src/data/offers.json',
+  'src/data/gallery-images.json',
+  'src/data/about-gallery-images.json',
+  'src/data/hero-ad-blocks.json',
+];
+
 async function getFileSha(path: string): Promise<string | null> {
   const res = await fetch(
     `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}?ref=${BRANCH}`,
@@ -45,7 +54,6 @@ async function commitFile(path: string, content: string, message: string) {
 
 export async function POST(request: NextRequest) {
   try {
-    // Simple auth check
     const adminPassword = process.env.ADMIN_PASSWORD || 'tonos2024';
     const authHeader = request.headers.get('x-admin-password');
     if (authHeader !== adminPassword) {
@@ -56,25 +64,24 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'GitHub token not configured' }, { status: 500 });
     }
 
-    const { file, data, message } = await request.json();
+    const body = await request.json();
 
-    const allowedFiles = [
-      'src/data/menu-items.json',
-      'src/data/menu-categories.json',
-      'src/data/offers.json',
-      'src/data/gallery-images.json',
-      'src/data/about-gallery-images.json',
-      'src/data/hero-ad-blocks.json',
-    ];
+    // Support both single file { file, data } and multi-file { files: [{ file, data }] }
+    const filesToSave: { file: string; data: unknown }[] = body.files
+      ? body.files
+      : [{ file: body.file, data: body.data }];
 
-    if (!allowedFiles.includes(file)) {
-      return NextResponse.json({ error: 'Invalid file path' }, { status: 400 });
+    for (const entry of filesToSave) {
+      if (!ALLOWED_FILES.includes(entry.file)) {
+        return NextResponse.json({ error: `Invalid file: ${entry.file}` }, { status: 400 });
+      }
     }
 
-    const content = JSON.stringify(data, null, 2);
-    const commitMessage = message || `Update ${file.split('/').pop()} via admin panel`;
-
-    await commitFile(file, content, commitMessage);
+    for (const entry of filesToSave) {
+      const content = JSON.stringify(entry.data, null, 2);
+      const msg = body.message || `Update ${entry.file.split('/').pop()} via admin panel`;
+      await commitFile(entry.file, content, msg);
+    }
 
     return NextResponse.json({ success: true, message: 'Saved and deploying...' });
   } catch (error) {

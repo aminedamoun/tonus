@@ -4,14 +4,71 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import MenuAdmin from './components/MenuAdmin';
 import OffersAdmin from './components/OffersAdmin';
+import HeroVideoAdmin from './components/HeroVideoAdmin';
+import HeroAdsAdmin from './components/HeroAdsAdmin';
+import GalleryAdmin from './components/GalleryAdmin';
+import AboutGalleryAdmin from './components/AboutGalleryAdmin';
+import OverviewStats from './components/OverviewStats';
 
-type Tab = 'menu' | 'events';
+type Tab = 'overview' | 'menu' | 'offers' | 'hero-video' | 'hero-ads' | 'gallery' | 'about-gallery';
+
+const tabs: { id: Tab; label: string; icon: string; title: string; subtitle: string }[] = [
+  {
+    id: 'overview',
+    label: 'Overview',
+    icon: '📊',
+    title: 'Dashboard Overview',
+    subtitle: 'A quick look at your restaurant content',
+  },
+  {
+    id: 'menu',
+    label: 'Menu',
+    icon: '🍽️',
+    title: 'Menu Management',
+    subtitle: 'Add, edit, and organize your food & drink items',
+  },
+  {
+    id: 'offers',
+    label: 'Offers',
+    icon: '🏷️',
+    title: 'Offers & Promotions',
+    subtitle: 'Manage special deals and event announcements',
+  },
+  {
+    id: 'hero-video',
+    label: 'Hero Video',
+    icon: '🎬',
+    title: 'Hero Video',
+    subtitle: 'Set the homepage background video',
+  },
+  {
+    id: 'hero-ads',
+    label: 'Hero Ads',
+    icon: '📢',
+    title: 'Hero Ads',
+    subtitle: 'Manage promotional blocks on the homepage',
+  },
+  {
+    id: 'gallery',
+    label: 'Gallery',
+    icon: '🖼️',
+    title: 'Photo Gallery',
+    subtitle: 'Curate ambiance and food photography',
+  },
+  {
+    id: 'about-gallery',
+    label: 'About Gallery',
+    icon: '📸',
+    title: 'About Gallery',
+    subtitle: 'Manage photos shown on the About Us page',
+  },
+];
 
 export default function AdminPage() {
   const [password, setPassword] = useState('');
   const [inputPassword, setInputPassword] = useState('');
   const [authenticated, setAuthenticated] = useState(false);
-  const [activeTab, setActiveTab] = useState<Tab>('menu');
+  const [activeTab, setActiveTab] = useState<Tab>('overview');
 
   useEffect(() => {
     const stored = localStorage.getItem('admin_password');
@@ -27,6 +84,14 @@ export default function AdminPage() {
     localStorage.setItem('admin_password', inputPassword);
     setPassword(inputPassword);
     setAuthenticated(true);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('admin_password');
+    setPassword('');
+    setInputPassword('');
+    setAuthenticated(false);
+    setActiveTab('overview');
   };
 
   if (!authenticated) {
@@ -58,48 +123,81 @@ export default function AdminPage() {
     );
   }
 
+  const current = tabs.find((t) => t.id === activeTab)!;
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'overview':
+        return <OverviewStats onTabChange={(tab) => setActiveTab(tab as Tab)} />;
+      case 'menu':
+        return <MenuAdmin password={password} />;
+      case 'offers':
+        return <OffersAdmin password={password} />;
+      case 'hero-video':
+        return <HeroVideoAdmin password={password} />;
+      case 'hero-ads':
+        return <HeroAdsAdmin password={password} />;
+      case 'gallery':
+        return <GalleryAdmin password={password} />;
+      case 'about-gallery':
+        return <AboutGalleryAdmin password={password} />;
+      default:
+        return null;
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="border-b border-gray-200 px-6 py-4 flex items-center justify-between">
-        <h1 className="text-xl font-bold text-gray-900">Tonos Admin</h1>
-        <Link href="/homepage" className="text-sm text-primary hover:underline">
-          Back to Site
-        </Link>
+    <div className="min-h-screen bg-[#f8fafc]">
+      {/* Top Bar */}
+      <header className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <span className="text-2xl">&#9881;</span>
+          <div>
+            <h1 className="text-xl font-bold text-gray-900">Admin Panel</h1>
+            <p className="text-sm text-gray-500">Manage your restaurant content</p>
+          </div>
+        </div>
+        <div className="flex items-center gap-4">
+          <Link href="/homepage" className="text-sm text-primary hover:underline">
+            Back to Site
+          </Link>
+          <button
+            onClick={handleLogout}
+            className="text-sm px-4 py-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 transition-colors"
+          >
+            Logout
+          </button>
+        </div>
       </header>
 
-      {/* Tabs */}
-      <div className="px-6 pt-6 flex gap-3">
-        <button
-          onClick={() => setActiveTab('menu')}
-          className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${
-            activeTab === 'menu'
-              ? 'bg-primary text-white'
-              : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-          }`}
-        >
-          Menu
-        </button>
-        <button
-          onClick={() => setActiveTab('events')}
-          className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${
-            activeTab === 'events'
-              ? 'bg-primary text-white'
-              : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-          }`}
-        >
-          Events &amp; Offers
-        </button>
+      {/* Tab Bar */}
+      <div className="bg-white border-b border-gray-200 px-6 py-3 overflow-x-auto">
+        <div className="flex gap-2 min-w-max">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${
+                activeTab === tab.id
+                  ? 'bg-[#89CFF0] text-white'
+                  : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50'
+              }`}
+            >
+              <span className="text-base">{tab.icon}</span>
+              {tab.label}
+            </button>
+          ))}
+        </div>
       </div>
 
-      {/* Tab Content */}
-      <div className="p-6">
-        {activeTab === 'menu' ? (
-          <MenuAdmin password={password} />
-        ) : (
-          <OffersAdmin password={password} />
-        )}
+      {/* Section Title */}
+      <div className="px-6 pt-6 pb-2">
+        <h2 className="text-lg font-semibold text-gray-900">{current.title}</h2>
+        <p className="text-sm text-gray-500">{current.subtitle}</p>
       </div>
+
+      {/* Content Area */}
+      <div className="p-6">{renderContent()}</div>
     </div>
   );
 }
