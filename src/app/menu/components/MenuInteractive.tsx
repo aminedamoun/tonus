@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useMemo } from 'react';
 import MenuItemCard from './MenuItemCard';
 import menuItemsData from '@/data/menu-items.json';
 import menuCategoriesData from '@/data/menu-categories.json';
@@ -92,49 +92,34 @@ function sortCategories(categories: string[], menuType: MenuType): string[] {
 
 export default function MenuInteractive() {
   const [menuType, setMenuType] = useState<MenuType>('food');
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
   const [activeSubcategory, setActiveSubcategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    setLoading(true);
-    setError(null);
-
-    try {
-      // Filter categories for current menu type from local JSON
-      const filteredCategories = menuCategoriesData
+  const categories = useMemo(
+    () =>
+      (menuCategoriesData as Category[])
         .filter((cat) => cat.menu_type === menuType)
-        .sort((a, b) => a.display_order - b.display_order) as Category[];
+        .sort((a, b) => a.display_order - b.display_order),
+    [menuType]
+  );
 
-      setCategories(filteredCategories);
-      setActiveSubcategory('All');
-
-      // Filter menu items for current menu type from local JSON
-      const filteredItems = menuItemsData
+  const menuItems = useMemo(
+    () =>
+      menuItemsData
         .filter((item) => item.menu_categories.menu_type === menuType)
-        .sort((a, b) => a.display_order - b.display_order);
-
-      const formattedItems: MenuItem[] = filteredItems.map((item) => ({
-        id: item.id,
-        name: item.name,
-        description: item.description || '',
-        price: item.price,
-        category: item.menu_categories.name,
-        subcategory: item.menu_categories.subcategory,
-        available: item.available,
-        imageUrl: item.image_url,
-      }));
-      setMenuItems(formattedItems);
-    } catch (err) {
-      console.error('Error loading menu data:', err);
-      setError('Failed to load menu data.');
-    } finally {
-      setLoading(false);
-    }
-  }, [menuType]);
+        .sort((a, b) => a.display_order - b.display_order)
+        .map((item) => ({
+          id: item.id,
+          name: item.name,
+          description: item.description || '',
+          price: item.price,
+          category: item.menu_categories.name,
+          subcategory: item.menu_categories.subcategory,
+          available: item.available,
+          imageUrl: item.image_url,
+        })),
+    [menuType]
+  );
 
   const uniqueSubcategories = [
     'All',
@@ -200,31 +185,6 @@ export default function MenuInteractive() {
     }
   };
 
-  if (error) {
-    return (
-      <div className="text-center py-20 px-4">
-        <Icon name="ExclamationTriangleIcon" size={64} className="mx-auto text-red-500 mb-6" />
-        <h3 className="text-2xl font-bold text-foreground mb-4">Unable to Load Menu</h3>
-        <p className="text-lg text-muted-foreground mb-6 max-w-md mx-auto">{error}</p>
-        <button
-          onClick={() => window.location.reload()}
-          className="px-8 py-4 bg-primary text-white rounded-full font-bold hover:bg-primary/90 transition-all duration-300 shadow-blue-glow"
-        >
-          Try Again
-        </button>
-      </div>
-    );
-  }
-
-  if (loading) {
-    return (
-      <div className="text-center py-20">
-        <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
-        <p className="mt-4 text-muted-foreground">Loading menu...</p>
-      </div>
-    );
-  }
-
   return (
     <div className="space-y-12">
       {/* Menu Type Tabs */}
@@ -233,7 +193,10 @@ export default function MenuInteractive() {
           {(['food', 'bar', 'shisha'] as MenuType[]).map((type) => (
             <button
               key={type}
-              onClick={() => setMenuType(type)}
+              onClick={() => {
+                setMenuType(type);
+                setActiveSubcategory('All');
+              }}
               className={`flex-1 sm:flex-none px-3 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-xs sm:text-sm uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-1.5 sm:gap-2.5 min-w-0 ${
                 menuType === type
                   ? 'bg-primary text-white shadow-blue-glow-lg scale-105'
