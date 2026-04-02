@@ -2,7 +2,8 @@
 import { useState, useEffect } from 'react';
 import AppImage from '@/components/ui/AppImage';
 import Icon from '@/components/ui/AppIcon';
-import galleryData from '@/data/gallery-images.json';
+import galleryStaticData from '@/data/gallery-images.json';
+import { useLiveData } from '@/lib/useLiveData';
 
 interface GalleryImage {
   id: string;
@@ -13,6 +14,7 @@ interface GalleryImage {
 }
 
 export default function AtmosphereGallery() {
+  const galleryData = useLiveData('gallery-images.json', galleryStaticData);
   // Load active gallery images from local JSON, sorted by display_order
   const [images] = useState<GalleryImage[]>(() =>
     (galleryData as GalleryImage[])

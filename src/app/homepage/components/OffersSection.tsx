@@ -2,8 +2,9 @@
 import { useState } from 'react';
 import AppImage from '@/components/ui/AppImage';
 import Icon from '@/components/ui/AppIcon';
-import offersData from '@/data/offers.json';
+import offersStaticData from '@/data/offers.json';
 import { createWhatsAppLink } from '@/lib/whatsapp';
+import { useLiveData } from '@/lib/useLiveData';
 
 interface Offer {
   id: string;
@@ -34,6 +35,7 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 export default function OffersSection() {
+  const offersData = useLiveData('offers.json', offersStaticData);
   // Load available offers from local JSON, sorted by display_order, limited to 3
   const [offers] = useState<Offer[]>(() =>
     offersData

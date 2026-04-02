@@ -3,8 +3,9 @@ import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import AppImage from '@/components/ui/AppImage';
 import Icon from '@/components/ui/AppIcon';
-import menuItems from '@/data/menu-items.json';
+import menuItemsStaticData from '@/data/menu-items.json';
 import { createWhatsAppLink, createOrderMessage } from '@/lib/whatsapp';
+import { useLiveData } from '@/lib/useLiveData';
 
 interface MenuItem {
   id: string;
@@ -18,6 +19,7 @@ interface MenuItem {
 type SignatureType = 'dishes' | 'drinks' | 'shisha';
 
 export default function SignatureDishes() {
+  const liveMenuItems = useLiveData('menu-items.json', menuItemsStaticData);
   const [activeType, setActiveType] = useState<SignatureType>('dishes');
 
   // Map signature type to menu_type in the JSON
@@ -30,7 +32,7 @@ export default function SignatureDishes() {
   // Filter and format items from local JSON data
   const items: MenuItem[] = useMemo(() => {
     const menuType = menuTypeMap[activeType];
-    const filtered = menuItems
+    const filtered = liveMenuItems
       .filter((item) => item.available && item.menu_categories?.menu_type === menuType)
       .sort((a, b) => (a.display_order ?? 0) - (b.display_order ?? 0))
       .slice(0, 3);
@@ -44,7 +46,7 @@ export default function SignatureDishes() {
       badge: index === 0 ? 'Most Popular' : undefined,
     }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeType]);
+  }, [activeType, liveMenuItems]);
 
   const loading = false;
 

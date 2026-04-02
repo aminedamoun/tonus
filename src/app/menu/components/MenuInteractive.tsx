@@ -1,8 +1,9 @@
 'use client';
 import { useState } from 'react';
 import MenuItemCard from './MenuItemCard';
-import allMenuItems from '@/data/menu-items.json';
-import allCategories from '@/data/menu-categories.json';
+import allMenuItemsStatic from '@/data/menu-items.json';
+import allCategoriesStatic from '@/data/menu-categories.json';
+import { useLiveData } from '@/lib/useLiveData';
 import Icon from '@/components/ui/AppIcon';
 
 interface MenuItem {
@@ -91,6 +92,9 @@ function sortCategories(categories: string[], menuType: MenuType): string[] {
 }
 
 export default function MenuInteractive() {
+  const allMenuItems = useLiveData('menu-items.json', allMenuItemsStatic);
+  const allCategories = useLiveData('menu-categories.json', allCategoriesStatic);
+
   const [menuType, setMenuType] = useState<MenuType>('food');
   const [activeSubcategory, setActiveSubcategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState<string>('');

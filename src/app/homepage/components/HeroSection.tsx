@@ -3,7 +3,8 @@ import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Icon from '@/components/ui/AppIcon';
 import { createWhatsAppLink } from '@/lib/whatsapp';
-import heroAdBlocks from '@/data/hero-ad-blocks.json';
+import heroAdBlocksStatic from '@/data/hero-ad-blocks.json';
+import { useLiveData } from '@/lib/useLiveData';
 
 interface PromoCard {
   id: string;
@@ -174,6 +175,7 @@ function BubbleCard({ card, index: _index }: { card: PromoCard; index: number })
 }
 
 export default function HeroSection() {
+  const heroAdBlocks = useLiveData('hero-ad-blocks.json', heroAdBlocksStatic);
   const videoDesktopRef = useRef<HTMLVideoElement>(null);
   const videoMobileRef = useRef<HTMLVideoElement>(null);
   const heroVideoUrl = '/assets/banner_1.webm';

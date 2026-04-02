@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
-import aboutGalleryData from '@/data/about-gallery-images.json';
+import aboutGalleryStatic from '@/data/about-gallery-images.json';
+import { useLiveData } from '@/lib/useLiveData';
 
 interface GalleryImage {
   id: string;
@@ -61,6 +62,8 @@ function getImageUrl(src: string): string {
 }
 
 export default function VisualStoryGallery() {
+  const aboutGalleryData = useLiveData('about-gallery-images.json', aboutGalleryStatic);
+
   const [images, setImages] = useState<GalleryImage[]>(fallbackImages);
 
   useEffect(() => {
@@ -71,7 +74,7 @@ export default function VisualStoryGallery() {
     if (activeImages.length > 0) {
       setImages(activeImages);
     }
-  }, []);
+  }, [aboutGalleryData]);
 
   const displayImages = images.slice(0, 6);
 
