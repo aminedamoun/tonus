@@ -66,6 +66,11 @@ export async function POST(request: NextRequest) {
 
     const body = await request.json();
 
+    // Dry run mode: just validate auth, don't save anything
+    if (body.dryRun) {
+      return NextResponse.json({ success: true, message: 'Auth valid' });
+    }
+
     // Support both single file { file, data } and multi-file { files: [{ file, data }] }
     const filesToSave: { file: string; data: unknown }[] = body.files
       ? body.files

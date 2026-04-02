@@ -78,12 +78,41 @@ export default function AdminPage() {
     }
   }, []);
 
-  const handleLogin = (e: React.FormEvent) => {
+  const [loginError, setLoginError] = useState('');
+  const [loggingIn, setLoggingIn] = useState(false);
+
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!inputPassword.trim()) return;
-    localStorage.setItem('admin_password', inputPassword);
-    setPassword(inputPassword);
-    setAuthenticated(true);
+    setLoggingIn(true);
+    setLoginError('');
+
+    try {
+      // Validate password against the server before granting access
+      const res = await fetch('/api/admin/save', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-admin-password': inputPassword.trim(),
+        },
+        body: JSON.stringify({ file: 'src/data/hero-ad-blocks.json', data: null, dryRun: true }),
+      });
+
+      if (res.status === 401) {
+        setLoginError('Wrong password. Please try again.');
+        setLoggingIn(false);
+        return;
+      }
+
+      // Password is valid
+      localStorage.setItem('admin_password', inputPassword.trim());
+      setPassword(inputPassword.trim());
+      setAuthenticated(true);
+    } catch {
+      setLoginError('Connection error. Please try again.');
+    } finally {
+      setLoggingIn(false);
+    }
   };
 
   const handleLogout = () => {
@@ -112,11 +141,17 @@ export default function AdminPage() {
             onChange={(e) => setInputPassword(e.target.value)}
             className="w-full px-4 py-3 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
           />
+          {loginError && <p className="text-sm text-red-500 text-center">{loginError}</p>}
           <button
             type="submit"
-            className="w-full py-3 bg-primary text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
+            disabled={loggingIn}
+            className={`w-full py-3 font-semibold rounded-lg transition-opacity ${
+              loggingIn
+                ? 'bg-gray-400 text-gray-200 cursor-wait'
+                : 'bg-primary text-white hover:opacity-90'
+            }`}
           >
-            Enter Admin
+            {loggingIn ? 'Verifying...' : 'Enter Admin'}
           </button>
         </form>
       </div>
