@@ -79,18 +79,18 @@ export default function ShishaCategoryBanner({
   const isReversed = index % 2 === 1;
 
   return (
-    <div className="mb-10">
+    <div className="mb-8">
       <div
-        className={`shisha-banner-wrapper relative w-full rounded-[2rem] overflow-hidden group ${
+        className={`shisha-banner-wrapper relative w-full rounded-2xl overflow-hidden group ${
           isReversed ? 'flex-row-reverse' : ''
         }`}
         style={{ background: style.accentLight }}
       >
         <div
-          className={`flex flex-col ${isReversed ? 'md:flex-row-reverse' : 'md:flex-row'} items-stretch`}
+          className={`flex flex-col ${isReversed ? 'sm:flex-row-reverse' : 'sm:flex-row'} items-stretch`}
         >
           {/* Square Image Side */}
-          <div className="relative w-full md:w-80 lg:w-96 aspect-square shrink-0 overflow-hidden">
+          <div className="relative w-full sm:w-44 md:w-52 lg:w-56 aspect-square shrink-0 overflow-hidden">
             {hasImage ? (
               <>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -134,42 +134,38 @@ export default function ShishaCategoryBanner({
 
             {/* Flavor count chip on image */}
             <div
-              className="absolute top-4 left-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-white text-xs font-bold shadow-lg"
+              className="absolute top-3 left-3 flex items-center gap-1 px-2 py-1 rounded-full text-white text-[10px] font-bold shadow-lg"
               style={{
                 background: 'rgba(0,0,0,0.4)',
                 backdropFilter: 'blur(10px)',
               }}
             >
-              <span className="text-sm">{itemCount}</span>
+              <span className="text-xs">{itemCount}</span>
               <span className="opacity-70">{itemCount === 1 ? 'flavor' : 'flavors'}</span>
             </div>
           </div>
 
           {/* Content Side */}
-          <div className="flex-1 flex flex-col justify-center px-8 py-8 md:px-12 md:py-10 relative overflow-hidden">
-            {/* Background decorative elements */}
+          <div className="flex-1 flex flex-col justify-center px-5 py-5 sm:px-7 sm:py-0 relative overflow-hidden">
+            {/* Background decorative element */}
             <div
-              className="absolute -top-20 -right-20 w-60 h-60 rounded-full blur-3xl opacity-40 pointer-events-none"
-              style={{ background: style.accentLight }}
-            />
-            <div
-              className="absolute -bottom-16 -left-16 w-40 h-40 rounded-full blur-2xl opacity-30 pointer-events-none"
+              className="absolute -top-12 -right-12 w-36 h-36 rounded-full blur-3xl opacity-30 pointer-events-none"
               style={{ background: style.accentLight }}
             />
 
             {/* Icon + tagline row */}
-            <div className="flex items-center gap-3 mb-4 relative">
+            <div className="flex items-center gap-2 mb-2 relative">
               <div
-                className="shisha-banner-icon w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
+                className="shisha-banner-icon w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
                 style={{
                   background: `linear-gradient(135deg, ${style.accent}20, ${style.accent}10)`,
                   border: `1.5px solid ${style.accent}30`,
                 }}
               >
-                <Icon name={style.icon} size={20} style={{ color: style.accent }} />
+                <Icon name={style.icon} size={16} style={{ color: style.accent }} />
               </div>
               <span
-                className="text-[11px] font-bold uppercase tracking-[0.18em]"
+                className="text-[10px] font-bold uppercase tracking-[0.18em]"
                 style={{ color: style.accent }}
               >
                 {tagline}
@@ -177,29 +173,29 @@ export default function ShishaCategoryBanner({
             </div>
 
             {/* Category name */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif italic text-foreground leading-tight mb-3 relative">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-serif italic text-foreground leading-tight mb-1.5 relative">
               {categoryName}
             </h2>
 
             {/* Description */}
             {description && (
-              <p className="text-sm text-muted-foreground leading-relaxed max-w-md mb-6 relative">
+              <p className="text-xs text-muted-foreground leading-relaxed max-w-sm mb-3 relative line-clamp-2">
                 {description}
               </p>
             )}
 
             {/* Decorative bottom accent */}
-            <div className="flex items-center gap-3 relative">
+            <div className="flex items-center gap-2 relative">
               <div
-                className="h-[3px] w-10 rounded-full transition-all duration-500 group-hover:w-20"
+                className="h-[2px] w-8 rounded-full transition-all duration-500 group-hover:w-14"
                 style={{ background: style.accent }}
               />
               <div
-                className="h-[3px] w-3 rounded-full"
+                className="h-[2px] w-2 rounded-full"
                 style={{ background: `${style.accent}40` }}
               />
               <div
-                className="h-[3px] w-1.5 rounded-full"
+                className="h-[2px] w-1 rounded-full"
                 style={{ background: `${style.accent}20` }}
               />
             </div>
