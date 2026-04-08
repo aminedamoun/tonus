@@ -2308,5 +2308,20 @@
       "menu_type": "shisha",
       "subcategory": "Most Liked"
     }
+  },
+  {
+    "id": "fd7604ab-debc-463c-a6e6-7f58f93051bf",
+    "name": "English Breakfast",
+    "category_id": "17aee32a-2314-4336-8993-4b1d14df432a",
+    "price": "AED 75.00",
+    "description": "Eggs,sausage,baked beans,guacamole,cherry tomatoes,mushroom,hashbrown,mustard and sourdough.",
+    "available": true,
+    "display_order": 0,
+    "image_url": "/assets/images/menu/1775653488941-9ak8ft.webp",
+    "menu_categories": {
+      "name": "Most Liked",
+      "menu_type": "shisha",
+      "subcategory": "Most Liked"
+    }
   }
 ]
