@@ -321,7 +321,7 @@
     "price": "AED 95.00",
     "description": "",
     "available": true,
-    "display_order": 1,
+    "display_order": 0,
     "image_url": "/assets/images/menu/1775660401531-yro0ey.webp",
     "menu_categories": {
       "name": "Signature Shisha",
@@ -2331,7 +2331,7 @@
     "price": "AED 95.00",
     "description": "",
     "available": true,
-    "display_order": 0,
+    "display_order": 1,
     "image_url": "/assets/images/menu/1775660420105-lmckgv.webp",
     "menu_categories": {
       "name": "Signature Shisha",
