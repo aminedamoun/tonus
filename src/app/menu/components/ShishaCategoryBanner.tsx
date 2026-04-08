@@ -10,60 +10,59 @@ interface ShishaCategoryBannerProps {
   itemCount: number;
 }
 
-// Category-specific accent colors and icons
 const CATEGORY_STYLE: Record<
   string,
-  { gradient: string; icon: string; accentColor: string; pattern: string }
+  { gradient: string; icon: string; accent: string; bg: string }
 > = {
   'Most Liked': {
-    gradient: 'from-amber-500/80 via-orange-500/70 to-rose-500/60',
+    gradient: 'from-amber-600 to-orange-500',
     icon: 'HeartIcon',
-    accentColor: 'rgba(251, 191, 36, 0.4)',
-    pattern: 'radial-gradient(circle at 20% 50%, rgba(251, 191, 36, 0.15) 0%, transparent 50%)',
+    accent: 'rgba(251, 191, 36, 0.5)',
+    bg: 'from-amber-50 to-orange-50',
   },
   'Arabic Shisha': {
-    gradient: 'from-amber-700/80 via-yellow-600/70 to-amber-500/60',
+    gradient: 'from-amber-700 to-yellow-500',
     icon: 'SunIcon',
-    accentColor: 'rgba(180, 130, 50, 0.4)',
-    pattern: 'radial-gradient(circle at 80% 30%, rgba(180, 130, 50, 0.15) 0%, transparent 50%)',
+    accent: 'rgba(180, 130, 50, 0.5)',
+    bg: 'from-amber-50 to-yellow-50',
   },
   'Turkish Shisha': {
-    gradient: 'from-red-700/80 via-rose-600/70 to-red-500/60',
+    gradient: 'from-red-700 to-rose-500',
     icon: 'FireIcon',
-    accentColor: 'rgba(185, 28, 28, 0.4)',
-    pattern: 'radial-gradient(circle at 30% 70%, rgba(185, 28, 28, 0.15) 0%, transparent 50%)',
+    accent: 'rgba(185, 28, 28, 0.5)',
+    bg: 'from-red-50 to-rose-50',
   },
   'Russian Shisha': {
-    gradient: 'from-blue-700/80 via-indigo-600/70 to-blue-500/60',
+    gradient: 'from-blue-700 to-indigo-500',
     icon: 'SparklesIcon',
-    accentColor: 'rgba(59, 130, 246, 0.4)',
-    pattern: 'radial-gradient(circle at 70% 40%, rgba(59, 130, 246, 0.15) 0%, transparent 50%)',
+    accent: 'rgba(59, 130, 246, 0.5)',
+    bg: 'from-blue-50 to-indigo-50',
   },
   'Signature Shisha': {
-    gradient: 'from-purple-700/80 via-violet-600/70 to-purple-500/60',
+    gradient: 'from-purple-700 to-violet-500',
     icon: 'StarIcon',
-    accentColor: 'rgba(139, 92, 246, 0.4)',
-    pattern: 'radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%)',
+    accent: 'rgba(139, 92, 246, 0.5)',
+    bg: 'from-purple-50 to-violet-50',
   },
   Extras: {
-    gradient: 'from-teal-600/80 via-emerald-500/70 to-teal-400/60',
+    gradient: 'from-teal-600 to-emerald-500',
     icon: 'PlusCircleIcon',
-    accentColor: 'rgba(20, 184, 166, 0.4)',
-    pattern: 'radial-gradient(circle at 60% 60%, rgba(20, 184, 166, 0.15) 0%, transparent 50%)',
+    accent: 'rgba(20, 184, 166, 0.5)',
+    bg: 'from-teal-50 to-emerald-50',
   },
   'Change Bowl': {
-    gradient: 'from-cyan-600/80 via-sky-500/70 to-cyan-400/60',
+    gradient: 'from-cyan-600 to-sky-500',
     icon: 'ArrowPathIcon',
-    accentColor: 'rgba(6, 182, 212, 0.4)',
-    pattern: 'radial-gradient(circle at 40% 40%, rgba(6, 182, 212, 0.15) 0%, transparent 50%)',
+    accent: 'rgba(6, 182, 212, 0.5)',
+    bg: 'from-cyan-50 to-sky-50',
   },
 };
 
 const DEFAULT_STYLE = {
-  gradient: 'from-primary/80 via-primary/60 to-primary/40',
+  gradient: 'from-primary to-primary/70',
   icon: 'FireIcon',
-  accentColor: 'rgba(137, 207, 240, 0.4)',
-  pattern: 'radial-gradient(circle at 50% 50%, rgba(137, 207, 240, 0.15) 0%, transparent 50%)',
+  accent: 'rgba(137, 207, 240, 0.5)',
+  bg: 'from-blue-50 to-sky-50',
 };
 
 export default function ShishaCategoryBanner({
@@ -77,125 +76,161 @@ export default function ShishaCategoryBanner({
   const hasImage = imageUrl && imageUrl.trim() !== '';
 
   return (
-    <div className="shisha-banner-wrapper relative w-full rounded-3xl overflow-hidden mb-10 group">
-      {/* Background layer */}
-      <div className="relative h-48 sm:h-56 md:h-64 w-full overflow-hidden">
+    <div className="flex justify-center mb-12">
+      <div className="shisha-banner-wrapper relative w-64 sm:w-72 md:w-80 aspect-square rounded-[2rem] overflow-hidden group cursor-default">
+        {/* Background */}
         {hasImage ? (
           <>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={imageUrl}
               alt={categoryName}
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               loading="lazy"
               decoding="async"
             />
-            {/* Dark overlay for text readability */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
           </>
         ) : (
-          /* Gradient fallback when no image */
-          <div
-            className={`absolute inset-0 bg-gradient-to-br ${style.gradient}`}
-            style={{ backgroundImage: style.pattern }}
-          />
+          <div className={`absolute inset-0 bg-gradient-to-br ${style.bg}`}>
+            {/* Decorative pattern for no-image state */}
+            <div
+              className="absolute inset-0 opacity-30"
+              style={{
+                backgroundImage: `radial-gradient(circle at 30% 70%, ${style.accent} 0%, transparent 50%), radial-gradient(circle at 70% 30%, ${style.accent} 0%, transparent 50%)`,
+              }}
+            />
+          </div>
         )}
 
-        {/* Decorative floating circles */}
-        <div
-          className="absolute -top-10 -right-10 w-40 h-40 rounded-full opacity-20 blur-2xl animate-pulse-subtle"
-          style={{ background: style.accentColor }}
-        />
-        <div
-          className="absolute -bottom-8 -left-8 w-32 h-32 rounded-full opacity-15 blur-xl animate-float"
-          style={{ background: style.accentColor }}
-        />
-
-        {/* Decorative smoke-like SVG pattern */}
+        {/* Smoke SVG decoration */}
         <svg
-          className="absolute right-0 top-0 h-full w-1/3 opacity-10"
-          viewBox="0 0 200 400"
+          className="absolute inset-0 w-full h-full opacity-[0.07] pointer-events-none"
+          viewBox="0 0 300 300"
           fill="none"
-          xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M100 400C100 400 30 300 80 200C130 100 50 50 100 0"
-            stroke="white"
+            d="M150 300C150 300 90 220 130 150C170 80 100 40 150 0"
+            stroke={hasImage ? 'white' : 'currentColor'}
             strokeWidth="2"
-            strokeLinecap="round"
             className="shisha-smoke-path"
           />
           <path
-            d="M140 400C140 400 70 280 120 180C170 80 90 30 140 -20"
-            stroke="white"
+            d="M190 300C190 300 130 200 170 130C210 60 140 20 190 -20"
+            stroke={hasImage ? 'white' : 'currentColor'}
             strokeWidth="1.5"
-            strokeLinecap="round"
             className="shisha-smoke-path"
-            style={{ animationDelay: '1s' }}
+            style={{ animationDelay: '1.2s' }}
           />
           <path
-            d="M60 400C60 400 -10 320 40 220C90 120 10 70 60 20"
-            stroke="white"
+            d="M110 300C110 300 50 240 90 170C130 100 60 60 110 20"
+            stroke={hasImage ? 'white' : 'currentColor'}
             strokeWidth="1"
-            strokeLinecap="round"
             className="shisha-smoke-path"
-            style={{ animationDelay: '2s' }}
+            style={{ animationDelay: '2.4s' }}
           />
         </svg>
 
-        {/* Content overlay */}
-        <div className="absolute inset-0 flex items-center px-6 sm:px-10 md:px-14">
-          <div className="flex items-center gap-5 sm:gap-8 w-full">
-            {/* Icon circle */}
-            <div
-              className="shisha-banner-icon shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center border-2 border-white/30 shadow-lg"
-              style={{
-                background: `linear-gradient(135deg, ${style.accentColor}, rgba(255,255,255,0.1))`,
-                backdropFilter: 'blur(12px)',
-              }}
-            >
-              <Icon name={style.icon} size={32} className="text-white drop-shadow-lg sm:hidden" />
-              <Icon
-                name={style.icon}
-                size={40}
-                className="text-white drop-shadow-lg hidden sm:block"
-              />
-            </div>
+        {/* Floating accent orb */}
+        <div
+          className="absolute -top-6 -right-6 w-28 h-28 rounded-full blur-2xl opacity-30 animate-pulse-subtle pointer-events-none"
+          style={{ background: style.accent }}
+        />
 
-            {/* Text content */}
-            <div className="flex-1 min-w-0">
-              <p className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-white/70 mb-1">
-                {tagline}
-              </p>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif italic text-white drop-shadow-md leading-tight">
-                {categoryName}
-              </h2>
-              <p className="text-xs sm:text-sm text-white/60 mt-1 line-clamp-1 hidden sm:block">
+        {/* Content - bottom aligned */}
+        <div className="absolute inset-0 flex flex-col justify-end p-6">
+          {/* Icon badge - top right */}
+          <div
+            className="absolute top-5 right-5 shisha-banner-icon w-12 h-12 rounded-xl flex items-center justify-center border border-white/20 shadow-lg"
+            style={{
+              background: hasImage
+                ? 'rgba(255,255,255,0.15)'
+                : `linear-gradient(135deg, ${style.accent}, transparent)`,
+              backdropFilter: 'blur(10px)',
+            }}
+          >
+            <Icon
+              name={style.icon}
+              size={24}
+              className={hasImage ? 'text-white drop-shadow' : 'text-foreground/70'}
+            />
+          </div>
+
+          {/* Count badge - top left */}
+          <div
+            className="absolute top-5 left-5 flex flex-col items-center justify-center w-11 h-11 rounded-xl border border-white/20"
+            style={{
+              background: hasImage ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.05)',
+              backdropFilter: 'blur(8px)',
+            }}
+          >
+            <span
+              className={`text-lg font-bold leading-none ${hasImage ? 'text-white' : 'text-foreground'}`}
+            >
+              {itemCount}
+            </span>
+            <span
+              className={`text-[8px] uppercase tracking-wider mt-0.5 ${hasImage ? 'text-white/70' : 'text-muted-foreground'}`}
+            >
+              {itemCount === 1 ? 'flavor' : 'flavors'}
+            </span>
+          </div>
+
+          {/* Text */}
+          <div>
+            <p
+              className={`text-[10px] font-bold uppercase tracking-[0.2em] mb-1 ${
+                hasImage ? 'text-white/60' : 'text-muted-foreground'
+              }`}
+            >
+              {tagline}
+            </p>
+            <h2
+              className={`text-2xl sm:text-3xl font-serif italic leading-tight ${
+                hasImage ? 'text-white drop-shadow-md' : 'text-foreground'
+              }`}
+            >
+              {categoryName}
+            </h2>
+            {description && (
+              <p
+                className={`text-xs mt-1.5 line-clamp-2 leading-relaxed ${
+                  hasImage ? 'text-white/50' : 'text-muted-foreground'
+                }`}
+              >
                 {description}
               </p>
-            </div>
-
-            {/* Item count badge */}
-            <div
-              className="shrink-0 hidden sm:flex flex-col items-center justify-center w-16 h-16 rounded-2xl border border-white/20"
-              style={{
-                background: 'rgba(255,255,255,0.1)',
-                backdropFilter: 'blur(8px)',
-              }}
-            >
-              <span className="text-2xl font-bold text-white leading-none">{itemCount}</span>
-              <span className="text-[10px] uppercase tracking-wider text-white/60 mt-0.5">
-                {itemCount === 1 ? 'flavor' : 'flavors'}
-              </span>
-            </div>
+            )}
           </div>
+
+          {/* Bottom accent line */}
+          <div
+            className={`mt-4 h-0.5 w-12 rounded-full transition-all duration-500 group-hover:w-20 ${
+              hasImage ? '' : ''
+            }`}
+            style={{
+              background: hasImage
+                ? 'rgba(255,255,255,0.4)'
+                : `linear-gradient(90deg, ${style.accent}, transparent)`,
+            }}
+          />
         </div>
 
-        {/* Bottom border glow */}
+        {/* Corner border accents */}
         <div
-          className="absolute bottom-0 left-0 right-0 h-1"
+          className="absolute top-0 left-0 w-16 h-16 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
           style={{
-            background: `linear-gradient(90deg, transparent, ${style.accentColor}, transparent)`,
+            borderTop: `2px solid ${style.accent}`,
+            borderLeft: `2px solid ${style.accent}`,
+            borderTopLeftRadius: '2rem',
+          }}
+        />
+        <div
+          className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          style={{
+            borderBottom: `2px solid ${style.accent}`,
+            borderRight: `2px solid ${style.accent}`,
+            borderBottomRightRadius: '2rem',
           }}
         />
       </div>
