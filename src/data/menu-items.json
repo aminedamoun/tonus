@@ -1447,7 +1447,7 @@
     "description": "Rich espresso poured over ice and cold milk, topped with a thick, airy layer of velvety cold foam.",
     "available": true,
     "display_order": 5,
-    "image_url": "/assets/images/menu/1773233577105-ezdvs2.webp",
+    "image_url": "/assets/images/menu/1775658344328-v9r8bz.webp",
     "menu_categories": {
       "name": "Coffee (Iced)",
       "menu_type": "bar",
@@ -1837,7 +1837,7 @@
     "description": "A rich, velvety blend of ice cream, coffee, and ice, creating the perfect balance of bold flavor and creamy texture.",
     "available": true,
     "display_order": 7,
-    "image_url": "/assets/images/menu/1773233598066-35vu4.webp",
+    "image_url": "/assets/images/menu/1775658374240-pnrjym.webp",
     "menu_categories": {
       "name": "Coffee (Iced)",
       "menu_type": "bar",
@@ -1927,7 +1927,7 @@
     "description": "A refreshing blend of premium cocoa, chilled milk, and ice cubes, topped with whipped cream.",
     "available": true,
     "display_order": 8,
-    "image_url": "/assets/images/menu/1773233618108-lgmnlg.webp",
+    "image_url": "/assets/images/menu/1775658398856-jzw8p1.webp",
     "menu_categories": {
       "name": "Coffee (Iced)",
       "menu_type": "bar",
@@ -2307,6 +2307,21 @@
       "name": "Most Liked",
       "menu_type": "food",
       "subcategory": "Most Liked"
+    }
+  },
+  {
+    "id": "b39e0960-f64c-4eaa-b225-771a977efdfe",
+    "name": "Arabic Coffee",
+    "category_id": "48638c9d-bfec-488f-b425-5ddfe336c74e",
+    "price": "AED 55.00",
+    "description": "Arabic coffee, known in Arabic as qahwa (Arabic: قهوة), is a loosely defined family of brewed coffee of Coffea arabica beans.",
+    "available": true,
+    "display_order": 0,
+    "image_url": "/assets/images/menu/1775658634153-5sdkdu.webp",
+    "menu_categories": {
+      "name": "Coffee (Hot)",
+      "menu_type": "bar",
+      "subcategory": "Coffee (Hot)"
     }
   }
 ]
