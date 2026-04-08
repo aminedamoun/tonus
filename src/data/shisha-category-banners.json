@@ -12,7 +12,7 @@
     "category_name": "Arabic Shisha",
     "tagline": "Traditional Arabian blends",
     "description": "Authentic Middle Eastern flavors crafted with premium tobacco",
-    "image_url": "",
+    "image_url": "/assets/images/menu/1775657679421-n8povl.webp",
     "display_order": 2
   },
   {
@@ -20,7 +20,7 @@
     "category_name": "Turkish Shisha",
     "tagline": "Istanbul's finest traditions",
     "description": "Rich Turkish blends with exotic spices and fruits",
-    "image_url": "",
+    "image_url": "/assets/images/menu/1775657685724-yn6tu4.webp",
     "display_order": 3
   },
   {
@@ -28,7 +28,7 @@
     "category_name": "Russian Shisha",
     "tagline": "Bold & modern flavors",
     "description": "Contemporary Russian-style hookah with vibrant taste profiles",
-    "image_url": "",
+    "image_url": "/assets/images/menu/1775657689178-8xyt28.webp",
     "display_order": 4
   },
   {
@@ -44,7 +44,7 @@
     "category_name": "Extras",
     "tagline": "Enhance your experience",
     "description": "Add-ons and upgrades for the perfect session",
-    "image_url": "",
+    "image_url": "/assets/images/menu/1775657696063-ro66gh.webp",
     "display_order": 6
   },
   {
@@ -52,7 +52,7 @@
     "category_name": "Change Bowl",
     "tagline": "Switch it up",
     "description": "Swap your bowl mid-session for a fresh flavor",
-    "image_url": "",
+    "image_url": "/assets/images/menu/1775657699769-rjcxji.webp",
     "display_order": 7
   }
 ]
