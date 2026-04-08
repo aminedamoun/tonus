@@ -301,10 +301,10 @@
   },
   {
     "id": "7f32c9b7-1b28-4153-a59b-acea8d86fe95",
-    "name": "Green Jelly with Cola",
+    "name": "Light",
     "category_id": "4fddf531-a1b6-4987-9582-2e932576ff61",
     "price": "AED 95.00",
-    "description": "Sweet green jelly flavor with cola.",
+    "description": "",
     "available": true,
     "display_order": 1,
     "image_url": "/assets/images/menu/1771673370986-wyjzx.webp",
@@ -316,10 +316,10 @@
   },
   {
     "id": "b8877de5-1527-45ea-a3eb-d7da9bfc7f1b",
-    "name": "Colosseum",
+    "name": "LIGHT_Athena Dream",
     "category_id": "7a58e436-19d0-4319-9120-5c8e947de448",
-    "price": "AED 200.00",
-    "description": "Exclusive signature blend.",
+    "price": "AED 95.00",
+    "description": "",
     "available": true,
     "display_order": 1,
     "image_url": "/assets/images/menu/1771673466442-c5l5fm.webp",
@@ -706,10 +706,10 @@
   },
   {
     "id": "5a53fe40-0f24-488a-9bc1-9a097022c313",
-    "name": "Peach Iced Tea",
+    "name": "Medium",
     "category_id": "4fddf531-a1b6-4987-9582-2e932576ff61",
     "price": "AED 95.00",
-    "description": "Refreshing peach tea blend.",
+    "description": "",
     "available": true,
     "display_order": 2,
     "image_url": "/assets/images/menu/1771673386419-8vrfg4.webp",
@@ -1036,7 +1036,7 @@
   },
   {
     "id": "2beacf05-9d3c-4936-864c-d54b3a407934",
-    "name": "Strawberry Lemonade with Basil",
+    "name": "Strong",
     "category_id": "4fddf531-a1b6-4987-9582-2e932576ff61",
     "price": "AED 95.00",
     "description": "Fresh strawberry lemonade with basil.",
@@ -1305,21 +1305,6 @@
     }
   },
   {
-    "id": "39ba78a1-031e-459a-9a19-297a73457225",
-    "name": "Fruit and Citrus Lemonade",
-    "category_id": "4fddf531-a1b6-4987-9582-2e932576ff61",
-    "price": "AED 95.00",
-    "description": "Mixed fruit citrus blend.",
-    "available": true,
-    "display_order": 4,
-    "image_url": "/assets/images/menu/1771673415380-uf8bhc.webp",
-    "menu_categories": {
-      "name": "Russian Shisha",
-      "menu_type": "shisha",
-      "subcategory": "Russian Shisha"
-    }
-  },
-  {
     "id": "1fd3a968-b8ad-49ce-946c-c1d12701c3d6",
     "name": "Love 66",
     "category_id": "fecbd7cf-9c8a-484a-bb51-eac88930fcc5",
@@ -1575,21 +1560,6 @@
     }
   },
   {
-    "id": "080e043d-6f0d-44ac-b76c-4de167977f9b",
-    "name": "Green Smoothie",
-    "category_id": "4fddf531-a1b6-4987-9582-2e932576ff61",
-    "price": "AED 95.00",
-    "description": "Healthy green smoothie flavor.",
-    "available": true,
-    "display_order": 5,
-    "image_url": "/assets/images/menu/1771673424686-d7acvj.webp",
-    "menu_categories": {
-      "name": "Russian Shisha",
-      "menu_type": "shisha",
-      "subcategory": "Russian Shisha"
-    }
-  },
-  {
     "id": "89fb20ef-317f-4161-80b7-d280f7feabe2",
     "name": "Avocado Benedict",
     "category_id": "67681dbc-cf9d-452d-9539-1ac0e116b981",
@@ -1662,21 +1632,6 @@
       "name": "Coffee (Hot)",
       "menu_type": "bar",
       "subcategory": "Coffee (Hot)"
-    }
-  },
-  {
-    "id": "17edfdcd-72db-4d5d-a2ea-62e6d3db15dc",
-    "name": "Blueberry Cake",
-    "category_id": "4fddf531-a1b6-4987-9582-2e932576ff61",
-    "price": "AED 95.00",
-    "description": "Sweet blueberry cake flavor.",
-    "available": true,
-    "display_order": 6,
-    "image_url": "/assets/images/menu/1771673433541-q2dbqa.webp",
-    "menu_categories": {
-      "name": "Russian Shisha",
-      "menu_type": "shisha",
-      "subcategory": "Russian Shisha"
     }
   },
   {
@@ -1857,21 +1812,6 @@
       "name": "Arabic Shisha",
       "menu_type": "shisha",
       "subcategory": "Arabic Shisha"
-    }
-  },
-  {
-    "id": "061b51cc-c99a-4a21-8a45-15e2c593ba36",
-    "name": "MasterMix",
-    "category_id": "4fddf531-a1b6-4987-9582-2e932576ff61",
-    "price": "AED 95.00",
-    "description": "Premium Russian master blend.",
-    "available": true,
-    "display_order": 7,
-    "image_url": "/assets/images/menu/1771673446454-j4u4np.webp",
-    "menu_categories": {
-      "name": "Russian Shisha",
-      "menu_type": "shisha",
-      "subcategory": "Russian Shisha"
     }
   },
   {
@@ -2322,6 +2262,96 @@
       "name": "Coffee (Hot)",
       "menu_type": "bar",
       "subcategory": "Coffee (Hot)"
+    }
+  },
+  {
+    "id": "cd534430-b81c-446a-8549-466dd6a254db",
+    "name": "MEDIUM_Special Edition",
+    "category_id": "7a58e436-19d0-4319-9120-5c8e947de448",
+    "price": "AED 95.00",
+    "description": "",
+    "available": true,
+    "display_order": 0,
+    "image_url": "",
+    "menu_categories": {
+      "name": "Signature Shisha",
+      "menu_type": "shisha",
+      "subcategory": "Signature Shisha"
+    }
+  },
+  {
+    "id": "7b613384-547b-41ef-9c68-a9d0d0cdcfdb",
+    "name": "STRONG_Pro Mini",
+    "category_id": "7a58e436-19d0-4319-9120-5c8e947de448",
+    "price": "AED 95.00",
+    "description": "",
+    "available": true,
+    "display_order": 0,
+    "image_url": "",
+    "menu_categories": {
+      "name": "Signature Shisha",
+      "menu_type": "shisha",
+      "subcategory": "Signature Shisha"
+    }
+  },
+  {
+    "id": "3908240e-4bfe-47b6-88ab-c5c7fe12902b",
+    "name": "LIGHT_santorini",
+    "category_id": "7a58e436-19d0-4319-9120-5c8e947de448",
+    "price": "AED 95.00",
+    "description": "",
+    "available": true,
+    "display_order": 0,
+    "image_url": "",
+    "menu_categories": {
+      "name": "Signature Shisha",
+      "menu_type": "shisha",
+      "subcategory": "Signature Shisha"
+    }
+  },
+  {
+    "id": "28123f66-ecbc-4fe3-bc10-e8aaa799b2bd",
+    "name": "MEDIUM_Tonos Model",
+    "category_id": "7a58e436-19d0-4319-9120-5c8e947de448",
+    "price": "AED 95.00",
+    "description": "",
+    "available": true,
+    "display_order": 0,
+    "image_url": "",
+    "menu_categories": {
+      "name": "Signature Shisha",
+      "menu_type": "shisha",
+      "subcategory": "Signature Shisha"
+    }
+  },
+  {
+    "id": "0bc9a146-f7fd-4ce3-a7d9-0c33c17c2d78",
+    "name": "STRONG_Pro Max",
+    "category_id": "7a58e436-19d0-4319-9120-5c8e947de448",
+    "price": "AED 95.00",
+    "description": "",
+    "available": true,
+    "display_order": 0,
+    "image_url": "",
+    "menu_categories": {
+      "name": "Signature Shisha",
+      "menu_type": "shisha",
+      "subcategory": "Signature Shisha"
+    }
+  },
+  {
+    "id": "55780073-0b50-4b0c-9a77-9658f229784b",
+    "name": "Colosseum",
+    "category_id": "d2a51698-d996-43a6-9716-5bf1d980d686",
+    "price": "AED 150.00",
+    "description": "Elevate your session with our nicotine strength boosters (strong tobacco). Opt for a Level 1 booster for an additional 30 AED.",
+    "available": true,
+    "display_order": 0,
+    "image_url": "",
+    "menu_categories": {
+      "name": "Extras",
+      "menu_type": "shisha",
+      "subcategory": "Extras"
     }
   }
 ]
