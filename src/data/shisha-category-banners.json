@@ -1,0 +1,58 @@
+[
+  {
+    "id": "banner-most-liked",
+    "category_name": "Most Liked",
+    "tagline": "Our guests' top picks",
+    "description": "The most loved flavors chosen by our community",
+    "image_url": "",
+    "display_order": 1
+  },
+  {
+    "id": "banner-arabic-shisha",
+    "category_name": "Arabic Shisha",
+    "tagline": "Traditional Arabian blends",
+    "description": "Authentic Middle Eastern flavors crafted with premium tobacco",
+    "image_url": "",
+    "display_order": 2
+  },
+  {
+    "id": "banner-turkish-shisha",
+    "category_name": "Turkish Shisha",
+    "tagline": "Istanbul's finest traditions",
+    "description": "Rich Turkish blends with exotic spices and fruits",
+    "image_url": "",
+    "display_order": 3
+  },
+  {
+    "id": "banner-russian-shisha",
+    "category_name": "Russian Shisha",
+    "tagline": "Bold & modern flavors",
+    "description": "Contemporary Russian-style hookah with vibrant taste profiles",
+    "image_url": "",
+    "display_order": 4
+  },
+  {
+    "id": "banner-signature-shisha",
+    "category_name": "Signature Shisha",
+    "tagline": "Exclusive Tono's creations",
+    "description": "Our master blenders' unique and premium signature mixes",
+    "image_url": "",
+    "display_order": 5
+  },
+  {
+    "id": "banner-extras",
+    "category_name": "Extras",
+    "tagline": "Enhance your experience",
+    "description": "Add-ons and upgrades for the perfect session",
+    "image_url": "",
+    "display_order": 6
+  },
+  {
+    "id": "banner-change-bowl",
+    "category_name": "Change Bowl",
+    "tagline": "Switch it up",
+    "description": "Swap your bowl mid-session for a fresh flavor",
+    "image_url": "",
+    "display_order": 7
+  }
+]

@@ -8,6 +8,7 @@ const BRANCH = 'main';
 const ALLOWED_FILES = [
   'menu-items.json',
   'menu-categories.json',
+  'shisha-category-banners.json',
   'offers.json',
   'gallery-images.json',
   'about-gallery-images.json',

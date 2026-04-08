@@ -460,6 +460,49 @@
   color: var(--color-primary-foreground);
 }
 
+/* Shisha Category Banner */
+.shisha-banner-wrapper {
+  border: 2px solid rgba(137, 207, 240, 0.3);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.shisha-banner-wrapper:hover {
+  border-color: rgba(137, 207, 240, 0.6);
+  box-shadow: 0 0 20px rgba(137, 207, 240, 0.15), 0 0 40px rgba(137, 207, 240, 0.08);
+}
+
+.shisha-banner-icon {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.shisha-banner-wrapper:hover .shisha-banner-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Smoke rising animation for shisha banner SVG paths */
+@keyframes smokeRise {
+  0% {
+    stroke-dashoffset: 800;
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.3;
+  }
+  80% {
+    opacity: 0.15;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+.shisha-smoke-path {
+  stroke-dasharray: 800;
+  stroke-dashoffset: 800;
+  animation: smokeRise 4s ease-in-out infinite;
+}
+
 .promo-glass-card:hover {
   transform: translateY(-6px) scale(1.02);
   box-shadow:

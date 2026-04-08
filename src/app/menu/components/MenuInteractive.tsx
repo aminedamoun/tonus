@@ -1,8 +1,10 @@
 'use client';
 import { useState } from 'react';
 import MenuItemCard from './MenuItemCard';
+import ShishaCategoryBanner from './ShishaCategoryBanner';
 import allMenuItemsStatic from '@/data/menu-items.json';
 import allCategoriesStatic from '@/data/menu-categories.json';
+import shishaBannersStatic from '@/data/shisha-category-banners.json';
 import { useLiveData } from '@/lib/useLiveData';
 import Icon from '@/components/ui/AppIcon';
 
@@ -22,6 +24,15 @@ interface Category {
   name: string;
   menu_type: string;
   subcategory: string;
+  display_order: number;
+}
+
+interface ShishaBanner {
+  id: string;
+  category_name: string;
+  tagline: string;
+  description: string;
+  image_url: string;
   display_order: number;
 }
 
@@ -94,6 +105,7 @@ function sortCategories(categories: string[], menuType: MenuType): string[] {
 export default function MenuInteractive() {
   const allMenuItems = useLiveData('menu-items.json', allMenuItemsStatic);
   const allCategories = useLiveData('menu-categories.json', allCategoriesStatic);
+  const shishaBanners = useLiveData<ShishaBanner[]>('shisha-category-banners.json', shishaBannersStatic);
 
   const [menuType, setMenuType] = useState<MenuType>('food');
   const [activeSubcategory, setActiveSubcategory] = useState<string>('All');
@@ -260,16 +272,33 @@ export default function MenuInteractive() {
         {/* Menu Items Grouped by Category */}
         {groupedItems.length > 0 ? (
           <div className="space-y-16">
-            {groupedItems.map(({ category, items }) => (
+            {groupedItems.map(({ category, items }) => {
+              const banner = menuType === 'shisha'
+                ? shishaBanners.find(
+                    (b) => b.category_name.toLowerCase() === category.toLowerCase()
+                  )
+                : null;
+
+              return (
               <div key={category}>
                 {/* Category Heading */}
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="h-px flex-1 bg-primary/20" />
-                  <h2 className="text-2xl md:text-3xl font-serif italic text-foreground whitespace-nowrap px-2">
-                    {category}
-                  </h2>
-                  <div className="h-px flex-1 bg-primary/20" />
-                </div>
+                {banner ? (
+                  <ShishaCategoryBanner
+                    categoryName={category}
+                    tagline={banner.tagline}
+                    description={banner.description}
+                    imageUrl={banner.image_url}
+                    itemCount={items.length}
+                  />
+                ) : (
+                  <div className="flex items-center gap-4 mb-8">
+                    <div className="h-px flex-1 bg-primary/20" />
+                    <h2 className="text-2xl md:text-3xl font-serif italic text-foreground whitespace-nowrap px-2">
+                      {category}
+                    </h2>
+                    <div className="h-px flex-1 bg-primary/20" />
+                  </div>
+                )}
                 {/* Items Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {items.map((item, index) => (
@@ -283,7 +312,8 @@ export default function MenuInteractive() {
                   ))}
                 </div>
               </div>
-            ))}
+            );
+            })}
           </div>
         ) : (
           <div className="text-center py-20">

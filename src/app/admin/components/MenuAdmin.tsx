@@ -3,6 +3,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import menuItemsData from '@/data/menu-items.json';
 import menuCategoriesData from '@/data/menu-categories.json';
+import shishaBannersData from '@/data/shisha-category-banners.json';
 import ImageUpload from './ImageUpload';
 import { toPreviewSrc } from '../utils';
 
@@ -36,7 +37,16 @@ interface Category {
   display_order: number;
 }
 
-type SubTab = 'items' | 'categories';
+interface ShishaBanner {
+  id: string;
+  category_name: string;
+  tagline: string;
+  description: string;
+  image_url: string;
+  display_order: number;
+}
+
+type SubTab = 'items' | 'categories' | 'shisha-banners';
 type MenuFilter = 'all' | 'food' | 'bar' | 'shisha';
 
 /* ------------------------------------------------------------------ */
@@ -99,6 +109,9 @@ export default function MenuAdmin({ password }: { password: string }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [collapsedCats, setCollapsedCats] = useState<Set<string>>(new Set());
 
+  // shisha banners tab
+  const [banners, setBanners] = useState<ShishaBanner[]>([]);
+
   // categories tab
   const [editingCatId, setEditingCatId] = useState<string | null>(null);
   const [addingCat, setAddingCat] = useState(false);
@@ -109,6 +122,7 @@ export default function MenuAdmin({ password }: { password: string }) {
   useEffect(() => {
     setItems(JSON.parse(JSON.stringify(menuItemsData)) as MenuItem[]);
     setCats(JSON.parse(JSON.stringify(menuCategoriesData)) as Category[]);
+    setBanners(JSON.parse(JSON.stringify(shishaBannersData)) as ShishaBanner[]);
   }, []);
 
   const toggleCollapse = (catId: string) => {
@@ -259,6 +273,11 @@ export default function MenuAdmin({ password }: { password: string }) {
     setNewCatSubcategory('');
   };
 
+  /* --- mutations: banners --- */
+  const updateBanner = (id: string, field: keyof ShishaBanner, value: string | number) => {
+    setBanners((prev) => prev.map((b) => (b.id === id ? { ...b, [field]: value } : b)));
+  };
+
   /* --- save --- */
   const handleSave = async () => {
     setSaveStatus('saving');
@@ -274,6 +293,7 @@ export default function MenuAdmin({ password }: { password: string }) {
           files: [
             { file: 'src/data/menu-items.json', data: items },
             { file: 'src/data/menu-categories.json', data: cats },
+            { file: 'src/data/shisha-category-banners.json', data: banners },
           ],
         }),
       });
@@ -299,7 +319,7 @@ export default function MenuAdmin({ password }: { password: string }) {
       {/* =================== SUB-TABS =================== */}
       <div className="border-b border-gray-200 bg-white">
         <div className="flex gap-8 px-6 pt-4">
-          {(['items', 'categories'] as SubTab[]).map((t) => (
+          {(['items', 'categories', 'shisha-banners'] as SubTab[]).map((t) => (
             <button
               key={t}
               onClick={() => setSubTab(t)}
@@ -309,7 +329,7 @@ export default function MenuAdmin({ password }: { password: string }) {
                   : 'text-gray-400 hover:text-gray-600'
               }`}
             >
-              {t === 'items' ? 'Menu Items' : 'Categories'}
+              {t === 'items' ? 'Menu Items' : t === 'categories' ? 'Categories' : 'Shisha Banners'}
             </button>
           ))}
         </div>
@@ -895,6 +915,107 @@ export default function MenuAdmin({ password }: { password: string }) {
                 </div>
               );
             })}
+          </div>
+        </div>
+      )}
+
+      {/* =================== SHISHA BANNERS TAB =================== */}
+      {subTab === 'shisha-banners' && (
+        <div className="px-6">
+          <div className="mb-6">
+            <h2 className="text-lg font-bold text-gray-900">Shisha Category Banners</h2>
+            <p className="text-sm text-gray-500">
+              Upload images and customize taglines for each shisha category banner on the menu page
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {banners
+              .sort((a, b) => a.display_order - b.display_order)
+              .map((banner) => (
+                <div
+                  key={banner.id}
+                  className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm"
+                >
+                  <div className="flex items-start gap-5 p-5">
+                    {/* Banner image preview */}
+                    <div className="w-48 h-28 rounded-xl overflow-hidden bg-gray-100 flex-shrink-0 relative">
+                      {banner.image_url ? (
+                        <>
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={toPreviewSrc(banner.image_url)}
+                            alt={banner.category_name}
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement;
+                              if (banner.image_url && target.src !== banner.image_url)
+                                target.src = banner.image_url;
+                            }}
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-end p-2">
+                            <span className="text-white text-xs font-bold">{banner.category_name}</span>
+                          </div>
+                        </>
+                      ) : (
+                        <div className="w-full h-full flex flex-col items-center justify-center text-gray-300 gap-1">
+                          <span className="text-2xl">💨</span>
+                          <span className="text-xs text-gray-400">No image</span>
+                        </div>
+                      )}
+                    </div>
+
+                    {/* Edit fields */}
+                    <div className="flex-1 space-y-3">
+                      <div className="flex items-center gap-3">
+                        <span className="text-sm font-bold text-gray-900">{banner.category_name}</span>
+                        <span className="rounded-full bg-orange-100 text-orange-700 px-2.5 py-0.5 text-xs font-semibold uppercase">
+                          SHISHA
+                        </span>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <label className="block text-xs font-medium text-gray-500 mb-1">
+                            Tagline
+                          </label>
+                          <input
+                            type="text"
+                            value={banner.tagline}
+                            onChange={(e) => updateBanner(banner.id, 'tagline', e.target.value)}
+                            className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#89CFF0]"
+                            placeholder="e.g. Traditional Arabian blends"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-medium text-gray-500 mb-1">
+                            Description
+                          </label>
+                          <input
+                            type="text"
+                            value={banner.description}
+                            onChange={(e) => updateBanner(banner.id, 'description', e.target.value)}
+                            className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#89CFF0]"
+                            placeholder="Short description"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-medium text-gray-500 mb-1">
+                          Banner Image
+                        </label>
+                        <ImageUpload
+                          password={password}
+                          folder="menu"
+                          currentUrl={banner.image_url}
+                          onUploaded={(url) => updateBanner(banner.id, 'image_url', url)}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
           </div>
         </div>
       )}
