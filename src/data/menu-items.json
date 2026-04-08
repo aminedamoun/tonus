@@ -2241,7 +2241,7 @@
     "price": "AED 75.00",
     "description": "Eggs,sausage,baked beans,guacamole,cherry tomatoes,mushroom,hashbrown,mustard and sourdough.",
     "available": true,
-    "display_order": 0,
+    "display_order": 3,
     "image_url": "/assets/images/menu/1775653380393-h3tgyp.webp",
     "menu_categories": {
       "name": "Most Liked",
