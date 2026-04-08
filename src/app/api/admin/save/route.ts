@@ -8,6 +8,7 @@ const BRANCH = 'main';
 const ALLOWED_FILES = [
   'src/data/menu-items.json',
   'src/data/menu-categories.json',
+  'src/data/shisha-category-banners.json',
   'src/data/offers.json',
   'src/data/gallery-images.json',
   'src/data/about-gallery-images.json',
