@@ -272,7 +272,7 @@ export default function MenuInteractive() {
         {/* Menu Items Grouped by Category */}
         {groupedItems.length > 0 ? (
           <div className="space-y-16">
-            {groupedItems.map(({ category, items }) => {
+            {groupedItems.map(({ category, items }, groupIndex) => {
               const banner = menuType === 'shisha'
                 ? shishaBanners.find(
                     (b) => b.category_name.toLowerCase() === category.toLowerCase()
@@ -289,6 +289,7 @@ export default function MenuInteractive() {
                     description={banner.description}
                     imageUrl={banner.image_url}
                     itemCount={items.length}
+                    index={groupIndex}
                   />
                 ) : (
                   <div className="flex items-center gap-4 mb-8">

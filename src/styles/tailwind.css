@@ -462,13 +462,14 @@
 
 /* Shisha Category Banner */
 .shisha-banner-wrapper {
-  border: 2px solid rgba(137, 207, 240, 0.3);
+  border: 1.5px solid rgba(137, 207, 240, 0.25);
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .shisha-banner-wrapper:hover {
-  border-color: rgba(137, 207, 240, 0.6);
-  box-shadow: 0 0 20px rgba(137, 207, 240, 0.15), 0 0 40px rgba(137, 207, 240, 0.08);
+  border-color: rgba(137, 207, 240, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06), 0 0 20px rgba(137, 207, 240, 0.1);
+  transform: translateY(-3px);
 }
 
 .shisha-banner-icon {
@@ -476,7 +477,7 @@
 }
 
 .shisha-banner-wrapper:hover .shisha-banner-icon {
-  transform: scale(1.1) rotate(5deg);
+  transform: scale(1.15) rotate(8deg);
 }
 
 /* Smoke rising animation for shisha banner SVG paths */
