@@ -2256,7 +2256,7 @@
     "price": "AED 55.00",
     "description": "Arabic coffee, known in Arabic as qahwa (Arabic: قهوة), is a loosely defined family of brewed coffee of Coffea arabica beans.",
     "available": true,
-    "display_order": 0,
+    "display_order": 12,
     "image_url": "/assets/images/menu/1775658634153-5sdkdu.webp",
     "menu_categories": {
       "name": "Coffee (Hot)",
