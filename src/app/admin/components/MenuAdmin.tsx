@@ -222,6 +222,29 @@ export default function MenuAdmin({ password }: { password: string }) {
     );
   };
 
+  const moveItem = (id: string, direction: 'up' | 'down') => {
+    setItems((prev) => {
+      const item = prev.find((i) => i.id === id);
+      if (!item) return prev;
+      // Get sibling items in the same category, sorted by display_order
+      const siblings = prev
+        .filter((i) => i.category_id === item.category_id)
+        .sort((a, b) => a.display_order - b.display_order);
+      const idx = siblings.findIndex((i) => i.id === id);
+      const swapIdx = direction === 'up' ? idx - 1 : idx + 1;
+      if (swapIdx < 0 || swapIdx >= siblings.length) return prev;
+      const swapItem = siblings[swapIdx];
+      // Swap their display_order values
+      const orderA = item.display_order;
+      const orderB = swapItem.display_order;
+      return prev.map((i) => {
+        if (i.id === item.id) return { ...i, display_order: orderB };
+        if (i.id === swapItem.id) return { ...i, display_order: orderA };
+        return i;
+      });
+    });
+  };
+
   const deleteItem = (id: string) => {
     if (!confirm('Delete this menu item?')) return;
     setItems((prev) => prev.filter((item) => item.id !== id));
@@ -460,13 +483,18 @@ export default function MenuAdmin({ password }: { password: string }) {
                     }}
                     className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#89CFF0]"
                   >
-                    {cats
-                      .sort((a, b) => a.display_order - b.display_order)
-                      .map((c) => (
-                        <option key={c.id} value={c.id}>
-                          [{c.menu_type.toUpperCase()}] {c.subcategory}
-                        </option>
-                      ))}
+                    {(['food', 'bar', 'shisha'] as const).map((t) => (
+                      <optgroup key={t} label={t === 'food' ? '🍽️ Food' : t === 'bar' ? '🍹 Bar' : '💨 Shisha'}>
+                        {cats
+                          .filter((c) => c.menu_type === t)
+                          .sort((a, b) => a.display_order - b.display_order)
+                          .map((c) => (
+                            <option key={c.id} value={c.id}>
+                              {c.subcategory}
+                            </option>
+                          ))}
+                      </optgroup>
+                    ))}
                   </select>
                 </div>
               </div>
@@ -551,9 +579,31 @@ export default function MenuAdmin({ password }: { password: string }) {
                       {/* Items in this subcategory */}
                       {!collapsedCats.has(category.id) && (
                         <div>
-                          {catItems.map((item) => (
+                          {catItems.map((item, itemIdx) => (
                             <div key={item.id}>
-                              <div className="flex items-center gap-4 px-5 py-3 border-t border-gray-100 hover:bg-gray-50/50 transition-colors">
+                              <div className="flex items-center gap-3 px-5 py-3 border-t border-gray-100 hover:bg-gray-50/50 transition-colors">
+                                {/* position controls */}
+                                <div className="flex flex-col items-center gap-0.5 shrink-0 w-8">
+                                  <button
+                                    onClick={() => moveItem(item.id, 'up')}
+                                    disabled={itemIdx === 0}
+                                    className="w-6 h-5 flex items-center justify-center rounded text-gray-400 hover:bg-gray-200 hover:text-gray-700 disabled:opacity-20 disabled:cursor-not-allowed text-[10px]"
+                                    title="Move up"
+                                  >
+                                    ▲
+                                  </button>
+                                  <span className="text-[10px] font-bold text-gray-400 leading-none">
+                                    {item.display_order}
+                                  </span>
+                                  <button
+                                    onClick={() => moveItem(item.id, 'down')}
+                                    disabled={itemIdx === catItems.length - 1}
+                                    className="w-6 h-5 flex items-center justify-center rounded text-gray-400 hover:bg-gray-200 hover:text-gray-700 disabled:opacity-20 disabled:cursor-not-allowed text-[10px]"
+                                    title="Move down"
+                                  >
+                                    ▼
+                                  </button>
+                                </div>
                                 {/* image */}
                                 <div className="w-12 h-12 rounded-lg overflow-hidden bg-gray-100 flex-shrink-0">
                                   {item.image_url ? (
@@ -680,13 +730,18 @@ export default function MenuAdmin({ password }: { password: string }) {
                                         }
                                         className="w-full rounded-lg border border-gray-200 px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#89CFF0]"
                                       >
-                                        {cats
-                                          .sort((a, b) => a.display_order - b.display_order)
-                                          .map((c) => (
-                                            <option key={c.id} value={c.id}>
-                                              [{c.menu_type.toUpperCase()}] {c.subcategory}
-                                            </option>
-                                          ))}
+                                        {(['food', 'bar', 'shisha'] as const).map((t) => (
+                                          <optgroup key={t} label={t === 'food' ? '🍽️ Food' : t === 'bar' ? '🍹 Bar' : '💨 Shisha'}>
+                                            {cats
+                                              .filter((c) => c.menu_type === t)
+                                              .sort((a, b) => a.display_order - b.display_order)
+                                              .map((c) => (
+                                                <option key={c.id} value={c.id}>
+                                                  {c.subcategory}
+                                                </option>
+                                              ))}
+                                          </optgroup>
+                                        ))}
                                       </select>
                                     </div>
                                   </div>
@@ -702,6 +757,18 @@ export default function MenuAdmin({ password }: { password: string }) {
                                       />{' '}
                                       Available
                                     </label>
+                                    <div className="flex items-center gap-2">
+                                      <label className="text-xs font-medium text-gray-500">Position</label>
+                                      <input
+                                        type="number"
+                                        value={item.display_order}
+                                        onChange={(e) =>
+                                          updateItem(item.id, 'display_order', parseInt(e.target.value) || 0)
+                                        }
+                                        className="w-16 rounded-lg border border-gray-200 px-2 py-1.5 text-sm text-center bg-white focus:outline-none focus:ring-2 focus:ring-[#89CFF0]"
+                                        min={0}
+                                      />
+                                    </div>
                                     <div className="flex-1" />
                                     <button
                                       onClick={() => setEditingItemId(null)}
