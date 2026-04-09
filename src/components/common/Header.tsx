@@ -181,25 +181,7 @@ export default function Header() {
           }`}
           style={{ paddingTop: '80px', borderRadius: '0 0 32px 32px' }}
         >
-          <div className="px-6 pb-8 pt-2">
-            {/* Logo */}
-            <div
-              className="flex items-center justify-center mb-4 pb-4 border-b border-border"
-              style={{
-                opacity: isMenuOpen ? 1 : 0,
-                transition: 'opacity 0.4s ease 100ms',
-              }}
-            >
-              <div className="relative w-12 h-12">
-                <Image
-                  src="/assets/images/logotonos-1770983075095.png"
-                  alt="Tonos Restaurant Logo"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-            </div>
-
+          <div className="px-6 pb-8">
             {/* Nav Links */}
             <div className="space-y-1.5">
               {navLinks?.map((link, index) => (
