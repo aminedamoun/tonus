@@ -182,25 +182,21 @@ export default function Header() {
           style={{ paddingTop: '80px', borderRadius: '0 0 32px 32px' }}
         >
           <div className="px-6 pb-8 pt-2">
-            {/* Logo + Brand */}
+            {/* Logo */}
             <div
-              className="flex items-center gap-3 mb-5 pb-4 border-b border-border"
+              className="flex items-center justify-center mb-4 pb-4 border-b border-border"
               style={{
                 opacity: isMenuOpen ? 1 : 0,
                 transition: 'opacity 0.4s ease 100ms',
               }}
             >
-              <div className="relative w-11 h-11 shrink-0">
+              <div className="relative w-12 h-12">
                 <Image
                   src="/assets/images/logotonos-1770983075095.png"
                   alt="Tonos Restaurant Logo"
                   fill
                   className="object-contain"
                 />
-              </div>
-              <div>
-                <p className="text-base font-serif font-medium text-foreground leading-tight">Tonos</p>
-                <p className="text-[11px] text-muted-foreground">Greek Restaurant</p>
               </div>
             </div>
 
