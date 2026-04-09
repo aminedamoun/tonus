@@ -73,9 +73,9 @@ export default function Header() {
                 style={{
                   filter:
                     pathname === '/homepage' && !isScrolled
-                      ? 'drop-shadow(0 0 8px rgba(255,255,255,0.7)) drop-shadow(0 0 20px rgba(255,255,255,0.35))'
+                      ? 'brightness(0) invert(1)'
                       : 'none',
-                  transition: 'filter 0.6s ease',
+                  transition: 'filter 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
                 }}
                 priority
               />
