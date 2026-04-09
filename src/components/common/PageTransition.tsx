@@ -1,118 +1,108 @@
 'use client';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function PageTransition({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const [progress, setProgress] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [barWidth, setBarWidth] = useState(0);
+  const [show, setShow] = useState(false);
+  const prevPath = useRef(pathname);
+  const rafRef = useRef<number>(0);
+  const timeouts = useRef<NodeJS.Timeout[]>([]);
 
-  const startProgress = useCallback(() => {
-    setIsVisible(true);
-    setIsAnimating(true);
-    setProgress(0);
+  const clear = () => {
+    timeouts.current.forEach(clearTimeout);
+    timeouts.current = [];
+    cancelAnimationFrame(rafRef.current);
+  };
 
-    // Quick jump to ~30%
-    requestAnimationFrame(() => {
-      setProgress(30);
-    });
-
-    // Ease to ~70%
-    const t1 = setTimeout(() => setProgress(70), 200);
-    // Ease to ~90%
-    const t2 = setTimeout(() => setProgress(90), 500);
-
-    return () => {
-      clearTimeout(t1);
-      clearTimeout(t2);
-    };
-  }, []);
-
-  const completeProgress = useCallback(() => {
-    setProgress(100);
-    setTimeout(() => {
-      setIsAnimating(false);
-      setIsVisible(false);
-      setProgress(0);
-    }, 400);
-  }, []);
-
-  // Intercept link clicks for progress bar
   useEffect(() => {
-    let cleanup: (() => void) | undefined;
+    if (pathname === prevPath.current) return;
+    prevPath.current = pathname;
 
-    const handleClick = (e: MouseEvent) => {
-      const anchor = (e.target as HTMLElement).closest('a');
-      if (!anchor) return;
+    clear();
 
-      const href = anchor.getAttribute('href');
-      if (!href || href.startsWith('http') || href.startsWith('tel:') || href.startsWith('mailto:') || href === '#') return;
-      if (href === pathname) return;
+    // Complete the bar
+    setBarWidth(100);
+    timeouts.current.push(
+      setTimeout(() => {
+        setShow(false);
+        // Reset after fade out
+        timeouts.current.push(
+          setTimeout(() => setBarWidth(0), 300)
+        );
+      }, 300)
+    );
 
-      cleanup = startProgress();
-    };
-
-    document.addEventListener('click', handleClick);
-    return () => {
-      document.removeEventListener('click', handleClick);
-      cleanup?.();
-    };
-  }, [pathname, startProgress]);
-
-  // Complete when route actually changes
-  useEffect(() => {
-    if (isAnimating) {
-      completeProgress();
-    }
+    return clear;
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname]);
+
+  // Listen for internal link clicks to START the bar
+  useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      const a = (e.target as HTMLElement).closest('a');
+      if (!a) return;
+      const href = a.getAttribute('href');
+      if (!href || !href.startsWith('/') || href === pathname) return;
+
+      clear();
+      setShow(true);
+      setBarWidth(0);
+
+      // Animate: 0 → 15 → 45 → 75
+      rafRef.current = requestAnimationFrame(() => {
+        setBarWidth(15);
+        timeouts.current.push(
+          setTimeout(() => setBarWidth(45), 150),
+          setTimeout(() => setBarWidth(75), 400)
+        );
+      });
+    };
+
+    document.addEventListener('click', handleClick, true);
+    return () => document.removeEventListener('click', handleClick, true);
   }, [pathname]);
 
   return (
     <>
-      {/* Progress bar */}
-      {isVisible && (
-        <div className="fixed top-0 left-0 right-0 z-[9999] h-[3px]">
-          <div
-            className="h-full rounded-r-full"
-            style={{
-              width: `${progress}%`,
-              background: 'linear-gradient(90deg, #89CFF0, #1E3A5F, #89CFF0)',
-              backgroundSize: '200% 100%',
-              animation: 'shimmer 1.5s linear infinite',
-              transition: progress === 0
-                ? 'none'
-                : progress === 100
-                  ? 'width 0.3s cubic-bezier(0.0, 0, 0.2, 1)'
-                  : 'width 0.8s cubic-bezier(0.0, 0, 0.2, 1)',
-              boxShadow: '0 0 10px rgba(137,207,240,0.5), 0 0 5px rgba(137,207,240,0.3)',
-            }}
-          />
-        </div>
-      )}
-
-      {/* Page content with entrance animation */}
-      <div key={pathname} className="page-enter">
-        {children}
+      <div
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '3px',
+          zIndex: 99999,
+          pointerEvents: 'none',
+          opacity: show ? 1 : 0,
+          transition: 'opacity 0.3s ease',
+        }}
+      >
+        <div
+          style={{
+            height: '100%',
+            width: `${barWidth}%`,
+            background: 'linear-gradient(90deg, #89CFF0 0%, #1E3A5F 50%, #89CFF0 100%)',
+            backgroundSize: '200% 100%',
+            animation: show ? 'barShimmer 1.2s ease-in-out infinite' : 'none',
+            borderRadius: '0 4px 4px 0',
+            transition: barWidth === 0
+              ? 'none'
+              : barWidth === 100
+                ? 'width 0.25s ease-out'
+                : 'width 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)',
+            boxShadow: '0 0 12px rgba(137,207,240,0.6)',
+          }}
+        />
       </div>
 
+      {children}
+
       <style>{`
-        @keyframes shimmer {
+        @keyframes barShimmer {
           0% { background-position: 200% 0; }
           100% { background-position: -200% 0; }
-        }
-        @keyframes pageEnter {
-          from {
-            opacity: 0;
-            transform: translateY(16px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .page-enter {
-          animation: pageEnter 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
         }
       `}</style>
     </>
