@@ -116,6 +116,18 @@
     display: inline-block;
   }
   
+  .category-divider {
+    background: linear-gradient(135deg, rgba(137, 207, 240, 0.06) 0%, rgba(30, 58, 95, 0.04) 100%);
+    border: 1.5px solid rgba(137, 207, 240, 0.25);
+    box-shadow: 0 2px 12px rgba(137, 207, 240, 0.06);
+    transition: all 0.4s ease-out;
+  }
+
+  .category-divider:hover {
+    border-color: rgba(137, 207, 240, 0.45);
+    box-shadow: 0 4px 20px rgba(137, 207, 240, 0.12), 0 0 12px rgba(137, 207, 240, 0.08);
+  }
+
   .dish-card {
     background: var(--color-card);
     border-radius: 32px;
@@ -483,6 +495,28 @@
 
 .shisha-banner-wrapper:hover .shisha-banner-icon {
   transform: scale(1.15) rotate(8deg);
+}
+
+/* Page transition animation */
+@keyframes pageEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: pageEnter 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Category pill shimmer sweep */
+@keyframes shimmerSweep {
+  0% { transform: translateX(-100%); }
+  50%, 100% { transform: translateX(100%); }
 }
 
 /* Smoke rising animation for shisha banner SVG paths */

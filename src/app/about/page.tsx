@@ -8,6 +8,7 @@ import Icon from '@/components/ui/AppIcon';
 import { createWhatsAppLink, createGeneralInquiryMessage } from '@/lib/whatsapp';
 import VisualStoryGallery from './components/VisualStoryGallery';
 import { useRevealAnimations } from '@/lib/useRevealAnimations';
+import { usePageEnter } from '@/hooks/usePageEnter';
 
 export default function AboutPage() {
   const timelineLineRef = useRef<HTMLDivElement>(null);
@@ -15,6 +16,7 @@ export default function AboutPage() {
   const timelineCardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useRevealAnimations();
+  const mainRef = usePageEnter();
 
   // Timeline scroll animation
   useEffect(() => {
@@ -149,7 +151,7 @@ export default function AboutPage() {
   return (
     <>
       <Header />
-      <main className="pt-24 md:pt-32 pb-12 md:pb-20">
+      <main ref={mainRef} className="pt-24 md:pt-32 pb-12 md:pb-20">
         {/* Hero Section - A Journey from Greece to Dubai */}
         <section className="container-custom mb-16 md:mb-32 reveal">
           <div className="text-center space-y-6 max-w-3xl mx-auto">

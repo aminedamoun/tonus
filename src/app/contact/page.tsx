@@ -8,14 +8,16 @@ import QuickActions from './components/QuickActions';
 import Icon from '@/components/ui/AppIcon';
 import Image from 'next/image';
 import { useRevealAnimations } from '@/lib/useRevealAnimations';
+import { usePageEnter } from '@/hooks/usePageEnter';
 
 export default function ContactPage() {
   useRevealAnimations();
+  const mainRef = usePageEnter();
 
   return (
     <>
       <Header />
-      <main className="pt-24 md:pt-32 pb-12 md:pb-20">
+      <main ref={mainRef} className="pt-24 md:pt-32 pb-12 md:pb-20">
         {/* Page Header */}
         <section className="container-custom mb-10 md:mb-16 reveal">
           <div className="text-center space-y-6 max-w-3xl mx-auto">

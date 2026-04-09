@@ -9,14 +9,16 @@ import LocationSection from './components/AtmosphereGallery';
 import AtmosphereGallery from './components/LocationSection';
 import CTABanner from './components/CTABanner';
 import { useRevealAnimations } from '@/lib/useRevealAnimations';
+import { usePageEnter } from '@/hooks/usePageEnter';
 
 export default function Homepage() {
   useRevealAnimations();
+  const mainRef = usePageEnter();
 
   return (
     <>
       <Header />
-      <main>
+      <main ref={mainRef}>
         <HeroSection />
         <SignatureDishes />
         <OffersSection />

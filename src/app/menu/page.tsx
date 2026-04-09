@@ -5,11 +5,13 @@ import MenuInteractive from './components/MenuInteractive';
 import QuickOrderBanner from './components/QuickOrderBanner';
 import Icon from '@/components/ui/AppIcon';
 import Link from 'next/link';
+import { usePageEnter } from '@/hooks/usePageEnter';
 export default function MenuPage() {
+  const mainRef = usePageEnter();
   return (
     <>
       <Header />
-      <main className="pt-24 md:pt-32 pb-12 md:pb-20">
+      <main ref={mainRef} className="pt-24 md:pt-32 pb-12 md:pb-20">
         {/* Page Header */}
         <section className="container-custom mb-12">
           <div className="text-center space-y-4 max-w-3xl mx-auto">

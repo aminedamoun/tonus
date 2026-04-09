@@ -4,6 +4,7 @@ import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 import Icon from '@/components/ui/AppIcon';
 import { useRevealAnimations } from '@/lib/useRevealAnimations';
+import { usePageEnter } from '@/hooks/usePageEnter';
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
@@ -72,11 +73,12 @@ const steps = [
 
 export default function DeliveryPage() {
   useRevealAnimations();
+  const mainRef = usePageEnter();
 
   return (
     <>
       <Header />
-      <main className="pt-24 md:pt-32 pb-12 md:pb-20 overflow-x-hidden">
+      <main ref={mainRef} className="pt-24 md:pt-32 pb-12 md:pb-20 overflow-x-hidden">
         {/* ── 1. HERO ─────────────────────────────────────────────────────── */}
         <section className="container-custom mb-12 md:mb-20 reveal">
           <div className="relative">
