@@ -179,7 +179,7 @@ export default function Header() {
           className={`absolute top-0 left-0 right-0 bg-white shadow-2xl transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
             isMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
           }`}
-          style={{ paddingTop: '80px', borderRadius: '0 0 32px 32px' }}
+          style={{ paddingTop: '96px', borderRadius: '0 0 32px 32px' }}
         >
           <div className="px-6 pb-8">
             {/* Nav Links */}
