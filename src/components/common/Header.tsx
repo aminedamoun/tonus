@@ -87,7 +87,9 @@ export default function Header() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden w-10 h-10 flex items-center justify-center text-foreground"
+          className={`md:hidden w-10 h-10 flex items-center justify-center ${
+            isScrolled ? 'text-foreground' : pathname === '/homepage' ? 'text-white' : 'text-foreground'
+          }`}
           aria-label="Toggle menu"
         >
           <Icon name={isMenuOpen ? 'XMarkIcon' : 'Bars3Icon'} size={28} />

@@ -88,9 +88,9 @@ export default function DeliveryPage() {
   return (
     <>
       <Header />
-      <main className="pt-32 pb-20 overflow-x-hidden">
+      <main className="pt-24 md:pt-32 pb-12 md:pb-20 overflow-x-hidden">
         {/* ── 1. HERO ─────────────────────────────────────────────────────── */}
-        <section className="container-custom mb-20 reveal">
+        <section className="container-custom mb-12 md:mb-20 reveal">
           <div className="relative">
             {/* Subtle background accent - top right */}
             <div
@@ -215,7 +215,7 @@ export default function DeliveryPage() {
 
             <div className="text-center space-y-6 max-w-3xl mx-auto relative z-10 py-8">
               <div className="inline-block pill-badge mb-4">🚚 Fast Delivery Available</div>
-              <h1 className="text-6xl md:text-8xl font-serif italic text-foreground leading-tight">
+              <h1 className="text-3xl sm:text-5xl md:text-8xl font-serif italic text-foreground leading-tight">
                 Fresh Greek Flavors.
                 <br />
                 <span className="text-primary">Delivered to Your Door.</span>
@@ -278,7 +278,7 @@ export default function DeliveryPage() {
           <div className="container-custom">
             <div className="text-center mb-14">
               <div className="inline-block pill-badge mb-4">Order Anywhere</div>
-              <h2 className="text-4xl md:text-5xl font-serif italic text-foreground mb-4">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl font-serif italic text-foreground mb-4">
                 Our Delivery <span className="text-primary">Partners</span>
               </h2>
               <p className="text-muted-foreground max-w-xl mx-auto">
@@ -332,7 +332,7 @@ export default function DeliveryPage() {
           <div className="container-custom">
             <div className="text-center mb-14">
               <div className="inline-block pill-badge mb-4">Good to Know</div>
-              <h2 className="text-4xl md:text-5xl font-serif italic text-foreground mb-4">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl font-serif italic text-foreground mb-4">
                 Delivery <span className="text-primary">Information</span>
               </h2>
             </div>
@@ -364,7 +364,7 @@ export default function DeliveryPage() {
         >
           <div className="container-custom">
             <div
-              className="relative rounded-[48px] p-12 md:p-20 overflow-hidden"
+              className="relative rounded-3xl md:rounded-[48px] p-8 sm:p-12 md:p-20 overflow-hidden"
               style={{
                 background: 'rgba(255,255,255,0.05)',
                 border: '2px solid rgba(137,207,240,0.25)',
@@ -436,7 +436,7 @@ export default function DeliveryPage() {
           <div className="container-custom">
             <div className="text-center mb-14">
               <div className="inline-block pill-badge mb-4">Flexible Payments</div>
-              <h2 className="text-4xl md:text-5xl font-serif italic text-foreground mb-4">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl font-serif italic text-foreground mb-4">
                 Payment <span className="text-primary">Options</span>
               </h2>
               <p className="text-muted-foreground max-w-xl mx-auto">
@@ -470,7 +470,7 @@ export default function DeliveryPage() {
           <div className="container-custom">
             <div className="text-center mb-16">
               <div className="inline-block pill-badge mb-4">Simple Process</div>
-              <h2 className="text-4xl md:text-5xl font-serif italic text-foreground mb-4">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl font-serif italic text-foreground mb-4">
                 How It <span className="text-primary">Works</span>
               </h2>
               <p className="text-muted-foreground max-w-xl mx-auto">
@@ -532,7 +532,7 @@ export default function DeliveryPage() {
               {/* Text side */}
               <div className="space-y-6">
                 <div className="inline-block pill-badge">Live Updates</div>
-                <h2 className="text-4xl md:text-5xl font-serif italic text-foreground">
+                <h2 className="text-2xl sm:text-4xl md:text-5xl font-serif italic text-foreground">
                   Real-Time <span className="text-primary">Order Tracking</span>
                 </h2>
                 <p className="text-muted-foreground text-lg leading-relaxed">
@@ -668,7 +668,7 @@ export default function DeliveryPage() {
         <section className="section-padding greek-pattern-bg reveal">
           <div className="container-custom">
             <div
-              className="rounded-[48px] p-12 md:p-20 text-center space-y-8"
+              className="rounded-3xl md:rounded-[48px] p-8 sm:p-12 md:p-20 text-center space-y-6 md:space-y-8"
               style={{
                 background: 'linear-gradient(135deg, #1E3A5F 0%, #0f2240 100%)',
                 border: '2px solid rgba(137,207,240,0.3)',
@@ -684,7 +684,7 @@ export default function DeliveryPage() {
               >
                 <Icon name="TruckIcon" size={32} className="text-primary" />
               </div>
-              <h2 className="text-4xl md:text-6xl font-serif italic text-white">
+              <h2 className="text-3xl sm:text-4xl md:text-6xl font-serif italic text-white">
                 Ready to <span style={{ color: '#89CFF0' }}>Order?</span>
               </h2>
               <p className="text-lg text-white/75 max-w-xl mx-auto">

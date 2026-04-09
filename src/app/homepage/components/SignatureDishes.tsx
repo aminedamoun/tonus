@@ -82,7 +82,7 @@ export default function SignatureDishes() {
         {/* Section Header */}
         <div className="text-center mb-16 space-y-4">
           <div className="inline-block pill-badge mb-4">{getTypeTitle(activeType)}</div>
-          <h2 className="text-5xl md:text-7xl font-serif italic text-foreground">
+          <h2 className="text-3xl sm:text-5xl md:text-7xl font-serif italic text-foreground">
             Taste the <span className="text-primary">Mediterranean</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -93,38 +93,38 @@ export default function SignatureDishes() {
 
         {/* Type Selector Tabs */}
         <div className="flex justify-center mb-12">
-          <div className="inline-flex bg-secondary/50 rounded-full p-2 gap-2 border-2 border-primary/20">
+          <div className="inline-flex bg-secondary/50 rounded-full p-1.5 sm:p-2 gap-1 sm:gap-2 border-2 border-primary/20">
             <button
               onClick={() => setActiveType('dishes')}
-              className={`px-8 py-4 rounded-full font-bold text-sm uppercase tracking-wider transition-all duration-300 flex items-center gap-2 ${
+              className={`px-4 py-2.5 sm:px-8 sm:py-4 rounded-full font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 flex items-center gap-1.5 sm:gap-2 ${
                 activeType === 'dishes'
                   ? 'bg-primary text-white shadow-blue-glow-lg scale-105'
                   : 'text-muted-foreground hover:text-foreground hover:bg-hover-light-blue'
               }`}
             >
-              <Icon name={getTypeIcon('dishes')} size={20} />
+              <Icon name={getTypeIcon('dishes')} size={18} />
               Dishes
             </button>
             <button
               onClick={() => setActiveType('drinks')}
-              className={`px-8 py-4 rounded-full font-bold text-sm uppercase tracking-wider transition-all duration-300 flex items-center gap-2 ${
+              className={`px-4 py-2.5 sm:px-8 sm:py-4 rounded-full font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 flex items-center gap-1.5 sm:gap-2 ${
                 activeType === 'drinks'
                   ? 'bg-primary text-white shadow-blue-glow-lg scale-105'
                   : 'text-muted-foreground hover:text-foreground hover:bg-hover-light-blue'
               }`}
             >
-              <Icon name={getTypeIcon('drinks')} size={20} />
+              <Icon name={getTypeIcon('drinks')} size={18} />
               Drinks
             </button>
             <button
               onClick={() => setActiveType('shisha')}
-              className={`px-8 py-4 rounded-full font-bold text-sm uppercase tracking-wider transition-all duration-300 flex items-center gap-2 ${
+              className={`px-4 py-2.5 sm:px-8 sm:py-4 rounded-full font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 flex items-center gap-1.5 sm:gap-2 ${
                 activeType === 'shisha'
                   ? 'bg-primary text-white shadow-blue-glow-lg scale-105'
                   : 'text-muted-foreground hover:text-foreground hover:bg-hover-light-blue'
               }`}
             >
-              <Icon name={getTypeIcon('shisha')} size={20} />
+              <Icon name={getTypeIcon('shisha')} size={18} />
               Shisha
             </button>
           </div>

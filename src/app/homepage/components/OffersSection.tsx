@@ -73,7 +73,7 @@ export default function OffersSection() {
         {/* Section Header */}
         <div className="text-center mb-16 space-y-4">
           <div className="inline-block pill-badge mb-4">Our Special Offers</div>
-          <h2 className="text-5xl md:text-7xl font-serif italic text-foreground">
+          <h2 className="text-3xl sm:text-5xl md:text-7xl font-serif italic text-foreground">
             Special <span className="text-primary">Offers</span>
           </h2>
           <p className="text-sm font-medium text-primary/70 tracking-widest uppercase">

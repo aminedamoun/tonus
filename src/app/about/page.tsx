@@ -159,12 +159,12 @@ export default function AboutPage() {
   return (
     <>
       <Header />
-      <main className="pt-32 pb-20">
+      <main className="pt-24 md:pt-32 pb-12 md:pb-20">
         {/* Hero Section - A Journey from Greece to Dubai */}
-        <section className="container-custom mb-32 reveal">
+        <section className="container-custom mb-16 md:mb-32 reveal">
           <div className="text-center space-y-6 max-w-3xl mx-auto">
             <div className="inline-block pill-badge mb-4">Our Story</div>
-            <h1 className="text-6xl md:text-8xl font-serif italic text-foreground leading-tight">
+            <h1 className="text-3xl sm:text-5xl md:text-8xl font-serif italic text-foreground leading-tight">
               From Santorini <br />
               to <span className="text-primary">Dubai</span>
             </h1>
@@ -178,10 +178,10 @@ export default function AboutPage() {
         </section>
 
         {/* Timeline Section - Our Story */}
-        <section className="container-custom mb-32 reveal">
+        <section className="container-custom mb-16 md:mb-32 reveal">
           <div className="text-center mb-16">
             <div className="inline-block pill-badge mb-4">Our Journey</div>
-            <h2 className="text-5xl md:text-6xl font-serif italic text-foreground">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif italic text-foreground">
               Four Decades of <span className="text-primary">Tradition</span>
             </h2>
           </div>
@@ -235,10 +235,10 @@ export default function AboutPage() {
         </section>
 
         {/* What Makes Us Special */}
-        <section className="container-custom mb-32 reveal">
+        <section className="container-custom mb-16 md:mb-32 reveal">
           <div className="text-center mb-16">
             <div className="inline-block pill-badge mb-4">What Makes Us Special</div>
-            <h2 className="text-5xl md:text-6xl font-serif italic text-foreground">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif italic text-foreground">
               The <span className="text-primary">Tonos</span> Difference
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mt-6">
@@ -263,10 +263,10 @@ export default function AboutPage() {
         </section>
 
         {/* Our Values */}
-        <section className="container-custom mb-32 reveal">
+        <section className="container-custom mb-16 md:mb-32 reveal">
           <div className="text-center mb-16">
             <div className="inline-block pill-badge mb-4">Our Values</div>
-            <h2 className="text-5xl md:text-6xl font-serif italic text-foreground">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif italic text-foreground">
               What We <span className="text-primary">Stand For</span>
             </h2>
           </div>
@@ -291,14 +291,14 @@ export default function AboutPage() {
         </section>
 
         {/* Visual Story - Behind the Scenes */}
-        <section className="container-custom mb-32 reveal">
+        <section className="container-custom mb-16 md:mb-32 reveal">
           <VisualStoryGallery />
         </section>
 
         {/* Call to Action */}
         <section className="container-custom reveal">
-          <div className="bg-secondary text-secondary-foreground rounded-[48px] p-12 md:p-16 text-center space-y-8 border-2 border-primary/30 transition-all duration-500 hover:border-primary/60 hover:shadow-blue-glow-lg">
-            <h2 className="text-4xl md:text-5xl font-serif italic">
+          <div className="bg-secondary text-secondary-foreground rounded-3xl md:rounded-[48px] p-8 sm:p-12 md:p-16 text-center space-y-6 md:space-y-8 border-2 border-primary/30 transition-all duration-500 hover:border-primary/60 hover:shadow-blue-glow-lg">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif italic">
               Experience the <span className="text-primary">Heart of Greece</span>
             </h2>
             <p className="text-lg text-secondary-foreground/80 max-w-2xl mx-auto">

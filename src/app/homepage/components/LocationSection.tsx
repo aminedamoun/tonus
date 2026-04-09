@@ -16,19 +16,20 @@ export default function LocationSection() {
         {/* Section Header */}
         <div className="text-center mb-16 space-y-4">
           <div className="inline-block pill-badge mb-4">Visit Us</div>
-          <h2 className="text-5xl md:text-7xl font-serif italic text-foreground">
+          <h2 className="text-3xl sm:text-5xl md:text-7xl font-serif italic text-foreground">
             Our <span className="text-primary">Location</span>
           </h2>
         </div>
 
         {/* Map with Overlay Card Container */}
-        <div className="relative rounded-[48px] overflow-hidden border-2 border-primary/40 transition-all duration-500 hover:border-primary/60 hover:shadow-blue-glow-lg h-[650px] md:h-[700px]">
+        <div className="relative rounded-3xl md:rounded-[48px] overflow-hidden border-2 border-primary/40 transition-all duration-500 hover:border-primary/60 hover:shadow-blue-glow-lg h-auto md:h-[700px]">
           {/* Google Maps Embed */}
           {isHydrated && (
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.106445792126!2d55.27063887675307!3d25.199632531599477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43e9e80bd6e5%3A0xea35880fe1607382!2sTonos%20Greek%20Restaurant!5e0!3m2!1sen!2sae!4v1771576699209!5m2!1sen!2sae"
               width="100%"
               height="100%"
+              className="min-h-[300px] md:min-h-0"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
@@ -38,7 +39,7 @@ export default function LocationSection() {
           )}
 
           {/* Floating Contact Card Overlay */}
-          <div className="absolute top-6 right-6 w-full max-w-[340px] sm:max-w-[380px] md:max-w-[420px] max-h-[calc(100%-3rem)] overflow-y-auto bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-6 border border-primary/20">
+          <div className="relative md:absolute md:top-6 md:right-6 w-full md:max-w-[420px] md:max-h-[calc(100%-3rem)] overflow-y-auto bg-white/95 backdrop-blur-sm rounded-b-3xl md:rounded-3xl shadow-2xl p-5 sm:p-6 border border-primary/20">
             <div className="space-y-6">
               {/* Header with Logo */}
               <div className="flex items-center gap-3 pb-4 border-b border-border">

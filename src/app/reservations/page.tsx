@@ -25,12 +25,12 @@ export default function ReservationsPage() {
   return (
     <>
       <Header />
-      <main className="pt-32 pb-20">
+      <main className="pt-24 md:pt-32 pb-12 md:pb-20">
         {/* Page Header */}
-        <section className="container-custom mb-16 reveal">
+        <section className="container-custom mb-10 md:mb-16 reveal">
           <div className="text-center space-y-6 max-w-3xl mx-auto">
             <div className="inline-block pill-badge mb-4">Reserve Your Table</div>
-            <h1 className="md:text-8xl font-serif italic text-foreground text-[64px]">
+            <h1 className="text-3xl sm:text-5xl md:text-8xl font-serif italic text-foreground">
               Secure Your <br />
               <span className="text-primary">Mediterranean</span> Experience
             </h1>
@@ -78,8 +78,8 @@ export default function ReservationsPage() {
 
         {/* CTA Section */}
         <section className="container-custom reveal">
-          <div className="bg-secondary text-secondary-foreground rounded-[48px] p-12 md:p-16 text-center space-y-6 border-2 border-primary/30 transition-all duration-500 hover:border-primary/60 hover:shadow-blue-glow-lg">
-            <h2 className="text-4xl md:text-5xl font-serif italic">
+          <div className="bg-secondary text-secondary-foreground rounded-3xl md:rounded-[48px] p-8 sm:p-12 md:p-16 text-center space-y-6 border-2 border-primary/30 transition-all duration-500 hover:border-primary/60 hover:shadow-blue-glow-lg">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif italic">
               Questions about your <span className="text-primary">reservation</span>?
             </h2>
             <p className="text-lg text-secondary-foreground/80 max-w-xl mx-auto">

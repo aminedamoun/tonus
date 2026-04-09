@@ -10,11 +10,11 @@ export default function MenuPage() {
   return (
     <>
       <Header />
-      <main className="pt-32 pb-20">
+      <main className="pt-24 md:pt-32 pb-12 md:pb-20">
         {/* Page Header */}
         <section className="container-custom mb-12">
           <div className="text-center space-y-4 max-w-3xl mx-auto">
-            <h1 className="text-5xl md:text-7xl font-serif italic text-foreground leading-tight">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-serif italic text-foreground leading-tight">
               Traditional Greek <br />
               <span className="text-primary">Recipes</span>
             </h1>
@@ -32,8 +32,8 @@ export default function MenuPage() {
 
         {/* CTA Section */}
         <section className="container-custom mt-20">
-          <div className="bg-secondary text-secondary-foreground rounded-[48px] p-12 md:p-16 text-center space-y-6 border-2 border-primary/30 transition-all duration-500 hover:border-primary/60 hover:shadow-blue-glow-lg">
-            <h2 className="text-4xl md:text-5xl font-serif italic">
+          <div className="bg-secondary text-secondary-foreground rounded-3xl md:rounded-[48px] p-8 sm:p-12 md:p-16 text-center space-y-6 border-2 border-primary/30 transition-all duration-500 hover:border-primary/60 hover:shadow-blue-glow-lg">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif italic">
               Ready to taste <span className="text-primary">Greece</span>?
             </h2>
             <p className="text-lg text-secondary-foreground/80 max-w-xl mx-auto">

@@ -94,7 +94,7 @@ export default function AtmosphereGallery() {
           {/* Section Header */}
           <div className="text-center mb-16 space-y-4">
             <div className="inline-block pill-badge mb-4">Our Atmosphere</div>
-            <h2 className="text-5xl md:text-7xl font-serif italic text-foreground">
+            <h2 className="text-3xl sm:text-5xl md:text-7xl font-serif italic text-foreground">
               Experience the <span className="text-primary">Ambiance</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -180,7 +180,7 @@ export default function AtmosphereGallery() {
 
           {/* Image Container */}
           <div
-            className="relative max-w-6xl max-h-[90vh] w-full mx-20"
+            className="relative max-w-6xl max-h-[90vh] w-full mx-4 sm:mx-10 md:mx-20"
             onClick={(e) => e.stopPropagation()}
             style={{ zIndex: 10000 }}
           >

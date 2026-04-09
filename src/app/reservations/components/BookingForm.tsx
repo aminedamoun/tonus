@@ -100,7 +100,7 @@ export default function BookingForm() {
   };
 
   return (
-    <div className="floating-card max-w-2xl mx-auto p-8 md:p-12">
+    <div className="floating-card max-w-2xl mx-auto p-5 sm:p-8 md:p-12">
       {showSuccess ? (
         <div className="text-center space-y-6 py-12">
           <div className="w-20 h-20 bg-success/10 rounded-full flex items-center justify-center mx-auto border-2 border-success/40 shadow-blue-glow transition-all duration-500 hover:border-success/60 hover:shadow-blue-glow-lg">

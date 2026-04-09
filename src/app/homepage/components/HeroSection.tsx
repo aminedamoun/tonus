@@ -332,7 +332,7 @@ export default function HeroSection() {
         }
       `}</style>
 
-      <section className="relative min-h-screen pt-32 pb-20 px-4 md:px-8 overflow-hidden bg-[#0a0e1e]">
+      <section className="relative min-h-screen pt-24 md:pt-32 pb-12 md:pb-20 px-4 md:px-8 overflow-hidden bg-[#0a0e1e]">
         {/* Background Video */}
         <div className="absolute inset-0 z-0 bg-[#0a0e1e]">
           {/* Desktop video */}
@@ -365,14 +365,14 @@ export default function HeroSection() {
           <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[calc(100vh-200px)]">
             {/* Left Content */}
             <div className="space-y-10">
-              <h1 className="md:text-8xl lg:text-9xl font-serif tracking-tight text-white drop-shadow-lg font-thin text-[64px]">
+              <h1 className="text-4xl sm:text-5xl md:text-8xl lg:text-9xl font-serif tracking-tight text-white drop-shadow-lg font-thin">
                 Authentic
                 <br />
                 <span className="italic">Greek Flavors</span>
               </h1>
 
-              <div className="max-w-md space-y-8">
-                <p className="md:text-2xl font-medium text-white drop-shadow text-base">
+              <div className="max-w-md space-y-6 md:space-y-8">
+                <p className="text-base md:text-2xl font-medium text-white drop-shadow">
                   Fresh. Mediterranean. Timeless.
                 </p>
 

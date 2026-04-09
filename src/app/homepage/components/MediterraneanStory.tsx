@@ -45,7 +45,7 @@ export default function MediterraneanStory() {
           <div className="space-y-8">
             <div className="space-y-4">
               <div className="inline-block pill-badge">Our Philosophy</div>
-              <h2 className="text-5xl md:text-6xl font-serif italic text-foreground leading-tight">
+              <h2 className="text-3xl sm:text-5xl md:text-6xl font-serif italic text-foreground leading-tight">
                 Mediterranean <br />
                 <span className="text-primary">Authenticity</span>
               </h2>

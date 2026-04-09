@@ -5,8 +5,8 @@ export default function CTABanner() {
   return (
     <section className="section-padding greek-pattern-bg reveal">
       <div className="container-custom">
-        <div className="bg-secondary text-secondary-foreground rounded-[48px] p-12 md:p-20 text-center space-y-8 shadow-2xl">
-          <h2 className="text-4xl md:text-6xl font-serif italic leading-tight">
+        <div className="bg-secondary text-secondary-foreground rounded-3xl md:rounded-[48px] p-8 sm:p-12 md:p-20 text-center space-y-6 md:space-y-8 shadow-2xl">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-serif italic leading-tight">
             Experience the <br />
             <span className="text-primary">Mediterranean</span>
           </h2>
