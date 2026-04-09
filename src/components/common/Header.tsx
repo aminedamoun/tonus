@@ -72,7 +72,7 @@ export default function Header() {
                 className="object-contain"
                 style={{
                   filter:
-                    pathname === '/homepage' && !isScrolled
+                    pathname === '/homepage' && !isScrolled && !isMenuOpen
                       ? 'brightness(0) invert(1)'
                       : 'none',
                   transition: 'filter 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -83,7 +83,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8 text-sm font-semibold">
+          <div className="hidden lg:flex items-center gap-8 text-sm font-semibold">
             {navLinks?.map((link) => (
               <Link
                 key={link?.id}
@@ -104,7 +104,7 @@ export default function Header() {
           </div>
 
           {/* CTA Button */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4">
             <a
               href="https://wa.me/971581391113"
               target="_blank"
@@ -122,7 +122,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={`md:hidden relative z-50 w-10 h-10 flex items-center justify-center rounded-xl transition-all duration-300 ${
+            className={`lg:hidden relative z-50 w-10 h-10 flex items-center justify-center rounded-xl transition-all duration-300 ${
               isMenuOpen
                 ? 'bg-primary/10 text-primary'
                 : isScrolled
@@ -161,7 +161,7 @@ export default function Header() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`md:hidden fixed inset-0 z-40 transition-all duration-300 ${
+        className={`lg:hidden fixed inset-0 z-40 transition-all duration-300 ${
           isMenuOpen ? 'visible' : 'invisible'
         }`}
       >
@@ -181,7 +181,29 @@ export default function Header() {
           }`}
           style={{ paddingTop: '80px', borderRadius: '0 0 32px 32px' }}
         >
-          <div className="px-6 pb-8 pt-4">
+          <div className="px-6 pb-8 pt-2">
+            {/* Logo + Brand */}
+            <div
+              className="flex items-center gap-3 mb-5 pb-4 border-b border-border"
+              style={{
+                opacity: isMenuOpen ? 1 : 0,
+                transition: 'opacity 0.4s ease 100ms',
+              }}
+            >
+              <div className="relative w-11 h-11 shrink-0">
+                <Image
+                  src="/assets/images/logotonos-1770983075095.png"
+                  alt="Tonos Restaurant Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <div>
+                <p className="text-base font-serif font-medium text-foreground leading-tight">Tonos</p>
+                <p className="text-[11px] text-muted-foreground">Greek Restaurant</p>
+              </div>
+            </div>
+
             {/* Nav Links */}
             <div className="space-y-1.5">
               {navLinks?.map((link, index) => (
