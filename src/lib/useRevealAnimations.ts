@@ -23,22 +23,21 @@ export function useRevealAnimations() {
           }, delay + 1000);
         });
       },
-      { threshold: 0.05 }
+      { threshold: 0.01, rootMargin: '50px' }
     );
 
-    const raf = requestAnimationFrame(() => {
-      reveals.forEach((el) => observer.observe(el));
-    });
+    // Observe immediately
+    reveals.forEach((el) => observer.observe(el));
 
-    // Safety: force-show all reveals after 1.5s if observer fails
+    // Safety: force-show everything after 500ms
     const safety = setTimeout(() => {
       document.querySelectorAll('.reveal:not(.active)').forEach((el) => {
+        (el as HTMLElement).style.transitionDelay = '0ms';
         el.classList.add('active');
       });
-    }, 1500);
+    }, 500);
 
     return () => {
-      cancelAnimationFrame(raf);
       clearTimeout(safety);
       observer.disconnect();
     };

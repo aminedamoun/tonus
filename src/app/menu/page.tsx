@@ -5,16 +5,13 @@ import MenuInteractive from './components/MenuInteractive';
 import QuickOrderBanner from './components/QuickOrderBanner';
 import Icon from '@/components/ui/AppIcon';
 import Link from 'next/link';
-import { useRevealAnimations } from '@/lib/useRevealAnimations';
-
 export default function MenuPage() {
-  useRevealAnimations();
   return (
     <>
       <Header />
       <main className="pt-24 md:pt-32 pb-12 md:pb-20">
         {/* Page Header */}
-        <section className="container-custom mb-12 reveal">
+        <section className="container-custom mb-12">
           <div className="text-center space-y-4 max-w-3xl mx-auto">
             <h1 className="text-3xl sm:text-5xl md:text-7xl font-serif italic text-foreground leading-tight">
               Traditional Greek <br />
@@ -33,7 +30,7 @@ export default function MenuPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="container-custom mt-20 reveal">
+        <section className="container-custom mt-20">
           <div className="bg-secondary text-secondary-foreground rounded-3xl md:rounded-[48px] p-8 sm:p-12 md:p-16 text-center space-y-6 border-2 border-primary/30 transition-all duration-500 hover:border-primary/60 hover:shadow-blue-glow-lg">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif italic">
               Ready to taste <span className="text-primary">Greece</span>?
