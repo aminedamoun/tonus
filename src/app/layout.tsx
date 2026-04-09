@@ -1,6 +1,8 @@
 import React from 'react';
 import type { Metadata, Viewport } from 'next';
 import '../styles/index.css';
+import BackToTop from '@/components/common/BackToTop';
+import PageTransition from '@/components/common/PageTransition';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -37,7 +39,10 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <PageTransition>{children}</PageTransition>
+        <BackToTop />
+      </body>
     </html>
   );
 }
