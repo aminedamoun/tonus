@@ -1,14 +1,9 @@
 'use client';
 import { useEffect } from 'react';
 
-/**
- * Sets up IntersectionObserver for .reveal elements with staggered delays.
- * Elements already in viewport get staggered entrance animation.
- * Elements below the fold animate on scroll.
- */
 export function useRevealAnimations() {
   useEffect(() => {
-    const reveals = document.querySelectorAll('.reveal');
+    const reveals = document.querySelectorAll('.reveal:not(.active)');
     if (!reveals.length) return;
 
     let staggerIndex = 0;
@@ -18,29 +13,33 @@ export function useRevealAnimations() {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
           const el = entry.target as HTMLElement;
-          // Stagger elements that are initially visible
-          const delay = staggerIndex * 120;
+          const delay = staggerIndex * 100;
           staggerIndex++;
           el.style.transitionDelay = `${delay}ms`;
           el.classList.add('active');
           observer.unobserve(el);
-
-          // Clear the delay after animation completes so it doesn't affect future transitions
           setTimeout(() => {
             el.style.transitionDelay = '0ms';
           }, delay + 1000);
         });
       },
-      { threshold: 0.08 }
+      { threshold: 0.05 }
     );
 
-    // Small delay to let the page render first, then start observing
-    const timer = setTimeout(() => {
+    const raf = requestAnimationFrame(() => {
       reveals.forEach((el) => observer.observe(el));
-    }, 50);
+    });
+
+    // Safety: force-show all reveals after 1.5s if observer fails
+    const safety = setTimeout(() => {
+      document.querySelectorAll('.reveal:not(.active)').forEach((el) => {
+        el.classList.add('active');
+      });
+    }, 1500);
 
     return () => {
-      clearTimeout(timer);
+      cancelAnimationFrame(raf);
+      clearTimeout(safety);
       observer.disconnect();
     };
   }, []);

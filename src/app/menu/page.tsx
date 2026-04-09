@@ -28,7 +28,7 @@ export default function MenuPage() {
         </section>
 
         {/* Menu Items */}
-        <section className="container-custom reveal">
+        <section className="container-custom">
           <MenuInteractive />
         </section>
 
