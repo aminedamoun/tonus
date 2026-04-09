@@ -64,12 +64,20 @@ export default function Header() {
         <nav className="container-custom h-20 flex items-center justify-between">
           {/* Logo */}
           <Link href="/homepage" className="flex items-center group relative z-50">
-            <div className="relative w-16 h-16 transition-transform group-hover:scale-110">
+            <div
+              className={`relative w-16 h-16 transition-all duration-300 group-hover:scale-110 rounded-full ${
+                pathname === '/homepage' && !isScrolled
+                  ? 'bg-white/20 backdrop-blur-md shadow-[0_0_20px_8px_rgba(255,255,255,0.25)]'
+                  : ''
+              }`}
+            >
               <Image
                 src="/assets/images/logotonos-1770983075095.png"
                 alt="Tonos Restaurant Logo"
                 fill
-                className="object-contain"
+                className={`object-contain transition-all duration-300 ${
+                  pathname === '/homepage' && !isScrolled ? 'brightness-0 invert drop-shadow-[0_0_6px_rgba(255,255,255,0.6)]' : ''
+                }`}
                 priority
               />
             </div>
