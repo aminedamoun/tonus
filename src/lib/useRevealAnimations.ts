@@ -6,40 +6,38 @@ export function useRevealAnimations() {
     const reveals = document.querySelectorAll('.reveal:not(.active)');
     if (!reveals.length) return;
 
-    let staggerIndex = 0;
+    // Step 1: Immediately show everything already in the viewport (no animation)
+    reveals.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight + 50) {
+        (el as HTMLElement).style.transition = 'none';
+        el.classList.add('active');
+        // Re-enable transitions after paint
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            (el as HTMLElement).style.transition = '';
+          });
+        });
+      }
+    });
+
+    // Step 2: Observe remaining elements for scroll-into-view animation
+    const remaining = document.querySelectorAll('.reveal:not(.active)');
+    if (!remaining.length) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
-          const el = entry.target as HTMLElement;
-          const delay = staggerIndex * 100;
-          staggerIndex++;
-          el.style.transitionDelay = `${delay}ms`;
-          el.classList.add('active');
-          observer.unobserve(el);
-          setTimeout(() => {
-            el.style.transitionDelay = '0ms';
-          }, delay + 1000);
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
         });
       },
-      { threshold: 0.01, rootMargin: '50px' }
+      { threshold: 0.08, rootMargin: '20px' }
     );
 
-    // Observe immediately
-    reveals.forEach((el) => observer.observe(el));
+    remaining.forEach((el) => observer.observe(el));
 
-    // Safety: force-show everything after 500ms
-    const safety = setTimeout(() => {
-      document.querySelectorAll('.reveal:not(.active)').forEach((el) => {
-        (el as HTMLElement).style.transitionDelay = '0ms';
-        el.classList.add('active');
-      });
-    }, 500);
-
-    return () => {
-      clearTimeout(safety);
-      observer.disconnect();
-    };
+    return () => observer.disconnect();
   }, []);
 }
