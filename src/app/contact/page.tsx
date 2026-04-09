@@ -1,5 +1,4 @@
 'use client';
-import { useEffect } from 'react';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 import ContactForm from './components/ContactForm';
@@ -8,20 +7,10 @@ import LocationMap from './components/LocationMap';
 import QuickActions from './components/QuickActions';
 import Icon from '@/components/ui/AppIcon';
 import Image from 'next/image';
+import { useRevealAnimations } from '@/lib/useRevealAnimations';
 
 export default function ContactPage() {
-  useEffect(() => {
-    const reveals = document.querySelectorAll('.reveal');
-    if (!reveals?.length) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('active')),
-      { threshold: 0.1 }
-    );
-    reveals?.forEach((el) => observer?.observe(el));
-
-    return () => observer?.disconnect();
-  }, []);
+  useRevealAnimations();
 
   return (
     <>

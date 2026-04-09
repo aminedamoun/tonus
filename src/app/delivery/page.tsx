@@ -1,9 +1,9 @@
 'use client';
-import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 import Icon from '@/components/ui/AppIcon';
+import { useRevealAnimations } from '@/lib/useRevealAnimations';
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
@@ -71,19 +71,7 @@ const steps = [
 // ─── Page ────────────────────────────────────────────────────────────────────
 
 export default function DeliveryPage() {
-  const observerRef = useRef<IntersectionObserver | null>(null);
-
-  useEffect(() => {
-    const reveals = document.querySelectorAll('.reveal');
-    if (!reveals?.length) return;
-
-    observerRef.current = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('active')),
-      { threshold: 0.1 }
-    );
-    reveals?.forEach((el) => observerRef.current?.observe(el));
-    return () => observerRef.current?.disconnect();
-  }, []);
+  useRevealAnimations();
 
   return (
     <>

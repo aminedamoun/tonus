@@ -1,5 +1,4 @@
 'use client';
-import { useEffect } from 'react';
 import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 import BookingForm from './components/BookingForm';
@@ -7,20 +6,10 @@ import AlternativeMethods from './components/AlternativeMethods';
 import ReservationPolicies from './components/ReservationPolicies';
 import Icon from '@/components/ui/AppIcon';
 import Link from 'next/link';
+import { useRevealAnimations } from '@/lib/useRevealAnimations';
 
 export default function ReservationsPage() {
-  useEffect(() => {
-    const reveals = document.querySelectorAll('.reveal');
-    if (!reveals?.length) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('active')),
-      { threshold: 0.1 }
-    );
-    reveals?.forEach((el) => observer?.observe(el));
-
-    return () => observer?.disconnect();
-  }, []);
+  useRevealAnimations();
 
   return (
     <>

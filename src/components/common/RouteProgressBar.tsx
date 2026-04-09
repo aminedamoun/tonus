@@ -2,56 +2,45 @@
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 
-export default function PageTransition({ children }: { children: React.ReactNode }) {
+export default function RouteProgressBar() {
   const pathname = usePathname();
   const [barWidth, setBarWidth] = useState(0);
   const [show, setShow] = useState(false);
   const prevPath = useRef(pathname);
-  const rafRef = useRef<number>(0);
   const timeouts = useRef<NodeJS.Timeout[]>([]);
 
   const clear = () => {
     timeouts.current.forEach(clearTimeout);
     timeouts.current = [];
-    cancelAnimationFrame(rafRef.current);
   };
 
+  // Complete on route change
   useEffect(() => {
     if (pathname === prevPath.current) return;
     prevPath.current = pathname;
-
     clear();
-
-    // Complete the bar
     setBarWidth(100);
     timeouts.current.push(
       setTimeout(() => {
         setShow(false);
-        // Reset after fade out
-        timeouts.current.push(
-          setTimeout(() => setBarWidth(0), 300)
-        );
+        timeouts.current.push(setTimeout(() => setBarWidth(0), 300));
       }, 300)
     );
-
     return clear;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
-  // Listen for internal link clicks to START the bar
+  // Start on internal link click
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
       const a = (e.target as HTMLElement).closest('a');
       if (!a) return;
       const href = a.getAttribute('href');
       if (!href || !href.startsWith('/') || href === pathname) return;
-
       clear();
       setShow(true);
       setBarWidth(0);
-
-      // Animate: 0 → 15 → 45 → 75
-      rafRef.current = requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
         setBarWidth(15);
         timeouts.current.push(
           setTimeout(() => setBarWidth(45), 150),
@@ -59,7 +48,6 @@ export default function PageTransition({ children }: { children: React.ReactNode
         );
       });
     };
-
     document.addEventListener('click', handleClick, true);
     return () => document.removeEventListener('click', handleClick, true);
   }, [pathname]);
@@ -87,18 +75,16 @@ export default function PageTransition({ children }: { children: React.ReactNode
             backgroundSize: '200% 100%',
             animation: show ? 'barShimmer 1.2s ease-in-out infinite' : 'none',
             borderRadius: '0 4px 4px 0',
-            transition: barWidth === 0
-              ? 'none'
-              : barWidth === 100
-                ? 'width 0.25s ease-out'
-                : 'width 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)',
+            transition:
+              barWidth === 0
+                ? 'none'
+                : barWidth === 100
+                  ? 'width 0.25s ease-out'
+                  : 'width 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)',
             boxShadow: '0 0 12px rgba(137,207,240,0.6)',
           }}
         />
       </div>
-
-      {children}
-
       <style>{`
         @keyframes barShimmer {
           0% { background-position: 200% 0; }

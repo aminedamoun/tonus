@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata, Viewport } from 'next';
 import '../styles/index.css';
 import BackToTop from '@/components/common/BackToTop';
-import PageTransition from '@/components/common/PageTransition';
+import RouteProgressBar from '@/components/common/RouteProgressBar';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -40,7 +40,8 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <PageTransition>{children}</PageTransition>
+        <RouteProgressBar />
+        {children}
         <BackToTop />
       </body>
     </html>
