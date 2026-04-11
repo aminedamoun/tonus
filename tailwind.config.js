@@ -70,8 +70,8 @@ module.exports = {
       },
       
      fontFamily: {
-  sans: ['Plus Jakarta Sans', 'sans-serif'],
-  serif: ['Playfair Display', 'serif'],
+  sans: ['var(--font-sans)', 'Plus Jakarta Sans', 'sans-serif'],
+  serif: ['var(--font-serif)', 'Playfair Display', 'serif'],
 },
 
       

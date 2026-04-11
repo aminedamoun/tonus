@@ -343,7 +343,7 @@ export default function HeroSection() {
             muted
             playsInline
             className="hero-video-bg hidden md:block"
-            preload="auto"
+            preload="metadata"
             src={heroVideoUrl}
           />
           {/* Mobile video */}
@@ -354,7 +354,7 @@ export default function HeroSection() {
             muted
             playsInline
             className="hero-video-bg md:hidden"
-            preload="auto"
+            preload="metadata"
             src={heroVideoUrl}
           />
           <div className="hero-video-overlay absolute inset-0"></div>
