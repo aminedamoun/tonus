@@ -107,6 +107,18 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-border">
           <p className="font-sans text-sm text-muted-foreground">
             © {currentYear} Tonos Greek Restaurant
+            <span className="mx-2 text-muted-foreground/50">·</span>
+            <span className="text-xs">
+              Website by{' '}
+              <a
+                href="https://dubaiprod.com"
+                target="_blank"
+                rel="noopener"
+                className="font-medium text-foreground/70 hover:text-primary transition-colors"
+              >
+                Dubai Prod
+              </a>
+            </span>
           </p>
           <div className="flex gap-8">
             <Link
