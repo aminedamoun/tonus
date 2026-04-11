@@ -423,7 +423,7 @@ export default function HeroSection() {
             </div>
 
             {/* Right: Floating Bubble Cards */}
-            <div className="hidden md:flex flex-col gap-8 items-end justify-center relative py-8">
+            <div className="hidden lg:flex flex-col gap-8 items-end justify-center relative py-8">
               {/* Floating gold stars (independent of cards) */}
               {floatingStars.map((star) => (
                 <StarIcon
