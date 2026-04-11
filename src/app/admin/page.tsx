@@ -193,7 +193,7 @@ export default function AdminPage() {
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <Link href="/homepage" className="text-sm text-primary hover:underline">
+          <Link href="/" className="text-sm text-primary hover:underline">
             Back to Site
           </Link>
           <button

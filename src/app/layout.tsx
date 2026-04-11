@@ -13,9 +13,6 @@ export const metadata: Metadata = {
   title: 'Tonos Greek Restaurant | Authentic Greek Flavors in Downtown Dubai',
   description:
     'Experience authentic Greek cuisine in the heart of Downtown Dubai. Fresh Mediterranean dishes, signature cocktails, and premium shisha.',
-  icons: {
-    icon: [{ url: '/favicon.ico', type: 'image/x-icon' }],
-  },
 };
 
 export default function RootLayout({

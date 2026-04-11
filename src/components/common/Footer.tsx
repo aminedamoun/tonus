@@ -43,7 +43,7 @@ export default function Footer() {
           {/* Navigation Links - Center */}
           <nav className="flex flex-wrap items-center justify-center gap-4 sm:gap-8">
             <Link
-              href="/homepage"
+              href="/"
               className="font-sans text-sm font-semibold text-foreground hover:text-primary transition-colors"
             >
               Home

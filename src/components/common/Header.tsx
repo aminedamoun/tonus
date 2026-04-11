@@ -6,7 +6,7 @@ import Icon from '@/components/ui/AppIcon';
 import Image from 'next/image';
 
 const NAV_ICONS: Record<string, string> = {
-  '/homepage': 'HomeIcon',
+  '/': 'HomeIcon',
   '/menu': 'BookOpenIcon',
   '/delivery': 'TruckIcon',
   '/reservations': 'CalendarIcon',
@@ -46,7 +46,7 @@ export default function Header() {
   }, [pathname]);
 
   const navLinks = [
-    { id: 'nav_home', label: 'Home', href: '/homepage' },
+    { id: 'nav_home', label: 'Home', href: '/' },
     { id: 'nav_menu', label: 'Menu', href: '/menu' },
     { id: 'nav_delivery', label: 'Delivery', href: '/delivery' },
     { id: 'nav_reservations', label: 'Reservations', href: '/reservations' },
@@ -63,7 +63,7 @@ export default function Header() {
       >
         <nav className="container-custom h-20 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/homepage" className="flex items-center group relative z-50">
+          <Link href="/" className="flex items-center group relative z-50">
             <div className="relative w-16 h-16 transition-transform duration-500 ease-out group-hover:scale-110">
               <Image
                 src="/assets/images/logotonos-1770983075095.png"
@@ -72,7 +72,7 @@ export default function Header() {
                 className="object-contain"
                 style={{
                   filter:
-                    pathname === '/homepage' && !isScrolled && !isMenuOpen
+                    pathname === '/' && !isScrolled && !isMenuOpen
                       ? 'brightness(0) invert(1)'
                       : 'none',
                   transition: 'filter 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -93,7 +93,7 @@ export default function Header() {
                     ? 'text-blue-500 active'
                     : isScrolled
                       ? 'text-black hover:text-blue-500'
-                      : pathname === '/homepage'
+                      : pathname === '/'
                         ? 'text-white hover:text-blue-500'
                         : 'text-foreground hover:text-blue-500'
                 }`}
@@ -127,7 +127,7 @@ export default function Header() {
                 ? 'bg-primary/10 text-primary'
                 : isScrolled
                   ? 'text-foreground'
-                  : pathname === '/homepage'
+                  : pathname === '/'
                     ? 'text-white'
                     : 'text-foreground'
             }`}
